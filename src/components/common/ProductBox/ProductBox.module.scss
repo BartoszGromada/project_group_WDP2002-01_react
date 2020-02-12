@@ -1,7 +1,7 @@
 @import "../../../styles/settings.scss";
 
 .root {
-  background-color: $product-box-bg;
+  background-color: $product-box-bg-1;
   border: 1px solid $product-box-border-1;
   margin-bottom: 2rem;
 
@@ -22,7 +22,7 @@
       top: -30px;
       left: 50%;
       transform: translateX(-50%);
-      background-color: #292929;
+      background-color: $product-box-bg-2;
       border-radius: 50%;
       color: $product-box-text;
       padding: 30px 15px 5px 15px;

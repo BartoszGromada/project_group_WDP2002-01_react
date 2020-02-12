@@ -36,6 +36,19 @@
 
       &:focus {
         outline: 0;
+
+        option {
+          background-color: $header-bg;
+          color: #fff;
+        }
+
+        & > option:checked {
+          background-color: $primary;
+        }
+
+        & > option:hover {
+          background-color: red !important;
+        }
       }
     }
   }

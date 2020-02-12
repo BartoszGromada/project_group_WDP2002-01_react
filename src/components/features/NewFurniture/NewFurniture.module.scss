@@ -48,6 +48,7 @@
             text-decoration: none;
             font-size: 18px;
             display: block;
+            @include hover-animation;
 
             &.active,
             &:hover {
@@ -88,6 +89,7 @@
             border-radius: 6px;
             background-color: #e1e1e1;
             font-size: 0;
+            @include hover-animation;
 
             &.active,
             &:hover {

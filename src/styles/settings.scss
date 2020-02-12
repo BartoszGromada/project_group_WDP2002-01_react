@@ -11,3 +11,14 @@ $primary: #d58e32;
 $text-color: #2a2a2a;
 
 $form-border-color: #292929;
+
+@mixin hover-animation {
+  transition: color 0.25s,
+              background-color 0.25s,
+              all 0.25s;
+
+  /* Additional hover effects for experimenting */
+  &:hover {
+
+  }
+}

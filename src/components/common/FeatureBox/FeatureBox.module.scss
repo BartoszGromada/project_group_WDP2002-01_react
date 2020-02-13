@@ -58,8 +58,8 @@
       margin: 0;
     }
 
-    p {
-    }
+    // p {
+    // }
   }
 
   &:hover {
@@ -76,4 +76,15 @@
       color: $primary;
     }
   }
+}
+
+@media (min-width: 768px)  {
+
+  .root {
+    height: 140px;
+    width: 220px;
+    margin: 40px;
+    padding: 0px;
+  }
+
 }

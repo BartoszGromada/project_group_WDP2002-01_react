@@ -11,7 +11,7 @@ import {
 import { faStar as farStar, faHeart } from '@fortawesome/free-regular-svg-icons';
 import Button from '../Button/Button';
 
-const ProductBox = ({ name, price, promo, stars }) => (
+const ProductBox = ({ name, price, promo, stars, favorite, compared }) => (
   <div className={styles.root}>
     <div className={styles.photo}>
       {promo && <div className={styles.sale}>{promo}</div>}
@@ -40,10 +40,22 @@ const ProductBox = ({ name, price, promo, stars }) => (
     <div className={styles.actions}>
       <div className={styles.outlines}>
         <Button variant='outline'>
-          <FontAwesomeIcon icon={faHeart}>Favorite</FontAwesomeIcon>
+          {favorite === true ? (
+            <FontAwesomeIcon icon={faHeart} className={styles.favorite}>
+              Favorite
+            </FontAwesomeIcon>
+          ) : (
+            <FontAwesomeIcon icon={faHeart}>Favorite</FontAwesomeIcon>
+          )}
         </Button>
         <Button variant='outline'>
-          <FontAwesomeIcon icon={faExchangeAlt}>Add to compare</FontAwesomeIcon>
+          {compared === true ? (
+            <FontAwesomeIcon icon={faExchangeAlt} className={styles.compared}>
+              Add to compare
+            </FontAwesomeIcon>
+          ) : (
+            <FontAwesomeIcon icon={faExchangeAlt}>Add to compare</FontAwesomeIcon>
+          )}
         </Button>
       </div>
       <div className={styles.price}>
@@ -61,6 +73,8 @@ ProductBox.propTypes = {
   price: PropTypes.number,
   promo: PropTypes.string,
   stars: PropTypes.number,
+  favorite: PropTypes.bool,
+  compared: PropTypes.bool,
 };
 
 export default ProductBox;

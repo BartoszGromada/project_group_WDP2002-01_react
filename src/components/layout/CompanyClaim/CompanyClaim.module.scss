@@ -8,6 +8,7 @@
   }
 
   .phoneNumber {
+
     p {
       margin: 0;
       font-size: 17px;
@@ -26,6 +27,7 @@
   }
 
   .cart {
+
     .cartBox {
       display: inline-block;
       position: relative;
@@ -68,5 +70,15 @@
         }
       }
     }
+  }
+}
+
+@media (max-width: 576px) {
+  .text {
+    font-size: 14px;
+  }
+
+  .root {
+    padding-top: 15px;
   }
 }

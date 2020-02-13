@@ -38,11 +38,7 @@ class MenuBar extends React.Component {
             <button className={styles.hamburger} onClick={() => this.handleToggle()}>
               <FontAwesomeIcon icon={faBars} />
             </button>
-            <div
-              className={
-                'col-auto ' + styles.menu + ' ' + styles.col + ' ' + this.toggledMenu()
-              }
-            >
+            <div className={'col-auto ' + styles.menu + ' ' + this.toggledMenu()}>
               <ul>
                 <li>
                   <a href='#' className={styles.active}>

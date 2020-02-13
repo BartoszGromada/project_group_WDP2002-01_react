@@ -54,11 +54,16 @@
   }
 }
 
-@media (min-width: 768px) and (max-width: 992px) {
+@media (min-width: 768px) and (max-width: 1200px) {
   .root {
     :global(.container) > :global(.row) {
       flex-direction: column-reverse;
       height: auto;
+    }
+
+    .menu {
+      display: flex;
+      justify-content: center;
     }
   }
 
@@ -94,7 +99,6 @@
     transition: all 0.25s ease-in-out;
   }
   .root {
-    transition: all 0.25s ease-in-out;
     .hamburger {
       display: flex;
       justify-content: center;
@@ -111,13 +115,17 @@
   .col {
     display: flex;
     justify-content: center;
+    height: 100%;
+    padding: 0;
   }
 
   .box {
     display: flex;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     max-width: 100%;
     padding: 0;
+    align-items: center;
+    justify-content: center;
   }
 
   .toggled {

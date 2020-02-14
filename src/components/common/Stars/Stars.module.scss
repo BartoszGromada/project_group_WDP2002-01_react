@@ -1,0 +1,11 @@
+@import "../../../styles/settings.scss";
+
+.opinionStar {
+  color: lighten($primary, 10%);
+}
+
+.onStar {
+  &:hover {
+    color: lighten($primary, 10%);
+  }
+}

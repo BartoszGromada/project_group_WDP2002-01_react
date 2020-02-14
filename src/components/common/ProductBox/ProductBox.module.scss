@@ -75,14 +75,4 @@
     justify-content: space-between;
     align-items: center;
   }
-
-  .opinionStar {
-    color: lighten($primary, 10%);
-  }
-
-  .onStar {
-    &:hover {
-      color: lighten($primary, 10%);
-    }
-  }
 }

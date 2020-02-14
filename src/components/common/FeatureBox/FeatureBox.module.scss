@@ -81,10 +81,13 @@
 @media (max-width: 768px)  {
 
   .root {
-    height: 140px;
-    width: 220px;
-    margin: 40px;
-    padding: 0px;
+    height: 120px;
+    width: 155px;
+    padding: 5px;
+  }
+
+  h5, p {
+    font-size: 13px;
   }
 
 }

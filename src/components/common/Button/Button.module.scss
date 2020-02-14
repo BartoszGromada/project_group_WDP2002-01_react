@@ -39,3 +39,10 @@
     color: #ffffff;
   }
 }
+
+.cta {
+  @extend .main;
+  background-color: green;
+  color: white;
+  border-radius: 5px;
+}

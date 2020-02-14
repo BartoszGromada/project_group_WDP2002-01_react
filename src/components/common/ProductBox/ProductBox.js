@@ -40,7 +40,7 @@ const ProductBox = ({ name, price, promo, stars, favorite, compared }) => (
     <div className={styles.actions}>
       <div className={styles.outlines}>
         <Button variant='outline'>
-          {favorite === true ? (
+          {favorite ? (
             <FontAwesomeIcon icon={faHeart} className={styles.favorite}>
               Favorite
             </FontAwesomeIcon>
@@ -49,7 +49,7 @@ const ProductBox = ({ name, price, promo, stars, favorite, compared }) => (
           )}
         </Button>
         <Button variant='outline'>
-          {compared === true ? (
+          {compared ? (
             <FontAwesomeIcon icon={faExchangeAlt} className={styles.compared}>
               Add to compare
             </FontAwesomeIcon>

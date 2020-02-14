@@ -15,7 +15,7 @@ class Stars extends React.Component {
   render() {
     const { products } = this.props;
 
-    for (let product in products) {
+    for (let product of products) {
       if (product.id === this.props.product) {
         return (
           <div>

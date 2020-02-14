@@ -12,6 +12,14 @@
     align-items: center;
     position: relative;
 
+    &:hover {
+      background-color: $primary;
+
+      .icon:first-child {
+        color: black;
+      }
+    }
+
     .icon:first-child {
       color: $primary;
       position: absolute;
@@ -47,7 +55,7 @@
         }
 
         & > option:hover {
-          background-color: red !important;
+          background-color: $primary;
         }
       }
     }

@@ -10,10 +10,11 @@ class Stars extends React.Component {
   static propTypes = {
     products: PropTypes.array,
     product: PropTypes.string,
+    mouseMove: PropTypes.func,
   };
 
   render() {
-    const { products } = this.props;
+    const { products, mouseMove } = this.props;
 
     for (let product of products) {
       if (product.id === this.props.product) {
@@ -23,16 +24,35 @@ class Stars extends React.Component {
               <a key={i} href='#'>
                 {product.opinion > 0 ? (
                   i <= product.opinion ? (
-                    <FontAwesomeIcon icon={faStar} className={styles.opinionStar}>
+                    <FontAwesomeIcon
+                      onMouseMove={() => mouseMove(product.id, i)}
+                      icon={faStar}
+                      className={styles.opinionStar}
+                    >
                       {i} stars
                     </FontAwesomeIcon>
                   ) : (
-                    <FontAwesomeIcon icon={farStar}>{i} stars</FontAwesomeIcon>
+                    <FontAwesomeIcon
+                      onMouseMove={() => mouseMove(product.id, i)}
+                      icon={farStar}
+                    >
+                      {i} stars
+                    </FontAwesomeIcon>
                   )
                 ) : i <= product.stars ? (
-                  <FontAwesomeIcon icon={faStar}>{i} stars</FontAwesomeIcon>
+                  <FontAwesomeIcon
+                    onMouseMove={() => mouseMove(product.id, i)}
+                    icon={faStar}
+                  >
+                    {i} stars
+                  </FontAwesomeIcon>
                 ) : (
-                  <FontAwesomeIcon icon={farStar}>{i} stars</FontAwesomeIcon>
+                  <FontAwesomeIcon
+                    onMouseMove={() => mouseMove(product.id, i)}
+                    icon={farStar}
+                  >
+                    {i} stars
+                  </FontAwesomeIcon>
                 )}
               </a>
             ))}

@@ -46,3 +46,14 @@
   color: white;
   border-radius: 5px;
 }
+
+.outlineColor {
+  @extend .outline;
+  margin-bottom: 10px;
+
+  &:not(.noHover):hover {
+    background-color: transparent;
+    border: 1px solid $primary;
+    color: $primary;
+  }
+}

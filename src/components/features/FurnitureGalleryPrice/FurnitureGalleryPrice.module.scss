@@ -1,0 +1,80 @@
+@import "../../../styles/settings.scss";
+
+.price {
+  width: 104px;
+  height: 104px;
+  background-color: gray;
+  opacity: 0.9;
+  position: absolute;
+  bottom: 110px;
+  right: 65px;
+  border-radius: 52px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index:2;
+
+  h5 {
+    margin: 0;
+    margin-bottom: 5px;
+    color: white;
+  }
+
+  s {
+    text-decoration-color: white;
+    h6 {
+      color: white;
+    }
+  }
+}
+
+.name {
+  width: 250px;
+  height: 110px;
+  background-color: white;
+  position: absolute;
+  bottom:25px;
+  right: 0;
+  z-index:1;
+  box-shadow: -8px 11px 14px -10px $header-bg;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  .decorationRight {
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 25px 25px 0 0;
+    border-color: $header-bg transparent transparent transparent;
+    position: absolute;
+    top: 0;
+    left:0;
+ }
+
+  .decorationLeft {
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 0 20px 20px;
+    border-color: transparent transparent $header-bg transparent;
+    position: absolute;
+    bottom: 0;
+    right:0;
+  }
+}
+
+.rating{
+  display: flex;
+  .stars {
+    a {
+      text-decoration: none;
+      color: rgb(42, 42, 42);
+    }
+  }
+}
+
+
+

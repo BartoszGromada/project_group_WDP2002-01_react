@@ -2,24 +2,12 @@ import React from 'react';
 // import PropTypes from 'prop-types';
 
 import styles from './FurnitureGallery.module.scss';
-
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-// import {
-//   faStar,
-//   faExchangeAlt,
-//   faShoppingBasket,
-// } from '@fortawesome/free-solid-svg-icons';
 import PromoProduct from './../PromoProduct/PromoProduct';
+import FurnitureGalleryActions from '../FurnitureGalleryActions/FurnitureGalleryActions';
+import FurnitureGalleryPrice from '../FurnitureGalleryPrice/FurnitureGalleryPrice';
 
 class FurnitureGallery extends React.Component {
-  state = {
-    activePage: 0,
-    activeCategory: 'bed',
-  };
-
   render() {
-    // const { categories } = this.props;
-
     return (
       <div className={styles.root}>
         <div className='container'>
@@ -41,29 +29,52 @@ class FurnitureGallery extends React.Component {
                     <a href='#'>Top rated</a>
                   </li>
                 </ul>
+
+                {/* <ul>
+                  {gallery.map(item => (
+                    <li key={item.id}>
+                      <a href ="#">
+                        {item.name}
+                      </a>
+                    </li>
+                  ))}
+                </ul> */}
               </div>
-              <div className={styles.product}></div>
+              <div className={styles.product}>
+                <img src='https://images.pexels.com/photos/1350789/pexels-photo-1350789.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'></img>
+                <FurnitureGalleryActions />
+                <FurnitureGalleryPrice />
+              </div>
               <div className={styles.slider}>
                 <div className={styles.arrow}>
                   <a href='#'>&#x3c;</a>
                 </div>
                 <div className={styles.thumbnails}>
-                  <div className={styles.thumbnail}></div>
-                  <div className={styles.thumbnail}></div>
-                  <div className={styles.thumbnail}></div>
-                  <div className={styles.thumbnail}></div>
-                  <div className={styles.thumbnail}></div>
-                  <div className={styles.thumbnail}></div>
+                  <div className={styles.thumbnail}>
+                    <img src='https://images.pexels.com/photos/1350789/pexels-photo-1350789.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'></img>
+                  </div>
+                  <div className={styles.thumbnail}>
+                    <img src='https://images.pexels.com/photos/1350789/pexels-photo-1350789.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'></img>
+                  </div>
+                  <div className={styles.thumbnail}>
+                    <img src='https://images.pexels.com/photos/1350789/pexels-photo-1350789.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'></img>
+                  </div>
+                  <div className={styles.thumbnail}>
+                    <img src='https://images.pexels.com/photos/1350789/pexels-photo-1350789.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'></img>
+                  </div>
+                  <div className={styles.thumbnail}>
+                    <img src='https://images.pexels.com/photos/1350789/pexels-photo-1350789.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'></img>
+                  </div>
+                  <div className={styles.thumbnail}>
+                    <img src='https://images.pexels.com/photos/1350789/pexels-photo-1350789.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'></img>
+                  </div>
                 </div>
                 <div className={styles.arrow}>
                   <a href='#'>&#x3e;</a>
                 </div>
               </div>
             </div>
-
-            <div className={'col-12 col-md-6 ' + styles.promotion}>
-              <PromoProduct />
-            </div>
+            <PromoProduct />
           </div>
         </div>
       </div>

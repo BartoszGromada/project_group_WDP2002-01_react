@@ -19,9 +19,9 @@ class Stars extends React.Component {
     this.setState(({ starsConfig }) => {
       return starsConfig.map(i => {
         if (i.id <= star) {
-          i.active = true;
+          i.active = 'active';
         } else {
-          i.active = false;
+          i.active = 'inactive';
         }
         return i;
       });
@@ -76,12 +76,18 @@ class Stars extends React.Component {
             <FontAwesomeIcon
               onMouseOver={() => this.opinionStars(i.id)}
               icon={
-                i.id <= (this.props.opinion || this.props.stars) || i.active
+                (i.active
+                ? i.active === 'active'
+                : i.id <= (this.props.opinion || this.props.stars))
                   ? faStar
                   : farStar
               }
               className={
-                this.props.opinion && i.id <= this.props.opinion ? styles.active : ''
+                (i.active
+                ? i.active === 'active'
+                : this.props.opinion && i.id <= this.props.opinion)
+                  ? styles.active
+                  : ''
               }
             ></FontAwesomeIcon>
           </a>

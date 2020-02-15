@@ -31,6 +31,8 @@
     .buttons {
       display: flex;
       justify-content: space-between;
+      opacity: 0;
+      transition: 0.2s ease-in-out;
     }
   }
 
@@ -74,5 +76,13 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+  }
+}
+.wrapper {
+  :hover .buttons{
+    opacity: 1;
+  }
+  :hover .price *{
+    background-color: $primary;
   }
 }

@@ -7,15 +7,14 @@ export const getNew = ({ products }) =>
 
 /* action name creator */
 const reducerName = 'opinion';
-const createActionName = name => `app/${reducerName}/${name}`;
+const createActionName = name => `${reducerName}/${name}`;
 
 /* action types */
 const UPDATE_OPINION = createActionName('UPDATE_OPINION');
 
 /* action creators */
-export const updateOpinion = (product, star) => ({
-  product,
-  star,
+export const updateOpinion = payload => ({
+  payload,
   type: UPDATE_OPINION,
 });
 
@@ -23,10 +22,7 @@ export const updateOpinion = (product, star) => ({
 export default function reducer(statePart = [], action = {}) {
   switch (action.type) {
     case UPDATE_OPINION: {
-      return {
-        ...statePart,
-        data: action.payload,
-      };
+      return action.payload;
     }
     default:
       return statePart;

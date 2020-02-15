@@ -8,14 +8,14 @@ import { faStar as farStar } from '@fortawesome/free-regular-svg-icons';
 
 class Stars extends React.Component {
   static propTypes = {
+    product: PropTypes.string,
     opinion: PropTypes.number,
     stars: PropTypes.number,
     opinionStars: PropTypes.func,
+    getOpinion: PropTypes.func,
   };
 
   opinionStars(star) {
-    console.log(star);
-
     this.setState(({ starsConfig }) => {
       return starsConfig.map(i => {
         if (i.id <= star) {
@@ -32,22 +32,25 @@ class Stars extends React.Component {
     this.setState(({ starsConfig }) => {
       return starsConfig.map(i => {
         i.active = false;
-
         return i;
       });
     });
   }
 
+  giveOpinion(e, star) {
+    e.preventDefault();
+    this.setState({ opinion: star });
+  }
+
   state = {
+    opinion: false,
     starsConfig: [
       {
         id: 1,
-        number: 1,
         active: false,
       },
       {
         id: 2,
-        number: 2,
         active: false,
       },
       {
@@ -57,12 +60,10 @@ class Stars extends React.Component {
       },
       {
         id: 4,
-        number: 4,
         active: false,
       },
       {
         id: 5,
-        number: 5,
         active: false,
       },
     ],
@@ -72,20 +73,21 @@ class Stars extends React.Component {
     return (
       <div className={styles.stars} onMouseOut={() => this.outOfStar()}>
         {this.state.starsConfig.map(i => (
-          <a key={i.id} href='#'>
+          <a key={i.id} href='#' onClick={e => this.giveOpinion(e, i.id)}>
             <FontAwesomeIcon
               onMouseOver={() => this.opinionStars(i.id)}
               icon={
                 (i.active
                 ? i.active === 'active'
-                : i.id <= (this.props.opinion || this.props.stars))
+                : i.id <=
+                  (this.state.opinion || this.props.opinion || this.props.stars))
                   ? faStar
                   : farStar
               }
               className={
                 (i.active
                 ? i.active === 'active'
-                : this.props.opinion && i.id <= this.props.opinion)
+                : i.id <= (this.state.opinion || this.props.opinion))
                   ? styles.active
                   : ''
               }

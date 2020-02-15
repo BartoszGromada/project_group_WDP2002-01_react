@@ -7,7 +7,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  getOpinion: (product, star) => dispatch(updateOpinion(product, star)),
+  getOpinion: (product, stars) => dispatch(updateOpinion(product, stars)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Stars);

@@ -8,7 +8,7 @@ import { faHeart } from '@fortawesome/free-regular-svg-icons';
 import Button from '../Button/Button';
 import Stars from '../Stars/StarsContainer';
 
-const ProductBox = ({ name, price, promo, opinion, stars }) => (
+const ProductBox = ({ id, name, price, promo, opinion, stars }) => (
   <div className={styles.root}>
     <div className={styles.photo}>
       {promo && <div className={styles.sale}>{promo}</div>}
@@ -22,7 +22,7 @@ const ProductBox = ({ name, price, promo, opinion, stars }) => (
     <div className={styles.content}>
       <h5>{name}</h5>
       <div>
-        <Stars opinion={opinion} stars={stars} />
+        <Stars product={id} opinion={opinion} stars={stars} />
       </div>
     </div>
     <div className={styles.line}></div>

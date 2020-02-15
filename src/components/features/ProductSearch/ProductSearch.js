@@ -12,13 +12,13 @@ const ProductSearch = () => (
       <FontAwesomeIcon className={styles.icon} icon={faListUl} />
       <ul className={styles.mainList}>
         <li className={styles.categoryList}>
-          <a value='Select a category'>Select a category</a>
+          <a>Select a category</a>
         </li>
         <li className={styles.subList}>
-          <a value=''>Cat1</a>
+          <a>Cat1</a>
         </li>
         <li className={styles.subList}>
-          <a value=''>Cat2</a>
+          <a>Cat2</a>
         </li>
       </ul>
       <FontAwesomeIcon className={styles.icon} icon={faCaretDown} />

@@ -16,7 +16,7 @@ const ProductBox = ({ name, price, promo, stars, img }) => (
     <div className={styles.root}>
       <div className={styles.photo}>
         {promo && <div className={styles.sale}>{promo}</div>}
-        <img src={img} alt={name + ' bed'} />
+        <img src={img} alt={`${name} bed`} />
         <div className={styles.buttons}>
           <Button variant='small'>Quick View</Button>
           <Button variant='small'>

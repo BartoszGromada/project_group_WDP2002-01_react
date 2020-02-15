@@ -13,7 +13,11 @@ const createActionName = name => `app/${reducerName}/${name}`;
 const UPDATE_OPINION = createActionName('UPDATE_OPINION');
 
 /* action creators */
-export const getOpinion = (product, star) => ({ product, star, type: UPDATE_OPINION });
+export const updateOpinion = (product, star) => ({
+  product,
+  star,
+  type: UPDATE_OPINION,
+});
 
 /* reducer */
 export default function reducer(statePart = [], action = {}) {

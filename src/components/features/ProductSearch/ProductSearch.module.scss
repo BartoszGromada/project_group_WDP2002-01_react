@@ -49,14 +49,6 @@
           background-color: $header-bg;
           color: #fff;
         }
-
-        & > option:checked {
-          background-color: $primary;
-        }
-
-        & > option:hover {
-          background-color: $primary;
-        }
       }
     }
   }

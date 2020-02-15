@@ -93,10 +93,10 @@
   }
 }
 .wrapper {
-  :hover .buttons {
+  &:hover .buttons {
     opacity: 1;
   }
-  :hover .price * {
+  &:hover .price * {
     background-color: $primary;
   }
 }

@@ -5,7 +5,7 @@ const Promotion = () => (
   <div className={styles.root}>
     <div className='container'>
       <div className='row'>
-        <div className='col-6'>
+        <div className='col-lg-6 col-md-12'>
           <div className={styles.big}>
             <div className={styles.big_content}>
               <h3 className={styles.title}>Guest room</h3>
@@ -14,7 +14,7 @@ const Promotion = () => (
             </div>
           </div>
         </div>
-        <div className='col-6'>
+        <div className='col-lg-6 col-md-12'>
           <div className='row'>
             <div className='col-12'>
               <div className={styles.box_small_1}>
@@ -27,7 +27,7 @@ const Promotion = () => (
                 </div>
               </div>
             </div>
-            <div className={'col-12'}>
+            <div className='col-12'>
               <div className={styles.box_small_2}>
                 <div className={styles.text_small}>
                   <h3 className={styles.title_small_2}>

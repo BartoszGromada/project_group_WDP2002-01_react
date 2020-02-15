@@ -115,4 +115,22 @@
   }
 }
 
+@media (max-width: 768px)  {
+
+  .root {
+    .box_small_1{
+      .text_small_1 {
+        left: 0%;
+      }
+    }
+    .box_small_2{
+      .text_small {
+        left: 0%;
+      }
+    }
+
+
+}
+}
+
 

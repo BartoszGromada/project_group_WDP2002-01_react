@@ -285,6 +285,7 @@ const initialState = {
       },
     ],
   },
+  compare: [],
 };
 
 export default initialState;

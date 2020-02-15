@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import styles from './Stars.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faStar, faBorderNone } from '@fortawesome/free-solid-svg-icons';
+import { faStar } from '@fortawesome/free-solid-svg-icons';
 import { faStar as farStar } from '@fortawesome/free-regular-svg-icons';
 
 class Stars extends React.Component {
@@ -16,9 +16,26 @@ class Stars extends React.Component {
   opinionStars(star) {
     console.log(star);
 
-    //this.state.starsConfig.map(i => (
+    this.setState(({ starsConfig }) => {
+      return starsConfig.map(i => {
+        if (i.id <= star) {
+          i.active = true;
+        } else {
+          i.active = false;
+        }
+        return i;
+      });
+    });
+  }
 
-    //));
+  outOfStar() {
+    this.setState(({ starsConfig }) => {
+      return starsConfig.map(i => {
+        i.active = false;
+
+        return i;
+      });
+    });
   }
 
   state = {
@@ -53,22 +70,20 @@ class Stars extends React.Component {
 
   render() {
     return (
-      <div className={styles.stars}>
+      <div className={styles.stars} onMouseOut={() => this.outOfStar()}>
         {this.state.starsConfig.map(i => (
           <a key={i.id} href='#'>
-            {this.props.opinion > 0 ? (
-              <FontAwesomeIcon
-                onMouseOver={() => this.opinionStars(i.id)}
-                icon={faStar}
-                className={i.id <= this.props.opinion ? styles.active : ''}
-              ></FontAwesomeIcon>
-            ) : (
-              <FontAwesomeIcon
-                onMouseOver={() => this.opinionStars(i.id)}
-                icon={faStar}
-                className={i.id <= this.props.stars ? '' : ''}
-              ></FontAwesomeIcon>
-            )}
+            <FontAwesomeIcon
+              onMouseOver={() => this.opinionStars(i.id)}
+              icon={
+                i.id <= (this.props.opinion || this.props.stars) || i.active
+                  ? faStar
+                  : farStar
+              }
+              className={
+                this.props.opinion && i.id <= this.props.opinion ? styles.active : ''
+              }
+            ></FontAwesomeIcon>
           </a>
         ))}
       </div>

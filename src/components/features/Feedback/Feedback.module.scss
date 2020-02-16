@@ -1,6 +1,8 @@
 @import "../../../styles/settings.scss";
 
 .root {
+  margin-top: 50px;
+  margin-bottom: 100px;
   .panelBar {
     margin-bottom: 30px;
     position: relative;
@@ -66,3 +68,16 @@
     }
   }
 }
+
+.iconWrapper {
+  height: 50px;
+  color: $text-color;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .icon {
+    font-size: 20px;
+    transform: translateY(-50%);
+  }
+}
+

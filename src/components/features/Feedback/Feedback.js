@@ -2,6 +2,10 @@ import React from 'react';
 // import PropTypes from 'prop-types';
 
 import styles from './Feedback.module.scss';
+import FeedbackBox from '../../common/FeedbackBox/FeedbackBox';
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faQuoteRight } from '@fortawesome/free-solid-svg-icons';
 
 class Feedback extends React.Component {
   render() {
@@ -29,7 +33,14 @@ class Feedback extends React.Component {
               </div>
             </div>
           </div>
-          <div className='row'></div>
+          <div className='row'>
+            <div className='col-12'>
+              <div className={styles.iconWrapper}>
+                <FontAwesomeIcon className={styles.icon} icon={faQuoteRight} />
+              </div>
+            </div>
+            <FeedbackBox />
+          </div>
         </div>
       </div>
     );

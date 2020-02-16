@@ -1,28 +1,28 @@
 /* selectors */
 export const getAllToCompare = ({ compare }) => compare;
 
-// export const getNew = ({ products }) =>
-//   products.filter(item => item.newFurniture === true);
-
 const reducerName = 'compare';
 const createActionName = name => `app/${reducerName}/${name}`;
 
 /* action types */
-const GET_ALL = createActionName('GET_ALL');
-// const FETCH_SUCCESS = createActionName('FETCH_SUCCESS');
-// const FETCH_ERROR = createActionName('FETCH_ERROR');
-// const CHANGE_STATUS = createActionName('CHANGE_STATUS');
+const ADD_PRODUCT = createActionName('ADD_PRODUCT');
+const REMOVE_PRODUCT = createActionName('REMOVE_PRODUCT');
 
 /* action creators */
-export const getProductsToCompare = payload => ({ type: GET_ALL });
-// export const fetchSuccess = payload => ({ payload, type: FETCH_SUCCESS });
-// export const fetchError = payload => ({ payload, type: FETCH_ERROR });
+export const addProductToCompare = payload => ({ type: ADD_PRODUCT, payload });
+export const removeProductFromCompare = payload => ({ type: REMOVE_PRODUCT, payload });
 
 /* reducer */
 export default function reducer(statePart = [], action = {}) {
   switch (action.type) {
-    case GET_ALL:
-      return statePart;
+    case ADD_PRODUCT:
+      return [...statePart, action.payload];
+    case REMOVE_PRODUCT:
+      if (action.payload) {
+        return statePart.filter(product => product.id !== action.payload);
+      } else {
+        return [];
+      }
     default:
       return statePart;
   }

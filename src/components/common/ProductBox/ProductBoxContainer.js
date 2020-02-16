@@ -2,16 +2,14 @@ import { connect } from 'react-redux';
 
 import ProductBox from './ProductBox';
 
-import { getAllToCompare } from '../../../redux/compareRedux';
+import { getAllToCompare, addProductToCompare } from '../../../redux/compareRedux';
 
 const mapStateToProps = state => ({
-  toCompareProducts: getAllToCompare(state),
+  allComperedProducts: getAllToCompare(state),
 });
 
 const mapDispatchToProps = dispatch => ({
-  // fetchTables: () => dispatch(fetchFromAPI()),
-  // fetchProducts: () => dispatch(fetchProductsFromAPI()),
-  // changeTableStatus: (status, id) => dispatch(changeTableStatus(status, id)),
+  addToCompare: product => dispatch(addProductToCompare(product)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ProductBox);

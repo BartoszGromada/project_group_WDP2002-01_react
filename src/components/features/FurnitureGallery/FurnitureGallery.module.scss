@@ -120,6 +120,8 @@ $border-color: #e0dede;
       display: flex;
       align-items: center;
       justify-content: space-between;
+      opacity: 0.5;
+
     }
 
     .thumbnail {
@@ -129,6 +131,10 @@ $border-color: #e0dede;
       margin: 5px;
       color: white;
       overflow: hidden;
+
+      .active {
+        opacity: 1;
+      }
 
       img {
         width: 100%;

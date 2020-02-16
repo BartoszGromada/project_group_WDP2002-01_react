@@ -18,6 +18,7 @@ const ProductBox = ({
   promo,
   stars,
   img,
+  oldPrice,
   addToCompare,
   allComperedProducts,
 }) => {
@@ -35,7 +36,7 @@ const ProductBox = ({
       <div className={styles.root}>
         <div className={styles.photo}>
           {promo && <div className={styles.sale}>{promo}</div>}
-          <img src={img} alt={name + ' bed'} />
+          <img src={img} alt={`${name} bed`} />
           <div className={styles.buttons}>
             <Button variant='small'>Quick View</Button>
             <Button variant='small'>
@@ -58,6 +59,7 @@ const ProductBox = ({
             ))}
           </div>
         </div>
+
         <div className={styles.line}></div>
         <div className={styles.actions}>
           <div className={styles.outlines}>
@@ -72,6 +74,12 @@ const ProductBox = ({
             </Button>
           </div>
           <div className={styles.price}>
+            {oldPrice && <div className={styles.oldPrice}></div>}
+            {oldPrice && (
+              <Button noHover variant='outline'>
+                <del>$ {oldPrice}</del>
+              </Button>
+            )}
             <Button noHover variant='small'>
               $ {price}
             </Button>
@@ -87,6 +95,7 @@ ProductBox.propTypes = {
   children: PropTypes.node,
   name: PropTypes.string,
   price: PropTypes.number,
+  oldPrice: PropTypes.number,
   promo: PropTypes.string,
   stars: PropTypes.number,
   img: PropTypes.string,

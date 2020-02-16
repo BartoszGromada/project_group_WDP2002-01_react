@@ -91,6 +91,12 @@
     justify-content: space-between;
     align-items: center;
   }
+
+  .price {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 }
 .wrapper {
   &:hover .buttons {

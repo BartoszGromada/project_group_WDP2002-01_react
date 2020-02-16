@@ -242,6 +242,15 @@ const initialState = {
       },
     ],
   },
+  feedback: [
+    {
+      id: 1,
+      quotation: 'test',
+      image: 'test',
+      name: 'John Smith',
+      title: 'Futniture client',
+    },
+  ],
 };
 
 export default initialState;

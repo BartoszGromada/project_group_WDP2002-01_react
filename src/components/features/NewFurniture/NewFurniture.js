@@ -19,13 +19,28 @@ class NewFurniture extends React.Component {
   }
 
   render() {
-    const { categories, products } = this.props;
+    const { categories, products, mode } = this.props;
     const { activeCategory, activePage } = this.state;
 
     const categoryProducts = products.filter(item => item.category === activeCategory);
-    const pagesCount = Math.ceil(categoryProducts.length / 8);
+    const pagesCountDesktop = Math.ceil(categoryProducts.length / 8);
+    const pagesCountTablet = Math.ceil(categoryProducts.length / 2);
+    const pagesCountMobile = Math.ceil(categoryProducts.length);
 
     const dots = [];
+    let pagesCount;
+    let productsPerPage;
+    if (mode === 'desktop') {
+      pagesCount = pagesCountDesktop;
+      productsPerPage = 8;
+    } else if (mode === 'tablet') {
+      pagesCount = pagesCountTablet;
+      productsPerPage = 2;
+    } else {
+      pagesCount = pagesCountMobile;
+      productsPerPage = 1;
+    }
+
     for (let i = 0; i < pagesCount; i++) {
       dots.push(
         <li>
@@ -61,17 +76,25 @@ class NewFurniture extends React.Component {
                   ))}
                 </ul>
               </div>
-              <div className={'col-auto ' + styles.dots}>
-                <ul>{dots}</ul>
+              <div
+                className={
+                  mode === 'tablet' || mode === 'mobile'
+                    ? styles.centerDots
+                    : 'col-auto ' + styles.dotsOnRight
+                }
+              >
+                <ul className={styles.dots}>{dots}</ul>
               </div>
             </div>
           </div>
           <div className='row'>
-            {categoryProducts.slice(activePage * 8, (activePage + 1) * 8).map(item => (
-              <div key={item.id} className='col-lg-3 col-md-6 col-sm-12'>
-                <ProductBox {...item} />
-              </div>
-            ))}
+            {categoryProducts
+              .slice(activePage * productsPerPage, (activePage + 1) * productsPerPage)
+              .map(item => (
+                <div key={item.id} className='col-lg-3 col-md-6 col-sm-12'>
+                  <ProductBox {...item} />
+                </div>
+              ))}
           </div>
         </div>
       </div>
@@ -80,6 +103,7 @@ class NewFurniture extends React.Component {
 }
 
 NewFurniture.propTypes = {
+  mode: PropTypes.string,
   children: PropTypes.node,
   categories: PropTypes.arrayOf(
     PropTypes.shape({

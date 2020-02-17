@@ -1,0 +1,16 @@
+@import "../../../styles/settings.scss";
+
+.circle {
+  position: relative;
+  background-color: $header-bg;
+  border-radius: 50%;
+  width: 55px;
+  height: 55px;
+  display: inline-block;
+  margin-right: 5px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 700;
+  color: #ffffff;
+  opacity: 0.8;
+}

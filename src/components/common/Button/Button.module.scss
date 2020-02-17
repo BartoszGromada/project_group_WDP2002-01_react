@@ -26,6 +26,19 @@
   font-weight: 400;
 }
 
+.promoted {
+  @extend .small;
+  display: inline-block;
+}
+
+.promotedOld {
+  @extend .promoted;
+  background-color: #ffffff;
+  color: #e2e2e2;
+  display: inline-block;
+  text-decoration: line-through;
+}
+
 .outline {
   display: inline-block;
   padding: 5px 10px;
@@ -38,4 +51,9 @@
     background-color: #2a2a2a;
     color: #ffffff;
   }
+}
+
+.outlinePromoted {
+  @extend .outline;
+  margin-right: 4px;
 }

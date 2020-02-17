@@ -1,0 +1,143 @@
+@import "../../../styles/settings.scss";
+
+.root {
+  background-color: #ffffff;
+
+    .dots {
+      position: absolute;
+      left: 50%;
+      top: 0;
+      transform: translateX(-50%);
+      z-index: 1;
+      width: calc(100% - 30px);
+      color: #e1e1e1;
+      background-color: $form-border-color;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 1rem;
+
+      .dotsDescription {
+        display: inline-block;
+        white-space: nowrap;
+      }
+
+      ul {
+        padding: 1rem;
+        list-style: none;
+        display: flex;
+        align-items: center;
+        margin: 0;
+        
+        li {
+          display: inline-block;
+          margin-left: 0.5rem;
+
+          a {
+            display: block;
+            width: 13px;
+            height: 13px;
+            border-radius: 6px;
+            background-color: #e1e1e1;
+            font-size: 0;
+
+            &.active,
+            &:hover {
+              background-color: $primary;
+            }
+          }
+        }
+      }
+    }
+
+  .photo {
+    position: relative;
+    padding: 80% 10px 0 10px;
+    background: {
+      color: #f4f5f7;
+      size: contain;
+      position: center;
+      repeat: no-repeat;
+    }
+    overflow: hidden;
+    align-items: flex-end;
+
+    .buttons {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      opacity: 0;
+      transition: 0.2s ease-in-out;
+    }
+
+    .circleWrapper {
+      position: absolute;
+      left: 50%;
+      top: 90%;
+      transform: translate(-50%, -90%);
+      opacity: 0;
+      transition: 0.2s ease-in-out;
+    }
+  }
+
+  .content {
+    text-align: center;
+    padding: 20px;
+
+    h5 {
+      color: $primary;
+      font-size: 16px;
+      line-height: 24px;
+      letter-spacing: 1px;
+    }
+
+    .stars {
+      a {
+        text-decoration: none;
+        color: rgb(42, 42, 42);
+      }
+    }
+  }
+
+  .line {
+    margin: 0 10px;
+    border-bottom: 3px solid #e2e2e2;
+    position: relative;
+
+    &::before {
+      content: "";
+      position: absolute;
+      bottom: -1px;
+      left: 50%;
+      width: 30px;
+      border-bottom: 4px solid $primary;
+      transform: translateX(-50%);
+    }
+  }
+
+  .actions {
+    padding: 15px 10px 10px 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+.wrapperPrice {
+  display: flex;
+}
+
+.wrapper {
+  :hover .price *{
+    background-color: $primary;
+  }
+
+  :hover .buttons{
+    opacity: 1;
+  }
+
+  :hover .circleWrapper {
+    opacity: 1;
+  }
+}

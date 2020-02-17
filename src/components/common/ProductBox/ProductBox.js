@@ -10,6 +10,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { faStar as farStar, faHeart } from '@fortawesome/free-regular-svg-icons';
 import Button from '../Button/Button';
+import Popup from 'reactjs-popup';
 
 const ProductBox = ({
   id,
@@ -39,10 +40,30 @@ const ProductBox = ({
           <img src={img} alt={`${name} bed`} />
           <div className={styles.buttons}>
             <Button variant='small'>Quick View</Button>
-            <Button variant='small'>
-              <FontAwesomeIcon icon={faShoppingBasket} />
-              ADD TO CART
-            </Button>
+            <Popup
+              modal
+              trigger={
+                <Button variant='small'>
+                  <FontAwesomeIcon icon={faShoppingBasket} />
+                  ADD TO CART
+                </Button>
+              }
+              position='right center'
+            >
+              {close => (
+                <div className='cart_modal'>
+                  <a className='close_modal' onClick={close}>
+                    &times;
+                  </a>
+                  <h1 className='add_modal'>Added to cart</h1>
+                  <div className='cart_content'>
+                    <img className='product_img' src={img} alt={`${name} bed`} />
+                    <h2 className='product_name'>{name}</h2>
+                    <p className='product_price'>{price}</p>
+                  </div>
+                </div>
+              )}
+            </Popup>
           </div>
         </div>
         <div className={styles.content}>

@@ -7,9 +7,11 @@ import {
   faStar,
   faExchangeAlt,
   faShoppingBasket,
+  faTrashAlt,
 } from '@fortawesome/free-solid-svg-icons';
 import { faStar as farStar, faHeart } from '@fortawesome/free-regular-svg-icons';
 import Button from '../Button/Button';
+import Popup from 'reactjs-popup';
 
 const ProductBox = ({
   id,
@@ -23,6 +25,7 @@ const ProductBox = ({
   allComperedProducts,
   addToCart,
   removeFromCart,
+  cartContent,
 }) => {
   const handleClickToCompare = product => {
     const duplicates = allComperedProducts.filter(item => item.id === product.id)
@@ -33,14 +36,12 @@ const ProductBox = ({
     }
   };
 
-  const handleClickToAddToCart = (id, price) => {
-    addToCart(id, price);
+  const handleClickToAddToCart = ([id, img, price]) => {
+    addToCart([id, img, price]);
   };
   const handleClickToRemoveFromCart = id => {
     removeFromCart(id);
   };
-
-  console.log('removeFromCart', id);
 
   return (
     <div className={styles.wrapper}>
@@ -49,13 +50,49 @@ const ProductBox = ({
           {promo && <div className={styles.sale}>{promo}</div>}
           <img src={img} alt={`${name} bed`} />
           <div className={styles.buttons}>
-            <Button onClick={() => handleClickToRemoveFromCart(id)} variant='small'>
-              Quick View
-            </Button>
-            <Button onClick={() => handleClickToAddToCart(id, price)} variant='small'>
-              <FontAwesomeIcon icon={faShoppingBasket} />
-              ADD TO CART
-            </Button>
+            <Button variant='small'>Quick View</Button>
+            <Popup
+              onOpen={() => handleClickToAddToCart([id, img, price])}
+              trigger={
+                <Button variant='small'>
+                  <FontAwesomeIcon icon={faShoppingBasket} />
+                  ADD TO CART
+                </Button>
+              }
+              modal
+            >
+              {close => (
+                <div className={styles.cart_modal}>
+                  <a className={styles.close_modal} onClick={close}>
+                    &times;
+                  </a>
+                  <h1 className={styles.header_modal}>Your cart</h1>
+                  <div className={styles.content_modal}>
+                    <img
+                      className={styles.product_img_modal}
+                      src={cartContent.img}
+                      alt={`${cartContent.id} bed`}
+                    />
+                    <p className={styles.product_text_modal}>{cartContent.id}</p>
+                    <p className={styles.product_text_modal}>${cartContent.price}</p>
+                    <FontAwesomeIcon
+                      className={styles.trashIcon_modal}
+                      icon={faTrashAlt}
+                      onClick={() => {
+                        if (
+                          window.confirm(
+                            'Are you sure You want to delete this item from cart ?'
+                          )
+                        ) {
+                          handleClickToRemoveFromCart(id);
+                        }
+                      }}
+                    ></FontAwesomeIcon>
+                    <p className={styles.product_text_modal}>${cartContent.price}</p>
+                  </div>
+                </div>
+              )}
+            </Popup>
           </div>
         </div>
         <div className={styles.content}>
@@ -116,6 +153,7 @@ ProductBox.propTypes = {
   allComperedProducts: PropTypes.array,
   addToCart: PropTypes.func,
   removeFromCart: PropTypes.func,
+  cartContent: PropTypes.array,
 };
 
 export default ProductBox;

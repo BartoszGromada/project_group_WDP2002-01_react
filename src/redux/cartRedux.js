@@ -1,6 +1,6 @@
 /* selectors */
-export const getAll = ({ cart }) => cart.products;
-export const getCount = ({ cart }) => cart.products.length;
+export const getAll = ({ cart }) => cart;
+export const getCount = ({ cart }) => cart.length;
 
 /* action name creator */
 const reducerName = 'cart';
@@ -17,18 +17,12 @@ export const removeProduct = payload => ({ payload, type: REMOVE_PRODUCT });
 /* reducer */
 export default function reducer(statePart = [], action = {}) {
   switch (action.type) {
-    case ADD_PRODUCT: {
-      return {
-        ...statePart,
-        products: [...statePart.products, action.payload],
-      };
-    }
+    case ADD_PRODUCT:
+      return [...statePart, action.payload];
+
     case REMOVE_PRODUCT:
-      if (action.payload) {
-        return statePart.filter(products => products.id !== action.payload);
-      } else {
-        return { ...statePart };
-      }
+      return statePart.filter(products => products.id !== action.payload);
+
     default:
       return statePart;
   }

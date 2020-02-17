@@ -277,28 +277,7 @@ const initialState = {
         'https://images.unsplash.com/photo-1512111468-477c8248162b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60',
     },
   ],
-  cart: {
-    products: [
-      {
-        id: 'aenean-ru-bristique-24',
-        name: 'Aenean Ru Bristique 24',
-        category: 'bed',
-        price: 30,
-        stars: 2,
-        promo: 'sale',
-        newFurniture: true,
-      },
-      {
-        id: 'aenean-ru-bristique-24',
-        name: 'Aenean Ru Bristique 24',
-        category: 'bed',
-        price: 30,
-        stars: 2,
-        promo: 'sale',
-        newFurniture: true,
-      },
-    ],
-  },
+  cart: [],
   compare: [],
 };
 

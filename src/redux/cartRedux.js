@@ -15,7 +15,7 @@ export const addProduct = payload => ({ payload, type: ADD_PRODUCT });
 export const removeProduct = payload => ({ payload, type: REMOVE_PRODUCT });
 
 /* reducer */
-export default function reducer(statePart = [], action = {}, state = []) {
+export default function reducer(statePart = [], action = {}) {
   switch (action.type) {
     case ADD_PRODUCT: {
       return {
@@ -23,9 +23,12 @@ export default function reducer(statePart = [], action = {}, state = []) {
         products: [...statePart.products, action.payload],
       };
     }
-    case REMOVE_PRODUCT: {
-      return state.filter(cart => cart.id !== action.payload.id);
-    }
+    case REMOVE_PRODUCT:
+      if (action.payload) {
+        return statePart.filter(products => products.id !== action.payload);
+      } else {
+        return { ...statePart };
+      }
     default:
       return statePart;
   }

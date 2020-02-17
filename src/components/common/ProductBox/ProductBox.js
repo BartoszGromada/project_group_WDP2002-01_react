@@ -22,6 +22,7 @@ const ProductBox = ({
   addToCompare,
   allComperedProducts,
   addToCart,
+  removeFromCart,
 }) => {
   const handleClickToCompare = product => {
     const duplicates = allComperedProducts.filter(item => item.id === product.id)
@@ -35,6 +36,11 @@ const ProductBox = ({
   const handleClickToAddToCart = (id, price) => {
     addToCart(id, price);
   };
+  const handleClickToRemoveFromCart = id => {
+    removeFromCart(id);
+  };
+
+  console.log('removeFromCart', id);
 
   return (
     <div className={styles.wrapper}>
@@ -43,7 +49,9 @@ const ProductBox = ({
           {promo && <div className={styles.sale}>{promo}</div>}
           <img src={img} alt={`${name} bed`} />
           <div className={styles.buttons}>
-            <Button variant='small'>Quick View</Button>
+            <Button onClick={() => handleClickToRemoveFromCart(id)} variant='small'>
+              Quick View
+            </Button>
             <Button onClick={() => handleClickToAddToCart(id, price)} variant='small'>
               <FontAwesomeIcon icon={faShoppingBasket} />
               ADD TO CART
@@ -107,6 +115,7 @@ ProductBox.propTypes = {
   addToCompare: PropTypes.func,
   allComperedProducts: PropTypes.array,
   addToCart: PropTypes.func,
+  removeFromCart: PropTypes.func,
 };
 
 export default ProductBox;

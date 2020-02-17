@@ -6,7 +6,7 @@ import styles from './CompanyClaim.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMobileAlt, faShoppingBasket } from '@fortawesome/free-solid-svg-icons';
 
-const CompanyClaim = () => (
+const CompanyClaim = cart => (
   <div className={styles.root}>
     <div className='container'>
       <div className='row align-items-center'>
@@ -26,7 +26,7 @@ const CompanyClaim = () => (
             <div className={styles.cartIcon}>
               <FontAwesomeIcon className={styles.icon} icon={faShoppingBasket} />
             </div>
-            <div className={styles.cartCounter}>99999</div>
+            <div className={styles.cartCounter}>{cart.cartValue}</div>
           </a>
         </div>
       </div>

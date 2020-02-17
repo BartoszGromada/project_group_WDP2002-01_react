@@ -12,7 +12,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   addToCompare: product => dispatch(addProductToCompare(product)),
-  addToCart: ([id, img, price]) => dispatch(addProduct([id, img, price])),
+  addToCart: ({ id, img, price }) => dispatch(addProduct({ id, img, price })),
   removeFromCart: id => dispatch(removeProduct(id)),
 });
 

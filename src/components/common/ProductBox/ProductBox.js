@@ -36,8 +36,8 @@ const ProductBox = ({
     }
   };
 
-  const handleClickToAddToCart = ([id, img, price]) => {
-    addToCart([id, img, price]);
+  const handleClickToAddToCart = ({ id, img, price }) => {
+    addToCart({ id, img, price });
   };
   const handleClickToRemoveFromCart = id => {
     removeFromCart(id);
@@ -52,7 +52,7 @@ const ProductBox = ({
           <div className={styles.buttons}>
             <Button variant='small'>Quick View</Button>
             <Popup
-              onOpen={() => handleClickToAddToCart([id, img, price])}
+              onOpen={() => handleClickToAddToCart({ id, img, price })}
               trigger={
                 <Button variant='small'>
                   <FontAwesomeIcon icon={faShoppingBasket} />
@@ -66,29 +66,24 @@ const ProductBox = ({
                   <a className={styles.close_modal} onClick={close}>
                     &times;
                   </a>
-                  <h1 className={styles.header_modal}>Your cart</h1>
+                  <h1 className={styles.header_modal}>Added to cart</h1>
                   <div className={styles.content_modal}>
                     <img
                       className={styles.product_img_modal}
-                      src={cartContent.img}
-                      alt={`${cartContent.id} bed`}
+                      src={img}
+                      alt={`${name} bed`}
                     />
-                    <p className={styles.product_text_modal}>{cartContent.id}</p>
-                    <p className={styles.product_text_modal}>${cartContent.price}</p>
-                    <FontAwesomeIcon
-                      className={styles.trashIcon_modal}
-                      icon={faTrashAlt}
-                      onClick={() => {
-                        if (
-                          window.confirm(
-                            'Are you sure You want to delete this item from cart ?'
-                          )
-                        ) {
+                    <p className={styles.product_text_modal}>{id}</p>
+                    <p className={styles.product_text_modal}>${price}</p>
+                    <Button variant='small'>
+                      <FontAwesomeIcon
+                        className={styles.trashIcon_modal}
+                        icon={faTrashAlt}
+                        onClick={() => {
                           handleClickToRemoveFromCart(id);
-                        }
-                      }}
-                    ></FontAwesomeIcon>
-                    <p className={styles.product_text_modal}>${cartContent.price}</p>
+                        }}
+                      />
+                    </Button>
                   </div>
                 </div>
               )}

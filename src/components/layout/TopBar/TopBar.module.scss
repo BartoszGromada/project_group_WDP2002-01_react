@@ -11,6 +11,49 @@
     li {
       display: inline-block;
       line-height: 55px;
+      position: relative;
+
+      .actualCurrency {
+        &:hover {
+          cursor: pointer;
+          color: $primary;
+        }
+      }
+
+      .currenciesContainer {
+        position: absolute;
+        display: flex;
+        flex-flow: column nowrap;
+        left: 0;
+        bottom: -70px;
+        z-index: 999;
+        padding: 10px;
+        background-color: $header-topbar-bg;
+        display: none;
+
+        h6 {
+          margin: 0;
+          font-size: 14px;
+        }
+        h6:nth-of-type(2) {
+          padding: 10px 0;
+        }
+
+        h6:hover {
+          color: $primary;
+          cursor: pointer;
+        }
+      }
+
+      .open {
+        display: flex;
+      }
+
+      div {
+        display: inline-block;
+        color: #ffffff;
+        font-size: 13px;
+      }
 
       a {
         color: #ffffff;

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 import styles from './ProductBox.module.scss';
@@ -10,6 +10,8 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { faStar as farStar, faHeart } from '@fortawesome/free-regular-svg-icons';
 import Button from '../Button/Button';
+import currencySymbol from '../../../utils/currencySymbol';
+import currencyConverter from '../../../utils/currencyConverter';
 
 const ProductBox = ({
   id,
@@ -21,13 +23,33 @@ const ProductBox = ({
   oldPrice,
   addToCompare,
   allComperedProducts,
+  getCurrency,
 }) => {
+  const [data, setData] = useState();
+
+  useEffect(() => {
+    fetch('https://api.exchangeratesapi.io/latest?base=USD&symbols=EUR,PLN,USD')
+      .then(response => {
+        return response.json();
+      })
+      .then(data => {
+        setData(data);
+      });
+  }, []);
+
   const handleClickToCompare = product => {
     const duplicates = allComperedProducts.filter(item => item.id === product.id)
       .length;
 
     if (allComperedProducts.length < 4 && !duplicates) {
       addToCompare(product);
+    }
+  };
+
+  const formatedPrice = price => {
+    if (data) {
+      let rates = data.rates[getCurrency];
+      return currencyConverter(price, getCurrency, rates);
     }
   };
 
@@ -77,11 +99,13 @@ const ProductBox = ({
             {oldPrice && <div className={styles.oldPrice}></div>}
             {oldPrice && (
               <Button noHover variant='outline'>
-                <del>$ {oldPrice}</del>
+                <del>
+                  {formatedPrice(oldPrice)} {currencySymbol(getCurrency)}
+                </del>
               </Button>
             )}
             <Button noHover variant='small'>
-              $ {price}
+              {formatedPrice(price)} {currencySymbol(getCurrency)}
             </Button>
           </div>
         </div>
@@ -101,6 +125,7 @@ ProductBox.propTypes = {
   img: PropTypes.string,
   addToCompare: PropTypes.func,
   allComperedProducts: PropTypes.array,
+  getCurrency: PropTypes.string,
 };
 
 export default ProductBox;

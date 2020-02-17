@@ -15,7 +15,7 @@ class Feedback extends React.Component {
           <div className={styles.panelBar}>
             <div className='row no-gutters align-items-end'>
               <div className={'col-auto ' + styles.heading}>
-                <h3>Feedback</h3>
+                <h3>Client Feedback</h3>
               </div>
               <div className='col'></div>
               <div className={'col-auto ' + styles.dots}>

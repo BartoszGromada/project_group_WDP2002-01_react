@@ -5,15 +5,28 @@ import styles from './FurnitureGallery.module.scss';
 import PromoProduct from './../PromoProduct/PromoProduct';
 import FurnitureGalleryActions from '../FurnitureGalleryActions/FurnitureGalleryActions';
 import FurnitureGalleryPrice from '../FurnitureGalleryPrice/FurnitureGalleryPrice';
-import initialState from '../../../redux/initialState';
 
 class FurnitureGallery extends React.Component {
   static propTypes = {
-    products: PropTypes.node,
-    tabs: PropTypes.node,
+    products: PropTypes.arrayOf(
+      PropTypes.shape({
+        id: PropTypes.string,
+        name: PropTypes.string,
+        category: PropTypes.string,
+        price: PropTypes.number,
+        stars: PropTypes.number,
+        promo: PropTypes.string,
+        newFurniture: PropTypes.bool,
+        img: PropTypes.string,
+        promoPrice: PropTypes.number,
+      })
+    ),
+    tabs: PropTypes.array,
   };
 
   render() {
+    const { tabs, products } = this.props;
+
     return (
       <div className={styles.root}>
         <div className='container'>
@@ -22,7 +35,7 @@ class FurnitureGallery extends React.Component {
               <h3>Furniture Gallery</h3>
               <div className={styles.menu}>
                 <ul>
-                  {initialState.tabs.map(tab => (
+                  {tabs.map(tab => (
                     <li key={tab.id}>
                       <a href='#'>{tab.name}</a>
                     </li>
@@ -30,13 +43,13 @@ class FurnitureGallery extends React.Component {
                 </ul>
               </div>
               <div className={styles.product}>
-                <img src={initialState.products[0].img}></img>
+                <img src={products[0].img} alt=''></img>
                 <FurnitureGalleryActions />
                 <FurnitureGalleryPrice
-                  name={initialState.products[0].name}
-                  price={initialState.products[0].price}
-                  promoPrice={initialState.products[0].promoPrice}
-                  stars={initialState.products[0].stars}
+                  name={products[0].name}
+                  price={products[0].price}
+                  promoPrice={products[0].promoPrice}
+                  stars={products[0].stars}
                 />
               </div>
               <div className={styles.slider}>
@@ -44,9 +57,9 @@ class FurnitureGallery extends React.Component {
                   <a href='#'>&#x3c;</a>
                 </div>
                 <div className={styles.thumbnails}>
-                  {initialState.products.slice(0, 6).map(product => (
+                  {products.slice(0, 6).map(product => (
                     <div key={product.id} className={styles.thumbnail}>
-                      <img src={product.img}></img>
+                      <img src={product.img} alt=''></img>
                     </div>
                   ))}
                 </div>

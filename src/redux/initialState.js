@@ -1,4 +1,4 @@
-const initialState = {
+const initialStoreData = {
   categories: [
     { id: 'bed', name: 'Bed' },
     { id: 'chair', name: 'Chair' },
@@ -285,4 +285,4 @@ const initialState = {
   ],
 };
 
-export default initialState;
+export default initialStoreData;

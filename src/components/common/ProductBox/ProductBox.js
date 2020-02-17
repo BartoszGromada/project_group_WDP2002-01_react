@@ -7,6 +7,7 @@ import {
   faStar,
   faExchangeAlt,
   faShoppingBasket,
+  faTrashAlt,
 } from '@fortawesome/free-solid-svg-icons';
 import { faStar as farStar, faHeart } from '@fortawesome/free-regular-svg-icons';
 import Button from '../Button/Button';
@@ -41,25 +42,39 @@ const ProductBox = ({
           <div className={styles.buttons}>
             <Button variant='small'>Quick View</Button>
             <Popup
-              modal
               trigger={
                 <Button variant='small'>
                   <FontAwesomeIcon icon={faShoppingBasket} />
                   ADD TO CART
                 </Button>
               }
-              position='right center'
+              modal
             >
               {close => (
-                <div className='cart_modal'>
-                  <a className='close_modal' onClick={close}>
+                <div className={styles.cart_modal}>
+                  <a className={styles.close_modal} onClick={close}>
                     &times;
                   </a>
-                  <h1 className='add_modal'>Added to cart</h1>
-                  <div className='cart_content'>
-                    <img className='product_img' src={img} alt={`${name} bed`} />
-                    <h2 className='product_name'>{name}</h2>
-                    <p className='product_price'>{price}</p>
+                  <h1 className={styles.header_modal}>
+                    Added to cart
+                    <FontAwesomeIcon
+                      className={styles.trashIcon_modal}
+                      icon={faTrashAlt}
+                      onClick={() =>
+                        window.confirm(
+                          'Are you sure You want to delete this item from cart ?'
+                        )
+                      }
+                    />
+                  </h1>
+                  <div className={styles.content_modal}>
+                    <img
+                      className={styles.product_img_modal}
+                      src={img}
+                      alt={`${name} bed`}
+                    />
+                    <p className={styles.product_text_modal}>{name}</p>
+                    <p className={styles.product_text_modal}>Total ${price}</p>
                   </div>
                 </div>
               )}

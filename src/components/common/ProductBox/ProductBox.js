@@ -21,6 +21,8 @@ const ProductBox = ({
   oldPrice,
   addToCompare,
   allComperedProducts,
+  markFavourite,
+  favourite,
 }) => {
   const handleClickToCompare = product => {
     const duplicates = allComperedProducts.filter(item => item.id === product.id)
@@ -29,6 +31,11 @@ const ProductBox = ({
     if (allComperedProducts.length < 4 && !duplicates) {
       addToCompare(product);
     }
+  };
+  
+  const handleMarkFavourite = event => {
+    event.preventDefault();
+    markFavourite();
   };
 
   return (
@@ -63,7 +70,7 @@ const ProductBox = ({
         <div className={styles.line}></div>
         <div className={styles.actions}>
           <div className={styles.outlines}>
-            <Button variant='outline'>
+            <Button variant='outline' favourite={favourite} onClick={handleMarkFavourite}>
               <FontAwesomeIcon icon={faHeart}>Favorite</FontAwesomeIcon>
             </Button>
             <Button
@@ -98,6 +105,8 @@ ProductBox.propTypes = {
   oldPrice: PropTypes.number,
   promo: PropTypes.string,
   stars: PropTypes.number,
+  markFavourite: PropTypes.func,
+  favourite: PropTypes.bool,
   img: PropTypes.string,
   addToCompare: PropTypes.func,
   allComperedProducts: PropTypes.array,

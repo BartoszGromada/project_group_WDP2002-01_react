@@ -78,10 +78,10 @@ class Feedback extends React.Component {
 }
 
 Feedback.propTypes = {
-  opinionText: PropTypes.number,
-  opinionImage: PropTypes.number,
-  opinionName: PropTypes.number,
-  opinionTitle: PropTypes.number,
+  opinionText: PropTypes.node,
+  opinionImage: PropTypes.node,
+  opinionName: PropTypes.node,
+  opinionTitle: PropTypes.node,
 };
 
 export default Feedback;

@@ -12,19 +12,15 @@ import initialState from '../../../redux/initialState';
 class Feedback extends React.Component {
   state = {
     activePage: 0,
-    activeFeedback: 0,
   };
 
   handlePageChange(newPage) {
     this.setState({ activePage: newPage });
   }
 
-  handleFeedbackChange(newFeedback) {
-    this.setState({ activeCategory: newFeedback });
-  }
-
   render() {
-    const { activePage, activeFeedback } = this.state;
+    const { activePage } = this.state;
+    const { opinionText, opinionImage, opinionName, opinionTitle } = this.props;
 
     const pagesCount = initialState.feedback.length;
 
@@ -64,10 +60,10 @@ class Feedback extends React.Component {
             </div>
             <div className='row'>
               <FeedbackBox
-                opinionText={initialState.feedback[0].opinion}
-                opinionImage={initialState.feedback[0].image}
-                opinionName={initialState.feedback[0].name}
-                opinionTitle={initialState.feedback[0].title}
+                opinionText={opinionText}
+                opinionImage={opinionImage}
+                opinionName={opinionName}
+                opinionTitle={opinionTitle}
               />
             </div>
           </div>
@@ -82,6 +78,13 @@ Feedback.propTypes = {
   opinionImage: PropTypes.node,
   opinionName: PropTypes.node,
   opinionTitle: PropTypes.node,
+};
+
+Feedback.defaultProps = {
+  opinionText: initialState.feedback[0].opinion,
+  opinionImage: initialState.feedback[0].image,
+  opinionName: initialState.feedback[0].name,
+  opinionTitle: initialState.feedback[0].title,
 };
 
 export default Feedback;

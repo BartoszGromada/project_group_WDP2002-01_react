@@ -48,6 +48,14 @@
       }
     }
 
+    &:hover {
+      background-color: $primary;
+
+      .icon:first-child {
+        color: $text-color;
+      }
+    }
+
     .icon:first-child {
       color: $primary;
       position: absolute;
@@ -68,6 +76,16 @@
       padding: 5px 30px 5px 35px;
       position: relative;
       z-index: 1;
+      font-size: 14px;
+
+      &:focus {
+        outline: 0;
+
+        option {
+          background-color: $header-bg;
+          color: $compared-container-bg;
+        }
+      }
     }
   }
 

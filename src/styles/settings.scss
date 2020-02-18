@@ -13,6 +13,7 @@ $text-color: #2a2a2a;
 $form-border-color: #292929;
 
 $compared-container-bg: #fff;
+$black-color: #000;
 
 @mixin hover-animation($all: false, $color-time: 0.25s, $bg-color-time: 0.25s) {
   @if ($all) {

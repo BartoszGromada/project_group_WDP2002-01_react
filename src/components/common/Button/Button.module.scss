@@ -1,8 +1,5 @@
 @import "../../../styles/settings.scss";
 
-// .root {
-// }
-
 .main {
   background-color: #2a2a2a;
   color: #ffffff;
@@ -10,6 +7,7 @@
   line-height: 24px;
   font-weight: 600;
   padding: 10px 30px;
+  @include hover-animation;
 
   &:not(.noHover):hover {
     color: #ffffff !important;
@@ -33,9 +31,34 @@
   color: #2a2a2a;
   font-size: 13px;
   line-height: 22px;
+  @include hover-animation;
 
   &:not(.noHover):hover {
     background-color: #2a2a2a;
     color: #ffffff;
   }
+}
+
+.cta {
+  @extend .main;
+  background-color: green;
+  color: white;
+  border-radius: 5px;
+}
+
+.outlineColor {
+  @extend .outline;
+  margin-bottom: 10px;
+
+  &:not(.noHover):hover {
+    background-color: transparent;
+    border: 1px solid $primary;
+    color: $primary;
+  }
+}
+
+.favourite {
+  background-color: #2a2a2a;
+  color: #ffffff;
+
 }

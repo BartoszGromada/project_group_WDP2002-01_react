@@ -26,11 +26,27 @@
       border-radius: 50%;
       color: #ffffff;
       padding: 30px 15px 5px 15px;
+      z-index: 2;
     }
 
     .buttons {
       display: flex;
       justify-content: space-between;
+      opacity: 0;
+      transition: 0.2s ease-in-out;
+      a {
+        z-index: 2;
+      }
+    }
+
+    img {
+      position: absolute;
+      top: 0;
+      left: 10px;
+      right: 10px;
+      max-width: calc(100% - 20px);
+      height: 100%;
+      object-fit: cover;
     }
   }
 
@@ -74,5 +90,19 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+  }
+
+  .price {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+.wrapper {
+  &:hover .buttons {
+    opacity: 1;
+  }
+  &:hover .price * {
+    background-color: $primary;
   }
 }

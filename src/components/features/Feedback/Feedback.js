@@ -1,5 +1,4 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
 
 import styles from './Feedback.module.scss';
 import FeedbackBox from '../../common/FeedbackBox/FeedbackBox';

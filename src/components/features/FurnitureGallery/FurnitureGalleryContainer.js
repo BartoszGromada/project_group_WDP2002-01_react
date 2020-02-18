@@ -2,9 +2,9 @@ import { connect } from 'react-redux';
 
 import FurnitureGallery from './FurnitureGallery';
 
-const mapStateToProps = state => ({
-  products: state.products,
-  tabs: state.tabs,
+const mapStateToProps = ({ products, tabs }) => ({
+  products,
+  tabs,
 });
 
 export default connect(mapStateToProps)(FurnitureGallery);

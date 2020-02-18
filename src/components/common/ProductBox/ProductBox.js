@@ -25,6 +25,8 @@ const ProductBox = ({
   allComperedProducts,
   markFavourite,
   favourite,
+  favorite,
+  compared,
 }) => {
   const handleClickToCompare = product => {
     const duplicates = allComperedProducts.filter(item => item.id === product.id)
@@ -34,7 +36,7 @@ const ProductBox = ({
       addToCompare(product);
     }
   };
-  
+
   const handleMarkFavourite = event => {
     event.preventDefault();
     markFavourite();
@@ -106,14 +108,28 @@ const ProductBox = ({
         <div className={styles.line}></div>
         <div className={styles.actions}>
           <div className={styles.outlines}>
-            <Button variant='outline' favourite={favourite} onClick={handleMarkFavourite}>
-              <FontAwesomeIcon icon={faHeart}>Favorite</FontAwesomeIcon>
+            <Button
+              variant='outline'
+              favourite={favourite}
+              onClick={handleMarkFavourite}
+            >
+              <FontAwesomeIcon
+                icon={faHeart}
+                className={favorite ? styles.favorite : ''}
+              >
+                Favorite
+              </FontAwesomeIcon>
             </Button>
             <Button
               variant='outline'
               onClick={() => handleClickToCompare({ id, name, img })}
             >
-              <FontAwesomeIcon icon={faExchangeAlt}>Add to compare</FontAwesomeIcon>
+              <FontAwesomeIcon
+                icon={faExchangeAlt}
+                className={compared ? styles.compared : ''}
+              >
+                Add to compare
+              </FontAwesomeIcon>
             </Button>
           </div>
           <div className={styles.price}>
@@ -141,6 +157,8 @@ ProductBox.propTypes = {
   oldPrice: PropTypes.number,
   promo: PropTypes.string,
   stars: PropTypes.number,
+  favorite: PropTypes.bool,
+  compared: PropTypes.bool,
   markFavourite: PropTypes.func,
   favourite: PropTypes.bool,
   img: PropTypes.string,

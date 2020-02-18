@@ -55,7 +55,6 @@ class Stars extends React.Component {
       },
       {
         id: 3,
-        number: 3,
         active: false,
       },
       {
@@ -91,7 +90,7 @@ class Stars extends React.Component {
                   ? styles.active
                   : ''
               }
-            ></FontAwesomeIcon>
+            />
           </a>
         ))}
       </div>

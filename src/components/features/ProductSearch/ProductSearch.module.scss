@@ -16,7 +16,7 @@
       background-color: $primary;
 
       .icon:first-child {
-        color: $black-color;
+        color: $text-color;
       }
     }
 
@@ -47,7 +47,7 @@
 
         option {
           background-color: $header-bg;
-          color: $white-color;
+          color: $compared-container-bg;
         }
       }
     }

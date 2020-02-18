@@ -1,26 +1,35 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 import initialState from '../../../redux/initialState';
 
 import styles from './FeedbackBox.module.scss';
 
 class FeedbackBox extends React.Component {
+  static propTypes = {
+    opinionText: PropTypes.number,
+    opinionImage: PropTypes.number,
+    opinionName: PropTypes.number,
+    opinionTitle: PropTypes.number,
+  };
+
   render() {
+    const { opinionText, opinionImage, opinionName, opinionTitle } = this.props;
+
     return (
       <div className='col-12'>
         <div className={styles.opinion}>
-          <p>{initialState.feedback[0].opinion}</p>
+          <p>{opinionText}</p>
         </div>
         <div className='row justify-content-center'>
           <img
-            src={initialState.feedback[0].image}
+            src={opinionImage}
             className='rounded float-right  align-self-center'
             alt=''
           />
           <div className='col-2 align-self-center'>
-            <h5>{initialState.feedback[0].name}</h5>
-            <p className={styles.title}>{initialState.feedback[0].title}</p>
+            <h5>{opinionName}</h5>
+            <p className={styles.title}>{opinionTitle}</p>
           </div>
         </div>
       </div>

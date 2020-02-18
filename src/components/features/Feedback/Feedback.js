@@ -1,4 +1,8 @@
 import React from 'react';
+<<<<<<< HEAD
+=======
+import PropTypes from 'prop-types';
+>>>>>>> Add proposTypes to feedback component
 
 import styles from './Feedback.module.scss';
 import FeedbackBox from '../../common/FeedbackBox/FeedbackBox';
@@ -62,7 +66,12 @@ class Feedback extends React.Component {
               </div>
             </div>
             <div className='row'>
-              <FeedbackBox />
+              <FeedbackBox
+                opinionText={initialState.feedback[0].opinion}
+                opinionImage={initialState.feedback[0].image}
+                opinionName={initialState.feedback[0].name}
+                opinionTitle={initialState.feedback[0].title}
+              />
             </div>
           </div>
         </div>
@@ -70,5 +79,12 @@ class Feedback extends React.Component {
     );
   }
 }
+
+Feedback.propTypes = {
+  opinionText: PropTypes.number,
+  opinionImage: PropTypes.number,
+  opinionName: PropTypes.number,
+  opinionTitle: PropTypes.number,
+};
 
 export default Feedback;

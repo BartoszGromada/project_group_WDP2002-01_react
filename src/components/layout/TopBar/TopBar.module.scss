@@ -41,3 +41,9 @@
     }
   }
 }
+
+@media (max-width: 576px) {
+  .topMenu ul li a span {
+    display: none;
+  }
+}

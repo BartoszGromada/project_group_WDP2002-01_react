@@ -12,6 +12,7 @@ import {
 import { faStar as farStar, faHeart } from '@fortawesome/free-regular-svg-icons';
 import Button from '../Button/Button';
 import Popup from 'reactjs-popup';
+import NumericInput from 'react-numeric-input';
 
 const ProductBox = ({
   id,
@@ -25,7 +26,6 @@ const ProductBox = ({
   allComperedProducts,
   addToCart,
   removeFromCart,
-  cartContent,
 }) => {
   const handleClickToCompare = product => {
     const duplicates = allComperedProducts.filter(item => item.id === product.id)
@@ -92,6 +92,14 @@ const ProductBox = ({
         </div>
         <div className={styles.content}>
           <h5>{name}</h5>
+          <NumericInput
+            style={{ input: { width: '150px' } }}
+            min={1}
+            max={10}
+            value={1}
+            mobile
+            strict
+          />
           <div className={styles.stars}>
             {[1, 2, 3, 4, 5].map(i => (
               <a key={i} href='#'>
@@ -148,7 +156,7 @@ ProductBox.propTypes = {
   allComperedProducts: PropTypes.array,
   addToCart: PropTypes.func,
   removeFromCart: PropTypes.func,
-  cartContent: PropTypes.array,
+  valueAsNumber: PropTypes.number,
 };
 
 export default ProductBox;

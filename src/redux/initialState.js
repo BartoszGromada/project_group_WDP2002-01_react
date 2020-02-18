@@ -1,4 +1,4 @@
-const initialState = {
+const initialStoreData = {
   mode: '',
   categories: [
     { id: 'bed', name: 'Bed' },
@@ -13,6 +13,7 @@ const initialState = {
       name: 'Aenean Ru Bristique 1',
       category: 'bed',
       price: 30,
+      promoPrice: 20,
       oldPrice: 28,
       stars: 2,
       promo: 'sale',
@@ -386,7 +387,15 @@ const initialState = {
       },
     ],
   },
+
+  tabs: [
+    { id: 'featured', name: 'Featured' },
+    { id: 'topselller', name: 'Top seller' },
+    { id: 'saleoff', name: 'Sale off' },
+    { id: 'toprated', name: 'Top rated' },
+  ],
+
   compare: [],
 };
 
-export default initialState;
+export default initialStoreData;

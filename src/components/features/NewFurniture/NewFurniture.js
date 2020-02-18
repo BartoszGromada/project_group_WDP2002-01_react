@@ -116,7 +116,7 @@ class NewFurniture extends React.Component {
                   className={
                     mode === 'tablet' || mode === 'mobile'
                       ? styles.centerDots
-                      : 'col-auto ' + styles.dotsOnRight
+                      : `col-auto ${styles.dotsOnRight}`
                   }
                 >
                   <ul className={styles.dots}>{dots}</ul>

@@ -1,8 +1,5 @@
 @import "../../../styles/settings.scss";
 
-// .root {
-// }
-
 .main {
   background-color: #2a2a2a;
   color: #ffffff;
@@ -42,7 +39,26 @@
   }
 }
 
+.cta {
+  @extend .main;
+  background-color: green;
+  color: white;
+  border-radius: 5px;
+}
+
+.outlineColor {
+  @extend .outline;
+  margin-bottom: 10px;
+
+  &:not(.noHover):hover {
+    background-color: transparent;
+    border: 1px solid $primary;
+    color: $primary;
+  }
+}
+
 .favourite {
   background-color: #2a2a2a;
   color: #ffffff;
+
 }

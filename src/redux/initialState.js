@@ -411,14 +411,44 @@ const initialStoreData = {
       },
     ],
   },
-
+  brands: [
+    {
+      id: 'brand-1',
+      name: 'brand 1',
+      image: 'https://www.logologo.com/logos/g-logo.jpg',
+    },
+    {
+      id: 'brand-2',
+      name: 'brand 2',
+      image: 'https://www.logologo.com/logos/city-logo.jpg',
+    },
+    {
+      id: 'brand-3',
+      name: 'brand 3',
+      image: 'https://www.logologo.com/logos/red-s-logo.jpg',
+    },
+    {
+      id: 'brand-4',
+      name: 'brand 4',
+      image: 'https://www.logologo.com/logos/open-house-logo.jpg',
+    },
+    {
+      id: 'brand-5',
+      name: 'brand 5',
+      image: 'https://www.logologo.com/logos/letter-m-roof-logo.jpg',
+    },
+    {
+      id: 'brand-6',
+      name: 'brand 6',
+      image: 'https://www.logologo.com/logos/letter-a-circle-logo.jpg',
+    },
+  ],
   tabs: [
     { id: 'featured', name: 'Featured' },
     { id: 'topselller', name: 'Top seller' },
     { id: 'saleoff', name: 'Sale off' },
     { id: 'toprated', name: 'Top rated' },
   ],
-
   compare: [],
 };
 

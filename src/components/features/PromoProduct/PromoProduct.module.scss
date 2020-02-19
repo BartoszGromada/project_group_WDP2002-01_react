@@ -8,7 +8,7 @@
 .promo {
   width: 100%;
   height: 600px;
-  background-color:red;
+  background-color: $promo-bg-1;
   overflow: hidden;
 
   img {
@@ -25,14 +25,14 @@
     left:70px;
 
     p {
-      color: $text-color;
+      color: $promo-text-1;
       text-transform: uppercase;
       font-size: 18px;
       margin:0;
     }
 
     span {
-      color: green;
+      color: $promo-text-2;
       font-size: 40px;
       font-weight: 700;
       margin:0;

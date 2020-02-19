@@ -7,8 +7,8 @@
 .component {
   display: flex;
   justify-content: space-between;
-  border-top: 1px solid $brands-border;
-  border-bottom: 1px solid $brands-border;
+  border-top: 1px solid $brands-border-1;
+  border-bottom: 1px solid $brands-border-1;
   padding: 10px 5px;
 }
 
@@ -18,8 +18,8 @@
   align-items: center;
   height: 80px;
   width: 25px;
-  background-color: $text-color;
-  color: #fff;
+  background-color: $brands-bg-2;
+  color: $brands-bg-1;
   font-size: 12px;
   border: none;
 }
@@ -36,7 +36,7 @@
   height: 80px;
   flex: 0 0 140px;
   margin: 0 5px;
-  border: 1px solid $brands-border;
+  border: 1px solid $brands-border-1;
   white-space: nowrap;
 
   img {

@@ -1,8 +1,5 @@
 @import "../../../styles/settings.scss";
 
-$border-color: #e0dede;
-$background-color: #e3e1e1;
-
 .gallery {
   width: 550px;
   height: 600px;
@@ -18,7 +15,7 @@ $background-color: #e3e1e1;
     line-height: 38px;
     margin: 0;
     letter-spacing: 1px;
-    border-bottom: 4px solid $border-color;
+    border-bottom: 4px solid $gallery-border-2;
 
     &::before {
       content: "";
@@ -53,16 +50,16 @@ $background-color: #e3e1e1;
         display:flex;
         align-items: center;
         justify-content: center;
-        border-top: 1px solid $border-color;
-        border-left: 1px solid $border-color;
-        border-bottom: 1px solid $border-color;
+        border-top: 1px solid $gallery-border-2;
+        border-left: 1px solid $gallery-border-2;
+        border-bottom: 1px solid $gallery-border-2;
 
         &:last-child {
-          border-right: 1px solid $border-color;
+          border-right: 1px solid $gallery-border-2;
         }
 
         &:hover {
-          background-color: $background-color;
+          background-color: $gallery-bg-3;
           border-bottom: none;
           border-top: 3px solid $primary;
 
@@ -75,11 +72,11 @@ $background-color: #e3e1e1;
   }
 
   .product {
-    background-color: $background-color;
+    background-color: $gallery-bg-3;
     height: 390px;
     position: relative;
-    border-left: 1px solid $border-color;
-    border-right: 1px solid $border-color;
+    border-left: 1px solid $gallery-border-2;
+    border-right: 1px solid $gallery-border-2;
     overflow: hidden;
 
     img {
@@ -95,17 +92,17 @@ $background-color: #e3e1e1;
     display: flex;
     align-items: stretch;
     padding: 8px;
-    border: 1px solid $border-color;
+    border: 1px solid $gallery-border-2;
 
     .arrow {
       width: 30px;
-      background-color: black;
+      background-color: $gallery-bg-3;
       display: flex;
       align-items: center;
       justify-content: center;
 
       a {
-        color: $background-color;
+        color: $gallery-bg-4;
 
         &:hover {
           color: $primary;
@@ -125,7 +122,7 @@ $background-color: #e3e1e1;
       width: 100%;
       height: 100%;
       margin: 5px;
-      color: $background-color;
+      color: $gallery-bg-3;
       overflow: hidden;
 
       .active {

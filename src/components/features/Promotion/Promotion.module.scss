@@ -14,7 +14,7 @@
       position: relative;
       height: 100%;
       width: 100%;
-      background-color: rgba(189, 195, 199, 0.5);
+      background-color: $promotion-bg-1;
     }
     .title {
       position: absolute;
@@ -23,7 +23,7 @@
       font-weight: 600;
       font-size: 36px;
       line-height: 54px;
-      color: white;
+      color: $promotion-text-1;
     }
     .product {
       position: absolute;
@@ -32,7 +32,7 @@
       font-weight: 700;
       font-size: 50px;
       line-height: 54px;
-      color: white;
+      color: $promotion-text-1;
     }
     .promotion {
       position: absolute;
@@ -41,8 +41,8 @@
       font-weight: 600;
       font-size: 36px;
       line-height: 54px;
-      color: white;
-      border: 3px solid white;
+      color: $promotion-text-1;
+      border: 3px solid $promotion-border-1;
       width: 130px;
       text-align: center;
     }
@@ -67,19 +67,19 @@
       .title_small_1 {
         font-size: 30px;
         line-height: 26px;
-        color: black;
+        color: $promotion-text-2;
         display: inline-block;
       }
       .desc_small_1 {
         font-size: 18px;
         letter-spacing: 3px;
         line-height: 26px;
-        color: black;
+        color: $promotion-text-2;
       }
       .price_small_1 {
         font-size: 36px;
         line-height: 54px;
-        color: orange;
+        color: $promotion-text-3;
         font-weight: 600;
       }
     }
@@ -104,12 +104,12 @@
       .title_small_2 {
         margin:0  0 0 20px;
         font-size: 18px;
-        color: orange;
+        color: $promotion-text-3;
       }
       .desc_small_2 {
         margin:0  0 0 20px;
         font-size: 15px;
-        color: black;
+        color: $promotion-text-2;
       }
     }
   }
@@ -128,9 +128,7 @@
         left: 0%;
       }
     }
-
-
-}
+  }
 }
 
 

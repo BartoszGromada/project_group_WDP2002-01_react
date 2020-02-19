@@ -48,6 +48,7 @@
             text-decoration: none;
             font-size: 18px;
             display: block;
+            @include hover-animation;
 
             &.active,
             &:hover {
@@ -65,37 +66,98 @@
       }
     }
 
-    .dots {
+    .dotsOnRight {
       position: absolute;
       right: 0;
       top: 0;
+    }
+  }
 
-      ul {
-        margin: 0;
-        padding: 0 0 0 1rem;
-        list-style: none;
-        background-color: #ffffff;
-        transform: translateY(15px);
+  .centerDots {
+    display: block;
+    width: 100%;
+    text-align: center;
 
-        li {
-          display: inline-block;
-          margin-left: 0.5rem;
+  }
+  .dots {
+    margin: 0;
+    padding: 0 0 0 1rem;
+    list-style: none;
+    background-color: #ffffff;
+    transform: translateY(15px);
 
-          a {
-            display: block;
-            width: 13px;
-            height: 13px;
-            border-radius: 6px;
-            background-color: #e1e1e1;
-            font-size: 0;
+    li {
+      display: inline-block;
+      margin-left: 0.5rem;
 
-            &.active,
-            &:hover {
-              background-color: $primary;
-            }
-          }
+      a {
+        display: block;
+        width: 13px;
+        height: 13px;
+        border-radius: 6px;
+        background-color: #e1e1e1;
+        font-size: 0;
+
+        &.active,
+        &:hover {
+          background-color: $primary;
         }
       }
+    }
+  }
+
+  .comperedContainer {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background: $compared-container-bg;
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    border: 1px solid #e1e1e1;
+    z-index: 999;
+
+    img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      max-width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .close {
+      position: absolute;
+      top: 0px;
+      right: 5px;
+      font-weight: bold;
+
+      &:hover {
+        cursor: pointer;
+        color: $primary;
+      }
+    }
+
+    .productImage {
+      position: relative;
+      width: 80px;
+      height: 80px;
+      border: 1px solid #e1e1e1;
+      margin-right: 15px;
+
+      .close {
+        display: none;
+      }
+
+      &:hover .close {
+        display: inline-block;
+      }
+    }
+
+    a:hover {
+      text-decoration: none;
     }
   }
 }

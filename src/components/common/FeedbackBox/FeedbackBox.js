@@ -1,8 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-// import initialState from '../../../redux/initialState';
-
 import styles from './FeedbackBox.module.scss';
 
 class FeedbackBox extends React.Component {

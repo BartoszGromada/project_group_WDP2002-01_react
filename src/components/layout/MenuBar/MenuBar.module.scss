@@ -25,7 +25,7 @@
     }
 
     a {
-      color: $text-color;
+      color: $menu-text-2;
       text-transform: uppercase;
       font-size: 12px;
       padding: 1rem;
@@ -35,6 +35,8 @@
       border-top: 4px solid $menu-border-2;
       font-weight: 500;
       letter-spacing: 1px;
+      @include hover-animation;
+      text-align: center;
 
       &:hover,
       &.active {
@@ -47,5 +49,88 @@
         border-color: $menu-border-3;
       }
     }
+  }
+
+  .hamburger {
+    display: none;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1200px) {
+  .root {
+    :global(.container) > :global(.row) {
+      flex-direction: column-reverse;
+      height: auto;
+    }
+
+    .menu {
+      display: flex;
+      justify-content: center;
+    }
+  }
+
+  .col {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 767px) {
+  .menu {
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+    height: 0;
+    overflow: hidden;
+    z-index: 100;
+    ul {
+      width: 100%;
+      flex-direction: column;
+      background-color: $menu-bg-1;
+
+      li {
+        width: inherit;
+
+        a {
+          width: inherit;
+          justify-content: center;
+
+        }
+      }
+    }
+    transition: all 0.25s ease-in-out;
+  }
+  .root {
+    .hamburger {
+      display: flex;
+      justify-content: center;
+      border: none;
+      background-color: $primary;
+      color: $menu-text-1;
+      border-radius: 3px;
+      margin: 0 5px;
+      height: 45px;
+      width: 45px;
+    }
+  }
+
+  .col {
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    padding: 0;
+  }
+
+  .box {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 100%;
+    padding: 0;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .toggled {
+    height: 450px;
   }
 }

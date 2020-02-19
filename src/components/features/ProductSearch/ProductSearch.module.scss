@@ -4,13 +4,57 @@
   border: 1px solid  $search-border;
   display: inline-flex;
   height: 45px;
-  color: $text-color;
+  color: $search-text;
 
   .category {
     border-right: 1px solid  $search-border;
     display: flex;
     align-items: center;
     position: relative;
+    padding: 0;
+
+    .mainList {
+      margin: 0;
+      position: relative;
+      z-index: 1;
+      height: 100%;
+      list-style-type: none;
+      width: 100%;
+
+      .categoryList {
+        display: block;
+        border: none;
+        background-color: transparent;
+        left: -20%;
+        top: 20%;
+
+      }
+
+      li {
+        position: relative;
+        padding-left: 30px;
+        display:none;
+        width: 100%;
+        height: 100%;
+        border:  1px solid $search-border;
+        background-color: $search-bg-1 ;
+      }
+
+    }
+
+    .mainList:hover {
+      .subList {
+        display: block;
+      }
+    }
+
+    &:hover {
+      background-color: $primary;
+
+      .icon:first-child {
+        color: $search-text;
+      }
+    }
 
     .icon:first-child {
       color: $primary;
@@ -32,6 +76,16 @@
       padding: 5px 30px 5px 35px;
       position: relative;
       z-index: 1;
+      font-size: 14px;
+
+      &:focus {
+        outline: 0;
+
+        option {
+          background-color: $search-bg-1;
+          color: $search-text;
+        }
+      }
     }
   }
 
@@ -55,6 +109,23 @@
       border: 0;
       background-color: transparent;
       outline: none;
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .root {
+    border: none;
+    display: flex;
+    flex-direction: column;
+    .searchField {
+      border: 1px solid $search-border;
+      width: 100%;
+    }
+
+    .category {
+      border: 1px solid $search-border;
+      margin: 2px 0;
     }
   }
 }

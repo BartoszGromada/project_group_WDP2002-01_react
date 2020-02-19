@@ -4,6 +4,7 @@
   border: 1px solid $feature-border;
   text-align: center;
   margin-top: 40px;
+  display: block;
 
   .iconWrapper {
     height: 60px;
@@ -57,11 +58,11 @@
       margin: 0;
     }
 
-    p {
-    }
+    // p {
+    // }
   }
 
-  &.active {
+  &:hover {
     .iconWrapper {
       color: $icon-active;
 
@@ -75,4 +76,18 @@
       color: $primary;
     }
   }
+}
+
+@media (max-width: 768px)  {
+
+  .root {
+    height: 120px;
+    width: 155px;
+    padding: 5px;
+  }
+
+  h5, p {
+    font-size: 13px;
+  }
+
 }

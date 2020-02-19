@@ -8,6 +8,7 @@
   }
 
   .phoneNumber {
+
     p {
       margin: 0;
       font-size: 17px;
@@ -26,10 +27,12 @@
   }
 
   .cart {
+
     .cartBox {
       display: inline-block;
       position: relative;
       color: $company-icon-1;
+      @include hover-animation;
 
       .cartIcon {
         background-color: $primary;
@@ -47,9 +50,11 @@
       }
 
       .cartCounter {
-        width: 28px;
+        width: 80px;
         height: 27px;
+        padding: 0 10px;
         border-radius: 14px;
+        border: $primary solid 2px;
         background-color: $company-bg-1;
         display: flex;
         align-items: center;
@@ -58,7 +63,7 @@
         color: $company-text-2;
         position: absolute;
         top: 50%;
-        right: 0;
+        left: 0;
         transform: translate(50%, -50%);
       }
 
@@ -68,5 +73,15 @@
         }
       }
     }
+  }
+}
+
+@media (max-width: 576px) {
+  .text {
+    font-size: 14px;
+  }
+
+  .root {
+    padding-top: 15px;
   }
 }

@@ -1,8 +1,8 @@
 @import "../../../styles/settings.scss";
 
 .main {
-  background-color: #2a2a2a;
-  color: #ffffff;
+  background-color: $button-bg;
+  color: $button-text;
   font-size: 16px;
   line-height: 24px;
   font-weight: 600;
@@ -10,7 +10,7 @@
   @include hover-animation;
 
   &:not(.noHover):hover {
-    color: #ffffff !important;
+    color: $button-text !important;
     background-color: $primary;
     text-decoration: none;
   }
@@ -27,22 +27,22 @@
 .outline {
   display: inline-block;
   padding: 5px 10px;
-  border: 1px solid #2a2a2a;
-  color: #2a2a2a;
+  border: 1px solid $button-bg;
+  color: $button-bg;
   font-size: 13px;
   line-height: 22px;
   @include hover-animation;
 
   &:not(.noHover):hover {
-    background-color: #2a2a2a;
-    color: #ffffff;
+    background-color: $button-bg;
+    color: $button-text;
   }
 }
 
 .cta {
   @extend .main;
-  background-color: green;
-  color: white;
+  background-color: $button-bg-2;
+  color: $button-bg-3;
   border-radius: 5px;
 }
 
@@ -58,7 +58,6 @@
 }
 
 .favourite {
-  background-color: #2a2a2a;
-  color: #ffffff;
-
+  background-color: $button-bg;
+  color: $button-bg-3;
 }

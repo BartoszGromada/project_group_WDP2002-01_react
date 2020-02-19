@@ -6,7 +6,7 @@
     position: relative;
 
     :global(.row) > * {
-      border-bottom: 4px solid #e2e2e2;
+      border-bottom: 4px solid $furniture-border;
     }
 
     .heading {
@@ -43,7 +43,7 @@
           font-weight: 600;
 
           a {
-            color: rgb(42, 42, 42);
+            color: $furniture-text;
             position: relative;
             text-decoration: none;
             font-size: 18px;
@@ -83,7 +83,7 @@
     margin: 0;
     padding: 0 0 0 1rem;
     list-style: none;
-    background-color: #ffffff;
+    background-color: $furniture-bg-1;
     transform: translateY(15px);
 
     li {
@@ -95,7 +95,7 @@
         width: 13px;
         height: 13px;
         border-radius: 6px;
-        background-color: #e1e1e1;
+        background-color: $furniture-bg-2;
         font-size: 0;
 
         &.active,
@@ -112,11 +112,11 @@
     justify-content: space-between;
     align-items: center;
     padding: 15px;
-    background: $compared-container-bg;
+    background: $furniture-bg-1;
     position: fixed;
     right: 20px;
     bottom: 20px;
-    border: 1px solid #e1e1e1;
+    border: 1px solid $furniture-border-2;
     z-index: 999;
 
     img {
@@ -144,7 +144,7 @@
       position: relative;
       width: 80px;
       height: 80px;
-      border: 1px solid #e1e1e1;
+      border: 1px solid $furniture-border-2;
       margin-right: 15px;
 
       .close {

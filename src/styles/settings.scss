@@ -1,20 +1,148 @@
-$base-padding: 24px;
+/* Colors settings - DON'T USE THIS VARIABLES! */
 
-$header-topbar-bg: #434343;
-$header-bg: #363636;
-
-$brands-border: #e3e3e3;
-
-$footer-claim-bg: #2a2a2a;
-$footer-bg: #363636;
-
+//leading
 $primary: #d58e32;
 
+//texts
 $text-color: #2a2a2a;
+$text-color-2: #ffffff;
+$text-color-3: rgb(216, 216, 216);
+$text-color-4: rgb(224, 227, 237);
+$text-color-5: rgb(169, 169, 169);
+$text-color-6: green;
+$text-color-7: orange;
 
-$form-border-color: #292929;
+//backgrounds
+$background-main-1: #ffffff;
+$background-main-2: #2a2a2a;
+$background-main-3: #f4f5f7;
+$background-main-4: #363636;
+$background-main-5: #434343;
+$background-main-6: gray;
+$background-main-7: green;
+$background-main-8: black;
+$background-main-9: #e3e1e1;
+$background-main-10: red;
+$background-main-11: rgba(189, 195, 199, 0.5);
+$background-main-12: #e1e1e1;
 
-$compared-container-bg: #fff;
+//borders
+$border-1: #b6b6b6;
+$border-2: #e1e1e1;
+$border-3: #2a2a2a;
+$border-4: #e2e2e2;
+$border-5: #292929;
+$border-6: rgba(1, 2, 2, 0.2);
+$border-7: #ffffff;
+$border-8: black;
+$border-9: gray;
+$border-10: #e0dede;
+
+//icons
+$icon-1: #ffffff;
+$icon-2: rgb(42, 42, 42);
+$icon-3: red;
+
+
+/* Colors settings - VARIABLES TO USE IN COMPONENTS */
+
+//Buttons
+$button-text: $text-color-2;
+$button-bg: $background-main-2;
+$button-bg-2: $background-main-7;
+$button-bg-3: $background-main-1;
+
+//FeatureBox
+$icon-active: $icon-1;
+$icon: $icon-2;
+$feature-border: $border-1;
+$feature-bg: $background-main-1;
+$feature-text: $text-color;
+
+//ProductBox
+$product-box-bg-1: $background-main-1;
+$product-box-bg-2: $background-main-2;
+$product-box-photo-bg: $background-main-3;
+$product-box-border-1: $border-2;
+$product-box-border-2: $border-3;
+$product-box-border-3: $border-9;
+$product-box-text:  $text-color-2;
+$product-box-stars: $icon-2;
+$product-box-icon-1: $icon-3;
+
+//NewFurniture
+$furniture-border: $border-4;
+$furniture-border-2: $border-2;
+$furniture-text: $text-color;
+$furniture-bg-1: $background-main-1;
+$furniture-bg-2: $background-main-12;
+
+//ProductSearch
+$search-border: $border-5;
+$search-text: $text-color;
+$search-text: $text-color-2;
+$search-bg-1: $background-main-1;
+
+//CompanyClaim
+$company-bg-1: $background-main-4;
+$company-text-1: $text-color-3;
+$company-text-2: $text-color-4;
+$company-icon-1: $icon-1;
+
+//Footer
+$footer-bg-1: $background-main-4;
+$footer-bg-2: $background-main-2;
+$footer-text-1: $text-color-2;
+$footer-text-2: $text-color-5;
+
+//MenuBar
+$menu-border-1: $border-6;
+$menu-border-2: $border-7;
+$menu-border-3: $border-3;
+$menu-bg-1: $background-main-1;
+$menu-text-1: $text-color-2;
+$menu-text-2: $text-color;
+
+//TopBar
+$top-bar-bg: $background-main-5;
+$top-bar-text: $text-color-2;
+
+//FurnitureGallery & FurnitureActions & FurniturePrice
+$gallery-bg-1: $background-main-6;
+$gallery-bg-2: $background-main-1;
+$gallery-bg-3: $background-main-8;
+$gallery-bg-4: $background-main-9;
+$gallery-text-1: $text-color-2;
+$gallery-icon-1: $icon-2;
+$gallery-border-1: $border-8;
+$gallery-border-2: $border-10;
+
+//PomoProduct
+$promo-bg-1: $background-main-10;
+$promo-text-1: $text-color;
+$promo-text-2: $text-color-6;
+
+//Promotion
+$promotion-bg-1: $background-main-11;
+$promotion-text-1: $text-color-2;
+$promotion-text-2: $text-color;
+$promotion-text-3: $text-color-7;
+$promotion-border-1: $border-7;
+
+//Brands
+$brands-bg-1: $background-main-1;
+$brands-bg-2: $background-main-2;
+$brands-border-1: $border-1;
+
+//Stars
+$stars-icone-1: $icon-2;
+
+
+/* Settings */
+
+
+$base-padding: 24px;
+
 
 @mixin hover-animation($all: false, $color-time: 0.25s, $bg-color-time: 0.25s) {
   @if ($all) {

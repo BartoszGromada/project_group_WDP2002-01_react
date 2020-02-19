@@ -442,6 +442,16 @@ const initialStoreData = {
       name: 'brand 6',
       image: 'https://www.logologo.com/logos/letter-a-circle-logo.jpg',
     },
+    {
+      id: 'brand-7',
+      name: 'brand 7',
+      image: 'https://www.logologo.com/logos/city-logo.jpg',
+    },
+    {
+      id: 'brand-8',
+      name: 'brand 8',
+      image: 'https://www.logologo.com/logos/open-house-logo.jpg',
+    },
   ],
   tabs: [
     { id: 'featured', name: 'Featured' },

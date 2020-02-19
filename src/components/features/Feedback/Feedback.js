@@ -1,16 +1,11 @@
 import React from 'react';
-<<<<<<< HEAD
-=======
 import PropTypes from 'prop-types';
->>>>>>> Add proposTypes to feedback component
 
 import styles from './Feedback.module.scss';
 import FeedbackBox from '../../common/FeedbackBox/FeedbackBox';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faQuoteRight } from '@fortawesome/free-solid-svg-icons';
-
-import initialState from '../../../redux/initialState';
 
 class Feedback extends React.Component {
   state = {
@@ -23,9 +18,18 @@ class Feedback extends React.Component {
 
   render() {
     const { activePage } = this.state;
-    const { opinionText, opinionImage, opinionName, opinionTitle } = this.props;
+    const {
+      // opinionText,
+      // opinionImage,
+      // opinionName,
+      // opinionTitle,
+      feedback,
+    } = this.props;
 
-    const pagesCount = initialState.feedback.length;
+    // eslint-disable-next-line no-console
+    console.log('feedback', feedback);
+
+    const pagesCount = feedback.length;
 
     const dots = [];
     for (let i = 0; i < pagesCount; i++) {
@@ -63,10 +67,10 @@ class Feedback extends React.Component {
             </div>
             <div className='row'>
               <FeedbackBox
-                opinionText={opinionText}
-                opinionImage={opinionImage}
-                opinionName={opinionName}
-                opinionTitle={opinionTitle}
+              // opinionText={opinionText}
+              // opinionImage={opinionImage}
+              // opinionName={opinionName}
+              // opinionTitle={opinionTitle}
               />
             </div>
           </div>
@@ -77,17 +81,25 @@ class Feedback extends React.Component {
 }
 
 Feedback.propTypes = {
+<<<<<<< HEAD
   opinionText: PropTypes.number,
   opinionImage: PropTypes.number,
   opinionName: PropTypes.number,
   opinionTitle: PropTypes.number,
+=======
+  feedback: PropTypes.node,
+  // opinionText: PropTypes.node,
+  // opinionImage: PropTypes.node,
+  // opinionName: PropTypes.node,
+  // opinionTitle: PropTypes.node,
+>>>>>>> Add container & redux
 };
 
-Feedback.defaultProps = {
-  opinionText: initialState.feedback[0].opinion,
-  opinionImage: initialState.feedback[0].image,
-  opinionName: initialState.feedback[0].name,
-  opinionTitle: initialState.feedback[0].title,
-};
+// Feedback.defaultProps = {
+//   opinionText: initialState.feedback[0].opinion,
+//   opinionImage: initialState.feedback[0].image,
+//   opinionName: initialState.feedback[0].name,
+//   opinionTitle: initialState.feedback[0].title,
+// };
 
 export default Feedback;

@@ -1,15 +1,25 @@
 import { combineReducers, createStore } from 'redux';
-import initialState from './initialState';
+import initialStoreData from './initialState';
 
 import cartReducer from './cartRedux';
 import categoriesReducer from './categoriesRedux';
 import productsReducer from './productsRedux';
+import modeReducer from './modesRedux';
+import compareReducer from './compareRedux';
+
+// define initial state and shallow-merge initial data
+const initialState = {
+  products: initialStoreData.products,
+  tabs: initialStoreData.tabs,
+};
 
 // define reducers
 const reducers = {
   cart: cartReducer,
   categories: categoriesReducer,
   products: productsReducer,
+  mode: modeReducer,
+  compare: compareReducer,
 };
 
 // add blank reducers for initial state properties without reducers

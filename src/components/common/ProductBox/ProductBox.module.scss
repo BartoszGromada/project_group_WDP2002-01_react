@@ -26,6 +26,7 @@
       border-radius: 50%;
       color: #ffffff;
       padding: 30px 15px 5px 15px;
+      z-index: 2;
     }
 
     .buttons {
@@ -33,6 +34,19 @@
       justify-content: space-between;
       opacity: 0;
       transition: 0.2s ease-in-out;
+      a {
+        z-index: 2;
+      }
+    }
+
+    img {
+      position: absolute;
+      top: 0;
+      left: 10px;
+      right: 10px;
+      max-width: calc(100% - 20px);
+      height: 100%;
+      object-fit: cover;
     }
   }
 
@@ -45,13 +59,6 @@
       font-size: 16px;
       line-height: 24px;
       letter-spacing: 1px;
-    }
-
-    .stars {
-      a {
-        text-decoration: none;
-        color: rgb(42, 42, 42);
-      }
     }
   }
 
@@ -78,17 +85,72 @@
     align-items: center;
   }
 
-  .price {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  .favorite {
+    color: red;
   }
-}
-.wrapper {
-  :hover .buttons{
-    opacity: 1;
+
+  .compared {
+    color: $primary;
+    .price {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
   }
-  :hover .price *{
-    background-color: $primary;
+  .wrapper {
+    &:hover .buttons {
+      opacity: 1;
+    }
+    &:hover .price * {
+      background-color: $primary;
+    }
+  }
+
+
+  .cart_modal {
+    font-size: 16px;
+
+    .header_modal {
+      border-bottom: 1px solid gray;
+      font-size: 18px;
+      text-align: center;
+      padding: 5px;
+      width: 100%;
+
+      .trashIcon_modal {
+        cursor: pointer;
+      }
+    }
+
+    .content_modal {
+      width: 100%;
+      padding: 10px 5px;
+      text-align: center;
+
+      .product_img_modal {
+        top: 39px;
+        left: 10px;
+        right: 10px;
+        height: 65%;
+      }
+
+      .product_text_modal {
+        text-align: right;
+        font-weight: bold;
+      }
+    }
+
+    .close_modal {
+      cursor: pointer;
+      display: block;
+      padding: 2px 5px;
+      line-height: 20px;
+      top: -10px;
+      font-size: 24px;
+      background: #ffffff;
+      position: absolute;
+      border-radius: 18px;
+      border: 1px solid white;
+    }
   }
 }

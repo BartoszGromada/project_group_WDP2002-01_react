@@ -5,6 +5,7 @@ import styles from './CompanyClaim.module.scss';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMobileAlt, faShoppingBasket } from '@fortawesome/free-solid-svg-icons';
+import Popup from 'reactjs-popup';
 
 const CompanyClaim = () => (
   <div className={styles.root}>
@@ -24,12 +25,27 @@ const CompanyClaim = () => (
           </a>
         </div>
         <div className={`col-md-4 col-6 order-md-3 order-2 text-right ${styles.cart}`}>
-          <a href='#' className={styles.cartBox}>
-            <div className={styles.cartIcon}>
-              <FontAwesomeIcon className={styles.icon} icon={faShoppingBasket} />
-            </div>
-            <div className={styles.cartCounter}>99999</div>
-          </a>
+          <Popup
+            trigger={
+              <a href='#' className={styles.cartBox}>
+                <div className={styles.cartIcon}>
+                  <FontAwesomeIcon className={styles.icon} icon={faShoppingBasket} />
+                </div>
+                <div className={styles.cartCounter}>99999</div>
+              </a>
+            }
+            modal
+            content={
+              <div className={styles.popup}>
+                <h2>Title</h2>
+                <div>Popup content here !!</div>
+                <button>elo</button>
+                <div>
+                  <button>Cancel</button>
+                </div>
+              </div>
+            }
+          />
         </div>
       </div>
     </div>

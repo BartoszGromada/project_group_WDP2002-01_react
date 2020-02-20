@@ -57,11 +57,11 @@ dla plików, które zostały wybrane za pomocą `git add` i mają być zapisane 
   - redux
   - styles
 
-**Style**
+**Style:**
 
  Style globalne znajdują się w katalogu `styles`, natomiast style dla poszczególnych komponentów, umieszczamy w katalogach konkretnego komponentu pod nazwą `NazwaKomponentu.module.scss`
 
-**System kontroli wersji**
+**System kontroli wersji:**
 
 Podczas pracy korzystamy z GitHub'a.
 

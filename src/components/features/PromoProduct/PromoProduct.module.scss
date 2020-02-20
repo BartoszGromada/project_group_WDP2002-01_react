@@ -1,0 +1,49 @@
+@import "../../../styles/settings.scss";
+
+.promotion {
+  width: 550px;
+  height: 600px;
+}
+
+.promo {
+  width: 100%;
+  height: 600px;
+  background-color: $promo-bg-1;
+  overflow: hidden;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .info {
+    position: absolute;
+    width: 75%;
+    height: 200px;
+    top: 60px;
+    left:70px;
+
+    p {
+      color: $promo-text-1;
+      text-transform: uppercase;
+      font-size: 18px;
+      margin:0;
+    }
+
+    span {
+      color: $promo-text-2;
+      font-size: 40px;
+      font-weight: 700;
+      margin:0;
+    }
+
+    h2 {
+      color: $primary;
+      font-size: 40px;
+      font-weight: 700;
+      margin-top: 5px;
+      margin-bottom: 40px;
+    }
+  }
+}

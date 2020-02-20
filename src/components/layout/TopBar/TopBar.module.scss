@@ -1,7 +1,7 @@
 @import "../../../styles/settings.scss";
 
 .root {
-  background-color: $header-topbar-bg;
+  background-color: $background-main-5;
 
   ul {
     list-style: none;
@@ -28,7 +28,7 @@
         bottom: -70px;
         z-index: 999;
         padding: 10px;
-        background-color: $header-topbar-bg;
+        background-color: $background-main-5;
         display: none;
 
         h6 {
@@ -56,8 +56,9 @@
       }
 
       a {
-        color: #ffffff;
+        color: $top-bar-text;
         font-size: 13px;
+        @include hover-animation;
 
         &:hover {
           color: $primary;
@@ -81,5 +82,11 @@
     .icon {
       margin-right: 5px;
     }
+  }
+}
+
+@media (max-width: 576px) {
+  .topMenu ul li a span {
+    display: none;
   }
 }

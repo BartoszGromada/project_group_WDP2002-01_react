@@ -1,0 +1,13 @@
+@import "../../../styles/settings.scss";
+
+.stars {
+  a {
+    text-decoration: none;
+    color: $stars-icone-1;
+  }
+}
+
+.active {
+  color: lighten($primary, 10%);
+}
+

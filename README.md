@@ -5,7 +5,9 @@
 
 ## Opis projektu
 
-Przykładowa strona sklepu internetowego, zakodowana na bazie darmowego szablonu PSD. Projekt realizowany przez kilkuosobową grupę w ramach kursu programowania.
+Przykładowa strona sklepu internetowego, zakodowana na bazie darmowego szablonu PSD.
+
+Projekt realizowany przez kilkuosobową grupę w ramach kursu programowania.
 
 ## Demo
 
@@ -38,9 +40,12 @@ dla plików, które zostały wybrane za pomocą `git add` i mają być zapisane 
 
 ## Konwencje i dobre praktyki
 
-Platforma komunikacji: **Jira** oraz komunikator **Kodilla**
+**Platformy komunikacji:**
+- Jira
+- komunikator Kodilla
 
-Środowisko pracy **React**
+**Środowisko pracy:**
+- React
 
 **Podstawowa struktura katalogów projektu:**
 - src
@@ -53,9 +58,12 @@ Platforma komunikacji: **Jira** oraz komunikator **Kodilla**
   - styles
 
 **Style**
+
  Style globalne znajdują się w katalogu `styles`, natomiast style dla poszczególnych komponentów, umieszczamy w katalogach konkretnego komponentu pod nazwą `NazwaKomponentu.module.scss`
 
 **System kontroli wersji**
+
 Podczas pracy korzystamy z GitHub'a.
+
 Tworząc nowy branch nazywamy go `WDP200202-numerTicketu`.
 

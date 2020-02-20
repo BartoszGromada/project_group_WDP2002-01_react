@@ -11,6 +11,10 @@
       border-bottom: 4px solid $feedbeck-borger-1;
     }
 
+    .box {
+      flex-direction: column;
+    }
+
     .heading {
       position: relative;
 

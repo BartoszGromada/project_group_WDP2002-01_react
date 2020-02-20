@@ -50,13 +50,13 @@ class Feedback extends React.Component {
               </div>
             </div>
           </div>
-          <div className={'row ' + styles.feedbackBox}>
+          <div className={'${row} ${styles.box}'}>
             <div className='col-12'>
               <div className={styles.iconWrapper}>
                 <FontAwesomeIcon className={styles.icon} icon={faQuoteRight} />
               </div>
             </div>
-            <div className='row'>
+            <div className={'${row} ${styles.box}'}>
               {feedback.slice(activePage, activePage + 1).map(item => (
                 <div key={item.id}>
                   <FeedbackBox

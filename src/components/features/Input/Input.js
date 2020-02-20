@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React, { Component } from 'react';
 import './index.css';
 
@@ -7,20 +8,21 @@ class Input extends Component {
   };
 
   decrease = () => {
-    if (this.state.value > 1) {
-      this.setState({ value: this.state.value - 1 });
+    if (this.props.val > 1) {
+      this.setState({ value: this.props.val - 1 });
     }
   };
 
   increase = () => {
-    if (this.state.value < 40) {
-      this.setState({ value: this.state.value + 1 });
+    if (this.props.val < 40) {
+      this.setState({ value: this.props.val + 1 });
     }
   };
 
-  handleChange(event) {
-    this.setState({ value: event.target.value });
-  }
+  handleChange = e => {
+    const { updateCartValue } = this.props;
+    updateCartValue(e.target.value);
+  };
 
   render() {
     return (
@@ -31,7 +33,6 @@ class Input extends Component {
           name='quantity'
           min='1'
           max='45'
-          value={this.state.value}
           onChange={this.handleChange}
           type='number'
         />

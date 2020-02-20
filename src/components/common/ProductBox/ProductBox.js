@@ -12,7 +12,7 @@ import {
 import { faStar as farStar, faHeart } from '@fortawesome/free-regular-svg-icons';
 import Button from '../Button/Button';
 import Popup from 'reactjs-popup';
-import Input from '../../features/Input/Input';
+import Input from '../../features/Input/InputContainer';
 
 const ProductBox = ({
   id,
@@ -26,6 +26,8 @@ const ProductBox = ({
   allComperedProducts,
   addToCart,
   removeFromCart,
+  // eslint-disable-next-line react/prop-types
+  val,
 }) => {
   const handleClickToCompare = product => {
     const duplicates = allComperedProducts.filter(item => item.id === product.id)

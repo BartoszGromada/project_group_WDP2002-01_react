@@ -385,6 +385,8 @@ const initialStoreData = {
         stars: 2,
         promo: 'sale',
         newFurniture: true,
+        img:
+          'https://images.unsplash.com/photo-1512111468-477c8248162b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60',
       },
       {
         id: 'aenean-ru-bristique-1',

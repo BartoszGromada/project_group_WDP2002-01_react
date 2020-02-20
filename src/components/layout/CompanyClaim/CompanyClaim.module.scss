@@ -76,8 +76,82 @@
   }
 
   .popup {
-    height: 40px;
-    width: 150px
+    text-align: center;
+    margin: 5px 10px;
+  }
+
+  .title {
+    color: $primary;
+    position: relative;
+    margin-bottom: 30px;
+  }
+
+  .title::after {
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    content: ' ';
+    height: 2px;
+    width: 100%;
+    background-color: black;
+  }
+
+  .popupContent {
+    min-height: 80px;
+    margin: 2px 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+
+    .description {
+      margin: 0 10px;
+      display: flex;
+      align-items: center;
+    }
+
+    .cartActions {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+
+      .cartIcon {
+        background-color: $primary;
+        width: 25px;
+        height: 25px;
+        border-radius: 3px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 15px;
+        margin-left: 8px;
+
+        &:hover {
+          cursor: pointer;
+          background-color: lighten($primary, 10%);
+        }
+      }
+    }
+  }
+
+  .buttons {
+    display: flex;
+    justify-content: flex-end;
+    height: 25px;
+
+    .button {
+      color: #fff;
+      background-color: $primary;
+      flex: 20%;
+      max-width: 20%;
+      margin-left: 10px;
+      box-sizing: border-box;
+
+      &:hover {
+        background-color: lighten($primary, 10%);
+        border: .5px solid black;
+        cursor: pointer;
+      }
+    }
   }
 }
 

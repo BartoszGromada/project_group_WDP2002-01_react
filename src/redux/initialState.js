@@ -293,6 +293,13 @@ const initialState = {
   compare: [],
   currency: 'USD',
   avaibleCurrencies: ['USD', 'EUR', 'PLN'],
+  currencyRates: {
+    loading: {
+      active: false,
+      error: false,
+      done: false,
+    },
+  },
 };
 
 export default initialState;

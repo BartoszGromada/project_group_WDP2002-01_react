@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -6,7 +6,7 @@ import { faCaretDown, faUser, faLock, faBars } from '@fortawesome/free-solid-svg
 
 import styles from './TopBar.module.scss';
 
-const TopBar = ({ currency, allCurrencies, changeCurrency }) => {
+const TopBar = ({ currency, allCurrencies, changeCurrency, fetchRates, getStatus }) => {
   const [open, setOpen] = useState(false);
 
   const handleOpenCurrencies = () => {
@@ -17,6 +17,10 @@ const TopBar = ({ currency, allCurrencies, changeCurrency }) => {
     changeCurrency(symbol);
     setOpen(!open);
   };
+
+  useEffect(() => {
+    fetchRates();
+  }, [fetchRates]);
 
   return (
     <div className={styles.root}>
@@ -30,9 +34,11 @@ const TopBar = ({ currency, allCurrencies, changeCurrency }) => {
                   className={styles.actualCurrency}
                 >
                   {currency}{' '}
-                  <FontAwesomeIcon className={styles.icon} icon={faCaretDown} />
+                  {getStatus && (
+                    <FontAwesomeIcon className={styles.icon} icon={faCaretDown} />
+                  )}
                 </div>
-                {allCurrencies && (
+                {allCurrencies && getStatus && (
                   <div
                     className={`${styles.currenciesContainer} ${open && styles.open}`}
                   >
@@ -85,6 +91,8 @@ TopBar.propTypes = {
   currency: PropTypes.string,
   allCurrencies: PropTypes.array,
   changeCurrency: PropTypes.func,
+  fetchRates: PropTypes.func,
+  getStatus: PropTypes.bool,
 };
 
 export default TopBar;

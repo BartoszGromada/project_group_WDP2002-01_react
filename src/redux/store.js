@@ -11,6 +11,7 @@ import compareReducer from './compareRedux';
 const initialState = {
   products: initialStoreData.products,
   tabs: initialStoreData.tabs,
+  brands: initialStoreData.brands,
 };
 
 // define reducers

@@ -27,10 +27,10 @@ class Brands extends React.Component {
             </button>
 
             <SwipeComponent
-              rightAction={() => this.alertRight('right')}
-              leftAction={() => this.alertLeft('left')}
+              rightAction={() => this.alertRight('you swipe right')}
+              leftAction={() => this.alertLeft('you swipe left')}
             >
-              <div className={styles.row}>
+              <div className={styles.swipe}>
                 {brands.map(brand => (
                   <div key={brand.id} className={styles.box}>
                     <img src={brand.image} alt={brand.image} />

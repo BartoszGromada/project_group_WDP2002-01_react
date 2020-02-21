@@ -11,7 +11,7 @@ Projekt realizowany przez kilkuosobową grupę w ramach kursu programowania.
 
 ## Demo
 
-link do uzupełnienia po publikacji [Bazar]()
+[Bazar](https://ecstatic-johnson-c9bf2f.netlify.com)
 
 ## Inicjacja projektu
 

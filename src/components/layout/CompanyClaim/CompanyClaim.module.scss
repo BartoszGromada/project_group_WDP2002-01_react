@@ -133,6 +133,12 @@
     }
   }
 
+  .productAmount {
+    max-width: 30px;
+    height: 29px;
+    text-align: center;
+  }
+
   .buttons {
     display: flex;
     justify-content: flex-end;

@@ -5,6 +5,8 @@ import styles from './CompanyClaim.module.scss';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
+  faPlus,
+  faMinus,
   faMobileAlt,
   faTrash,
   faShoppingBasket,
@@ -65,7 +67,18 @@ class CompanyClaim extends React.Component {
                         </div>
                         <div className={styles.description}>{product.name}</div>
                         <div className={styles.cartActions}>
-                          <div>{'elo'}</div>
+                          <button>
+                            <FontAwesomeIcon className={styles.icon} icon={faMinus} />
+                          </button>
+                          <input
+                            className={styles.productAmount}
+                            type='text'
+                            name='amount'
+                            value={'1'}
+                          />
+                          <button>
+                            <FontAwesomeIcon className={styles.icon} icon={faPlus} />
+                          </button>
                           <div className={styles.cartIcon}>
                             <FontAwesomeIcon className={styles.icon} icon={faTrash} />
                           </div>

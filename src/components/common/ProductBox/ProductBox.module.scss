@@ -86,26 +86,28 @@
   }
 
   .favorite {
-    color: $product-box-icon-1;
+    color: yellow;
   }
 
   .compared {
     color: $primary;
-    .price {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
   }
+
+  .price {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
   .wrapper {
     &:hover .buttons {
       opacity: 1;
     }
-    &:hover .price * {
-      background-color: $primary;
+
+    &:hover .price div {
+      color: $primary;
     }
   }
-
 
   .cart_modal {
     font-size: 16px;

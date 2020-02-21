@@ -46,8 +46,8 @@ const ProductBox = ({
   };
 
   return (
-    <div className={styles.wrapper}>
-      <div className={styles.root}>
+    <div className={styles.root}>
+      <div className={styles.wrapper}>
         <div className={styles.photo}>
           {promo && <div className={styles.sale}>{promo}</div>}
           <img src={img} alt={`${name} bed`} />
@@ -119,18 +119,13 @@ const ProductBox = ({
               variant='outline'
               onClick={() => handleClickToCompare({ id, name, img })}
             >
-              <FontAwesomeIcon
-                icon={faExchangeAlt}
-                className={compared ? styles.compared : ''}
-              >
-                Add to compare
-              </FontAwesomeIcon>
+              <FontAwesomeIcon icon={faExchangeAlt}>Add to compare</FontAwesomeIcon>
             </Button>
           </div>
           <div className={styles.price}>
             {oldPrice && <div className={styles.oldPrice}></div>}
             {oldPrice && (
-              <Button noHover variant='outline'>
+              <Button noHover variant='noborder'>
                 <del>
                   <Price>{oldPrice}</Price>
                 </del>

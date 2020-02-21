@@ -9,7 +9,9 @@ import { faMobileAlt, faShoppingBasket } from '@fortawesome/free-solid-svg-icons
 const CompanyClaim = () => (
   <div className={styles.root}>
     <div className='container'>
-      <div className='row align-items-start align-items-md-center'>
+      <div
+        className={`row align-items-start align-items-md-center ${styles.companyinfo}`}
+      >
         <div
           className={`col-md-4 col-12 order-md-1 order-3 text-md-left text-right ${styles.phoneNumber}`}
         >
@@ -23,7 +25,7 @@ const CompanyClaim = () => (
             <img src='/images/logo.png' alt='Bazar' />
           </a>
         </div>
-        <div className={`col-md-4 col-6 order-md-3 order-2 text-right ${styles.cart}`}>
+        <div className={`col-md-4 col-6 order-md-3 order-2 text-center ${styles.cart}`}>
           <a href='#' className={styles.cartBox}>
             <div className={styles.cartIcon}>
               <FontAwesomeIcon className={styles.icon} icon={faShoppingBasket} />

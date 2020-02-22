@@ -1,0 +1,21 @@
+@import "../../../styles/settings.scss";
+
+.opinion {
+  text-align: center;
+  margin: 0 10%;
+  margin-bottom: 20px;
+}
+
+.customer {
+  display: flex;
+  align-items: center;
+}
+
+img {
+  width: 70px;
+  height: 70px;
+}
+
+.title {
+  margin-bottom: 0;
+}

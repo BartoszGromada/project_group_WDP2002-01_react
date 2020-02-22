@@ -1,20 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import currencySymbol from '../../../utils/currencySymbol';
+import { currencySymbolMap } from '../../../utils/currencySymbol';
 import currencyConverter from '../../../utils/currencyConverter';
 
 const Price = ({ children, getCurrency, getRates, getStatus }) => {
-  const formatedPrice = price => {
-    if (getStatus) {
-      return currencyConverter(price, getCurrency, getRates.rates);
-    }
-    return <>{price}</>;
-  };
+  const formatedPrice = price =>
+    getStatus ? currencyConverter(price, getCurrency, getRates.rates) : price;
 
   return (
     <>
-      {formatedPrice(children)} {currencySymbol(getCurrency)}
+      {formatedPrice(children)} {currencySymbolMap[getCurrency]}
     </>
   );
 };

@@ -67,3 +67,17 @@ Podczas pracy korzystamy z GitHub'a.
 
 Tworząc nowy branch nazywamy go `WDP200202-numerTicketu`.
 
+Po zakończeniu prac nad ticketem, wysyłamy poprzez GitHuba Pull Request, w którym wpisujemy numer ticketa oraz krótki opis wprowadzonych zmian.
+
+Merge danego brancha wymaga dwóch akceptacji - jednej od mentora, drugiej od jednego członka zespołu rozwijającego projekt.
+
+**Status zadań:**
+
+Status prac należy aktualizować poprzez platformę Jira.
+
+Pilnujemy statusu ticketów poprzez umieszczanie ich w odpowiednich kolumnach:
+- backlog - tutaj znajdują się zadania, które czekają na przypisanie do osób
+- queued - tutaj umieszczamy zadania, na których realizację zdecydowaliśmy się
+- in progress - tutaj zadania, nad którymi rozpoczęliśmy pracę
+- in review - tutaj umieszczamy zadania, nad którymi skończyliśmy pracę i oczekują na akceptację
+- done - tutaj znajdują się zadania, które zostały zmergowane do mastera

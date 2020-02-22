@@ -26,8 +26,7 @@ const ProductBox = ({
   allComperedProducts,
   addToCart,
   removeFromCart,
-  // eslint-disable-next-line react/prop-types
-  val,
+  value,
 }) => {
   const handleClickToCompare = product => {
     const duplicates = allComperedProducts.filter(item => item.id === product.id)
@@ -38,13 +37,12 @@ const ProductBox = ({
     }
   };
 
-  const handleClickToAddToCart = ({ id, img, price }) => {
-    addToCart({ id, img, price });
+  const handleClickToAddToCart = ({ id, img, price, value }) => {
+    addToCart({ id, img, price, value });
   };
   const handleClickToRemoveFromCart = id => {
     removeFromCart(id);
   };
-
   return (
     <div className={styles.wrapper}>
       <div className={styles.root}>
@@ -54,7 +52,7 @@ const ProductBox = ({
           <div className={styles.buttons}>
             <Button variant='small'>Quick View</Button>
             <Popup
-              onOpen={() => handleClickToAddToCart({ id, img, price })}
+              onOpen={() => handleClickToAddToCart({ id, img, price, value })}
               trigger={
                 <Button variant='small'>
                   <FontAwesomeIcon icon={faShoppingBasket} />
@@ -151,7 +149,7 @@ ProductBox.propTypes = {
   allComperedProducts: PropTypes.array,
   addToCart: PropTypes.func,
   removeFromCart: PropTypes.func,
-  valueAsNumber: PropTypes.number,
+  value: PropTypes.node,
 };
 
 export default ProductBox;

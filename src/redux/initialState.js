@@ -279,6 +279,7 @@ const initialState = {
   ],
   cart: [],
   compare: [],
+  input: [],
 };
 
 export default initialState;

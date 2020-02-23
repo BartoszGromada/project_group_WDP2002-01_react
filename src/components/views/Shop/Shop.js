@@ -1,26 +1,18 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
-import styles from './Shop.module.scss';
-import Jumbotron from 'react-bootstrap/Jumbotron';
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
+import ShopBox from '../../common/ShopBox/ShopBox';
+import ShopTable from '../../common/ShopTable/ShopTable';
+import NewFurniture from '../../features/NewFurniture/NewFurnitureContainer';
 
-const Shop = () => (
-  <Jumbotron className={styles.root}>
-    <Container>
-      <Row>
-        <Col lg={2} sm={12}>
-          <h2 className={styles.sectionTitle}>Furniture</h2>
-        </Col>
-        <Col md={{ span: 3, offset: 6 }}>
-          <p>{'Home > Furniture > Chair'}</p>
-        </Col>
-      </Row>
-    </Container>
-  </Jumbotron>
-);
-
-// ProductPage.propTypes = {};
+class Shop extends React.Component {
+  render() {
+    return (
+      <div>
+        <ShopBox />
+        <ShopTable />
+        <NewFurniture />
+      </div>
+    );
+  }
+}
 
 export default Shop;

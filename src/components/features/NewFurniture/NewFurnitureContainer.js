@@ -9,12 +9,14 @@ import {
   getAllToCompare,
   removeProductFromCompare,
 } from '../../../redux/compareRedux.js';
+import { getSearchString } from '../../../redux/searchRedux';
 
 const mapStateToProps = state => ({
   mode: getMode(state),
   categories: getAll(state),
   products: getNew(state),
   allComperedProducts: getAllToCompare(state),
+  searchString: getSearchString(state),
 });
 
 const mapDispatchToProps = dispatch => ({

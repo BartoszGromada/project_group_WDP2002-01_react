@@ -7,6 +7,8 @@ import FeedbackBox from '../../common/FeedbackBox/FeedbackBox';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faQuoteRight } from '@fortawesome/free-solid-svg-icons';
 
+import SwipeComponent from '../../common/SwipeComponent/SwipeComponent';
+
 class Feedback extends React.Component {
   state = {
     activePage: 0,
@@ -57,16 +59,27 @@ class Feedback extends React.Component {
               </div>
             </div>
             <div className={'${row} ${styles.box}'}>
-              {feedback.slice(activePage, activePage + 1).map(item => (
-                <div key={item.id}>
-                  <FeedbackBox
-                    opinionText={item.opinion}
-                    opinionImage={item.image}
-                    opinionName={item.name}
-                    opinionTitle={item.title}
-                  />
-                </div>
-              ))}
+              <SwipeComponent
+                rightAction={() =>
+                  this.handlePageChange(activePage > 0 ? activePage - 1 : 0)
+                }
+                leftAction={() =>
+                  this.handlePageChange(
+                    activePage + 1 < pagesCount ? activePage + 1 : activePage
+                  )
+                }
+              >
+                {feedback.slice(activePage, activePage + 1).map(item => (
+                  <div key={item.id}>
+                    <FeedbackBox
+                      opinionText={item.opinion}
+                      opinionImage={item.image}
+                      opinionName={item.name}
+                      opinionTitle={item.title}
+                    />
+                  </div>
+                ))}
+              </SwipeComponent>
             </div>
           </div>
         </div>

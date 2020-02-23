@@ -10,6 +10,7 @@ import MainLayout from './components/layout/MainLayout/MainLayoutContainer';
 import Homepage from './components/views/Homepage/Homepage';
 import ProductList from './components/views/ProductList/ProductList';
 import ProductPage from './components/views/ProductPage/ProductPage';
+import Furniture from './components/views/Furniture/FurnitureContainer';
 
 const App = () => (
   <Provider store={store}>
@@ -19,6 +20,7 @@ const App = () => (
           <Route exact path={'/'} component={Homepage} />
           <Route exact path={'/shop/:categoryId'} component={ProductList} />
           <Route exact path={'/product/:productId'} component={ProductPage} />
+          <Route exact path={'/products'} component={Furniture} />
         </Switch>
       </MainLayout>
     </BrowserRouter>

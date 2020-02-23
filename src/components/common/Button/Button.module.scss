@@ -61,3 +61,22 @@
   background-color: $button-bg;
   color: $button-bg-3;
 }
+
+.cart {
+  @extend .outline;
+  color: $text-color-2;
+  background-color: $button-bg;
+  font-weight: 700;
+  text-align: justify;
+  font-size: 12px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 140px;
+
+  &:not(.noHover):hover {
+    background-color: $text-color-7;
+    border-color: $text-color-7;
+    text-decoration: none;
+  }
+}

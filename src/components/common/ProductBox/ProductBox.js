@@ -75,13 +75,16 @@ const ProductBox = ({
                     />
                     <p className={styles.product_text_modal}>{id}</p>
                     <p className={styles.product_text_modal}>${price}</p>
-                    <Button variant='small'>
+                    <Button
+                      onClick={() => {
+                        handleClickToRemoveFromCart(id);
+                      }}
+                      variant='small'
+                    >
+                      Remove from cart
                       <FontAwesomeIcon
                         className={styles.trashIcon_modal}
                         icon={faTrashAlt}
-                        onClick={() => {
-                          handleClickToRemoveFromCart(id);
-                        }}
                       />
                     </Button>
                   </div>

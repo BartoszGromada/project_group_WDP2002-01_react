@@ -7,10 +7,10 @@ import styles from './FeedbackBox.module.scss';
 
 class FeedbackBox extends React.Component {
   static propTypes = {
-    opinionText: PropTypes.number,
-    opinionImage: PropTypes.number,
-    opinionName: PropTypes.number,
-    opinionTitle: PropTypes.number,
+    opinionText: PropTypes.node,
+    opinionImage: PropTypes.node,
+    opinionName: PropTypes.node,
+    opinionTitle: PropTypes.node,
   };
 
   render() {

@@ -81,18 +81,15 @@ class Feedback extends React.Component {
 }
 
 Feedback.propTypes = {
-<<<<<<< HEAD
   opinionText: PropTypes.number,
   opinionImage: PropTypes.number,
   opinionName: PropTypes.number,
   opinionTitle: PropTypes.number,
-=======
   feedback: PropTypes.node,
   // opinionText: PropTypes.node,
   // opinionImage: PropTypes.node,
   // opinionName: PropTypes.node,
   // opinionTitle: PropTypes.node,
->>>>>>> Add container & redux
 };
 
 // Feedback.defaultProps = {

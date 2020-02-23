@@ -9,7 +9,7 @@ import {
   faMinus,
   faChevronRight,
   faChevronLeft,
-  faExpandAlt,
+  faExpand,
 } from '@fortawesome/free-solid-svg-icons';
 import { faEye, faStar } from '@fortawesome/free-regular-svg-icons';
 import {
@@ -57,7 +57,7 @@ class ShopBox extends React.Component {
               <Row className={styles.rowphoto}>
                 <div className={styles.bigimg}>
                   <Button className={styles.expandbut} variant={'outline'}>
-                    <FontAwesomeIcon icon={faExpandAlt} />
+                    <FontAwesomeIcon icon={faExpand} />
                   </Button>
                 </div>
                 <div className={styles.sliderwrapper}>

@@ -1,5 +1,16 @@
 @import "../../../styles/settings.scss";
 
 .root {
-  padding: $base-padding 0;
+  height: 400px;
+  margin: auto;
+  background-color: $background-main-11;
+
+  .sectionTitle {
+    text-transform: uppercase;
+  }
+
+  p {
+    text-transform: capitalize;
+    text-align: right;
+  }
 }

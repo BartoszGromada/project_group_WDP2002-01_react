@@ -1,8 +1,7 @@
 import { connect } from 'react-redux';
 import Input from './Input';
-import { getInputValue } from '../../../redux/inputRedux';
 
-import { updateInput } from '../../../redux/inputRedux';
+import { updateInput, getInputValue } from '../../../redux/inputRedux';
 
 const mapStateToProps = state => ({
   value: getInputValue(state),

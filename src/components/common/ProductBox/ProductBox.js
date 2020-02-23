@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
 import styles from './ProductBox.module.scss';
@@ -28,6 +28,8 @@ const ProductBox = ({
   removeFromCart,
   value,
 }) => {
+  const [productQty, setProductQty] = useState(1);
+
   const handleClickToCompare = product => {
     const duplicates = allComperedProducts.filter(item => item.id === product.id)
       .length;
@@ -37,12 +39,13 @@ const ProductBox = ({
     }
   };
 
-  const handleClickToAddToCart = ({ id, img, price, value }) => {
-    addToCart({ id, img, price, value });
-  };
-  const handleClickToRemoveFromCart = id => {
-    removeFromCart(id);
-  };
+  const handleChangeCount = qty => setProductQty(qty);
+
+  const handleClickToAddToCart = (id, img, price, qty) =>
+    addToCart({ id, img, price, qty });
+
+  const handleClickToRemoveFromCart = id => removeFromCart(id);
+
   return (
     <div className={styles.wrapper}>
       <div className={styles.root}>
@@ -52,7 +55,7 @@ const ProductBox = ({
           <div className={styles.buttons}>
             <Button variant='small'>Quick View</Button>
             <Popup
-              onOpen={() => handleClickToAddToCart({ id, img, price, value })}
+              onOpen={() => handleClickToAddToCart(id, img, price, productQty)}
               trigger={
                 <Button variant='small'>
                   <FontAwesomeIcon icon={faShoppingBasket} />
@@ -95,7 +98,7 @@ const ProductBox = ({
         </div>
         <div className={styles.content}>
           <h5>{name}</h5>
-          <Input />
+          <Input changeCount={handleChangeCount} />
           <div className={styles.stars}>
             {[1, 2, 3, 4, 5].map(i => (
               <a key={i} href='#'>

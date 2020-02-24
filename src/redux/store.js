@@ -12,6 +12,7 @@ const initialState = {
   products: initialStoreData.products,
   tabs: initialStoreData.tabs,
   cart: initialStoreData.cart,
+  feedback: initialStoreData.feedback,
 };
 
 // define reducers

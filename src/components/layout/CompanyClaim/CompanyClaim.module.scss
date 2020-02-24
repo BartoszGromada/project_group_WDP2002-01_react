@@ -27,7 +27,6 @@
   }
 
   .cart {
-
     .cartBox {
       display: inline-block;
       position: relative;
@@ -161,6 +160,11 @@
   }
 }
 
+@media (max-width: 776px) {
+  .companyinfo {
+    padding-top: 20px
+  }
+}
 
 @media (max-width: 576px) {
   .text {

@@ -21,9 +21,16 @@ class Promoted extends React.Component {
   render() {
     const { activePage } = this.state;
 
-    const pagesCount = 3;
+    const { products } = this.props;
+
+    console.log('products: ', products);
+
+    const pagesCount = Math.ceil(products.length / 1);
 
     const dots = [];
+    const promotedProducts = [];
+
+    console.log('promotedProduct: ', promotedProducts);
 
     for (let i = 0; i < pagesCount; i++) {
       dots.push(
@@ -38,12 +45,12 @@ class Promoted extends React.Component {
         <div className={`container ${styles.wrapper}`}>
           <div className='row'>
             <div className='col-4'>
-              <div className={styles.dots}>
+              <div className={styles.dotsWrapper}>
                 <div className={styles.dotsDescription}>HOT DEALS</div>
                 <ul>{dots}</ul>
               </div>
               <div className={styles.photo}>
-                <div className={styles.buttons}>
+                <div className={styles.buttonsWrapper}>
                   <Button variant='small'>
                     <FontAwesomeIcon icon={faShoppingBasket}></FontAwesomeIcon> ADD TO
                     CART
@@ -61,7 +68,7 @@ class Promoted extends React.Component {
                 <div className={styles.stars}>
                   {[1, 2, 3, 4, 5].map(i => (
                     <a key={i} href='#'>
-                      {i <= 2 ? (
+                      {i <= 3 ? (
                         <FontAwesomeIcon icon={faStar}>{i} stars</FontAwesomeIcon>
                       ) : (
                         <FontAwesomeIcon icon={farStar}>{i} stars</FontAwesomeIcon>
@@ -109,6 +116,23 @@ class Promoted extends React.Component {
 
 Promoted.propTypes = {
   children: PropTypes.node,
+  categories: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string,
+      name: PropTypes.string,
+    })
+  ),
+  products: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string,
+      name: PropTypes.string,
+      category: PropTypes.string,
+      price: PropTypes.number,
+      stars: PropTypes.number,
+      promo: PropTypes.string,
+      newFurniture: PropTypes.bool,
+    })
+  ),
 };
 
 export default Promoted;

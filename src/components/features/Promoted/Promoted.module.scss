@@ -3,7 +3,7 @@
 .root {
   background-color: #ffffff;
 
-    .dots {
+    .dotsWrapper {
       position: absolute;
       left: 50%;
       top: 0;
@@ -62,7 +62,7 @@
     overflow: hidden;
     align-items: flex-end;
 
-    .buttons {
+    .buttonsWrapper {
       position: absolute;
       left: 50%;
       top: 50%;

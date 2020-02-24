@@ -7,11 +7,27 @@ import FurnitureGalleryActions from '../FurnitureGalleryActions/FurnitureGallery
 import FurnitureGalleryPrice from '../FurnitureGalleryPrice/FurnitureGalleryPrice';
 
 class FurnitureGallery extends React.Component {
+  setType(width) {
+    let mode;
+    if (width > 1020) {
+      mode = 6;
+    } else if (width > 767) {
+      mode = 5;
+    } else {
+      mode = 4;
+    }
+    console.log('mode', mode);
+  }
+
   render() {
     const { products, tabs } = this.props;
+    const windowWidth = window.innerWidth;
+
+    console.log('setType', this.setType(windowWidth));
 
     return (
       <div className={styles.root}>
+        <div onresize={this.setType(windowWidth)}></div>
         <div className='container'>
           <div className='row'>
             <div className={`col-12 col-md-12 col-lg-6 ${styles.gallery}`}>

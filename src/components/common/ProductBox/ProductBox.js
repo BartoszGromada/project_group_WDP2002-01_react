@@ -77,7 +77,7 @@ const ProductBox = ({
                       alt={`${name} bed`}
                     />
                     <p className={styles.product_text_modal}>{id}</p>
-                    <p className={styles.product_text_modal}>${price}</p>
+                    <p className={styles.product_text_modal}>${productQty * price}</p>
                     <Button
                       onClick={() => {
                         handleClickToRemoveFromCart(id);

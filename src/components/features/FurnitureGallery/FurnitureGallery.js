@@ -10,7 +10,7 @@ const FurnitureGallery = ({ tabs, products }) => (
   <div className={styles.root}>
     <div className='container'>
       <div className='row'>
-        <div className={`col-12 col-md-6 ${styles.gallery}`}>
+        <div className={`col-12 col-md-12 col-lg-6 ${styles.gallery}`}>
           <h3>Furniture Gallery</h3>
           <div className={styles.menu}>
             <ul>

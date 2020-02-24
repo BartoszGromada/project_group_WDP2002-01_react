@@ -26,7 +26,6 @@ const ProductBox = ({
   allComperedProducts,
   addToCart,
   removeFromCart,
-  value,
 }) => {
   const [productQty, setProductQty] = useState(1);
 

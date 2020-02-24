@@ -19,7 +19,7 @@ class FeedbackBox extends React.Component {
         <div className={styles.opinion}>
           <p>{opinionText}</p>
         </div>
-        <div className='row justify-content-center'>
+        <div className={'row justify-content-center ' + styles.customer}>
           <img
             src={opinionImage}
             className='rounded float-right  align-self-center'

@@ -9,9 +9,9 @@ import styles from './ProductSearch.module.scss';
 const ProductSearch = () => (
   <form action='' className={styles.root}>
     <div className={styles.category}>
-      <FontAwesomeIcon className={styles.icon} icon={faListUl} />
       <ul className={styles.mainList}>
         <li className={styles.categoryList}>
+          <FontAwesomeIcon className={styles.icon} icon={faListUl} />
           <a>Select a category</a>
         </li>
         <li className={styles.subList}>
@@ -21,7 +21,6 @@ const ProductSearch = () => (
           <a>Cat2</a>
         </li>
       </ul>
-      <FontAwesomeIcon className={styles.icon} icon={faCaretDown} />
     </div>
     <div className={styles.searchField}>
       <input placeholder='Search products...' type='text' />

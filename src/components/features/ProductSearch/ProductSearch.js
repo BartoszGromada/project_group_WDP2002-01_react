@@ -34,7 +34,7 @@ const ProductSearch = ({
         <FontAwesomeIcon className={styles.icon} icon={faTimes} />
       </button>
     ) : (
-      <button>
+      <button onClick={handleXClick}>
         <FontAwesomeIcon className={styles.icon} icon={faSearch} />
       </button>
     );

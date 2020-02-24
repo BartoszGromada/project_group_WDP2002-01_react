@@ -12,103 +12,83 @@
     align-items: center;
     position: relative;
     padding: 0;
+    min-width: 200px;
+
+    &:first-letter {
+      text-transform: uppercase;
+    }
 
     .mainList {
       margin: 0;
+      padding: 0;
       position: relative;
       z-index: 1;
       height: 100%;
       list-style-type: none;
       width: 100%;
+      color: $text-color;
+
+      &:hover .subList {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        padding-left: 20px;
+      }
+
+      .icon {
+        margin-right: 10px;
+      }
 
       .categoryList {
-        display: block;
+        display: flex;
+        align-items: center;
+        padding: 0 20px;
         border: none;
-        background-color: transparent;
-        left: -20%;
-        top: 20%;
+        width: 100%;
+
+        &:hover {
+          background-color: $background-main-2;
+          color: $text-color-2;
+        }
       }
 
       li {
-        position: relative;
-        padding-left: 30px;
         display: none;
         width: 100%;
         height: 100%;
         border: 1px solid $search-border;
         background-color: $search-bg-1;
-        color: $text-color;
-      }
-    }
 
-    .mainList:hover {
-      .subList {
-        display: block;
-      }
-    }
-
-    &:hover {
-      background-color: $primary;
-
-      .icon:first-child {
-        color: $search-text;
-      }
-    }
-
-    .icon:first-child {
-      color: $primary;
-      position: absolute;
-      left: 10px;
-      z-index: 0;
-    }
-
-    .icon:last-child {
-      position: absolute;
-      right: 10px;
-      z-index: 0;
-    }
-
-    select {
-      -webkit-appearance: none;
-      border: 0;
-      background-color: transparent;
-      padding: 5px 30px 5px 35px;
-      position: relative;
-      z-index: 1;
-      font-size: 14px;
-
-      &:focus {
-        outline: 0;
-
-        option {
-          background-color: $search-bg-1;
-          color: $search-text;
+        &:hover {
+          background-color: $background-main-2;
+          color: $text-color-2;
+          cursor: pointer;
         }
       }
     }
   }
+}
 
-  .searchField {
-    display: flex;
-    align-items: center;
-    position: relative;
+.searchField {
+  display: flex;
+  align-items: center;
+  position: relative;
 
-    input {
-      border: 0;
-      padding-left: 10px;
-      font-size: 14px;
-      outline: none;
+  input {
+    border: 0;
+    padding-left: 10px;
+    font-size: 14px;
+    outline: none;
 
-      &::placeholder {
-        color: $search-text;
-      }
+    &::placeholder {
+      color: $search-text;
     }
+  }
 
-    button {
-      border: 0;
-      background-color: transparent;
-      outline: none;
-    }
+  button {
+    border: 0;
+    background-color: transparent;
+    outline: none;
   }
 }
 
@@ -117,6 +97,7 @@
     border: none;
     display: flex;
     flex-direction: column;
+
     .searchField {
       border: 1px solid $search-border;
       width: 100%;

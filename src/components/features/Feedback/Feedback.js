@@ -7,6 +7,8 @@ import FeedbackBox from '../../common/FeedbackBox/FeedbackBox';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faQuoteRight } from '@fortawesome/free-solid-svg-icons';
 
+import SwipeComponent from '../../common/SwipeComponent/SwipeComponent';
+
 class Feedback extends React.Component {
   state = {
     activePage: 0,
@@ -28,6 +30,9 @@ class Feedback extends React.Component {
 
     // eslint-disable-next-line no-console
     console.log('feedback', feedback);
+
+    const { feedback } = this.props;
+
 
     const pagesCount = feedback.length;
 
@@ -59,7 +64,7 @@ class Feedback extends React.Component {
               </div>
             </div>
           </div>
-          <div className='row'>
+          <div className={'${row} ${styles.box}'}>
             <div className='col-12'>
               <div className={styles.iconWrapper}>
                 <FontAwesomeIcon className={styles.icon} icon={faQuoteRight} />
@@ -72,6 +77,28 @@ class Feedback extends React.Component {
               // opinionName={opinionName}
               // opinionTitle={opinionTitle}
               />
+            <div className={'${row} ${styles.box}'}>
+              <SwipeComponent
+                rightAction={() =>
+                  this.handlePageChange(activePage > 0 ? activePage - 1 : 0)
+                }
+                leftAction={() =>
+                  this.handlePageChange(
+                    activePage + 1 < pagesCount ? activePage + 1 : activePage
+                  )
+                }
+              >
+                {feedback.slice(activePage, activePage + 1).map(item => (
+                  <div key={item.id}>
+                    <FeedbackBox
+                      opinionText={item.opinion}
+                      opinionImage={item.image}
+                      opinionName={item.name}
+                      opinionTitle={item.title}
+                    />
+                  </div>
+                ))}
+              </SwipeComponent>
             </div>
           </div>
         </div>
@@ -89,7 +116,7 @@ Feedback.propTypes = {
   // opinionText: PropTypes.node,
   // opinionImage: PropTypes.node,
   // opinionName: PropTypes.node,
-  // opinionTitle: PropTypes.node,
+  // opinionTitle: PropTypes.array,
 };
 
 // Feedback.defaultProps = {
@@ -98,5 +125,7 @@ Feedback.propTypes = {
 //   opinionName: initialState.feedback[0].name,
 //   opinionTitle: initialState.feedback[0].title,
 // };
+
+
 
 export default Feedback;

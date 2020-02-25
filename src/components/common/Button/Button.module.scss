@@ -39,6 +39,20 @@
   }
 }
 
+.noborder {
+  display: inline-block;
+  padding: 5px 10px;
+  color: $background-main-6;
+  font-size: 13px;
+  line-height: 22px;
+  @include hover-animation;
+
+  &:not(.noHover):hover {
+    background-color: $button-bg;
+    color: $button-text;
+  }
+}
+
 .cta {
   @extend .main;
   background-color: $button-bg-2;

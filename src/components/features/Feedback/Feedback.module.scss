@@ -11,6 +11,10 @@
       border-bottom: 4px solid $feedbeck-border-1;
     }
 
+    .box {
+      flex-direction: column;
+    }
+
     .heading {
       position: relative;
 
@@ -80,4 +84,3 @@
     transform: translateY(-50%);
   }
 }
-

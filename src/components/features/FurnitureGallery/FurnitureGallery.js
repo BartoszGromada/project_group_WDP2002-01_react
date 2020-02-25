@@ -18,11 +18,11 @@ class FurnitureGallery extends React.Component {
   }
 
   render() {
-    const { activePage } = this.state;
+    // const { activePage } = this.state;
     const { products, tabs } = this.props;
     const windowWidth = window.innerWidth;
 
-    const pagesCount = products.length;
+    // const pagesCount = products.length;
 
     let mode;
     if (windowWidth > 1020) {

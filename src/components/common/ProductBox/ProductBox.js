@@ -11,6 +11,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { faHeart } from '@fortawesome/free-regular-svg-icons';
 import Button from '../Button/Button';
+import Price from '../Price/PriceContainer';
 import Stars from '../Stars/StarsContainer';
 import Popup from 'reactjs-popup';
 
@@ -45,8 +46,8 @@ const ProductBox = ({
   };
 
   return (
-    <div className={styles.wrapper}>
-      <div className={styles.root}>
+    <div className={styles.root}>
+      <div className={styles.wrapper}>
         <div className={styles.photo}>
           {promo && <div className={styles.sale}>{promo}</div>}
           <img src={img} alt={`${name} bed`} />
@@ -118,23 +119,20 @@ const ProductBox = ({
               variant='outline'
               onClick={() => handleClickToCompare({ id, name, img })}
             >
-              <FontAwesomeIcon
-                icon={faExchangeAlt}
-                className={compared ? styles.compared : ''}
-              >
-                Add to compare
-              </FontAwesomeIcon>
+              <FontAwesomeIcon icon={faExchangeAlt}>Add to compare</FontAwesomeIcon>
             </Button>
           </div>
           <div className={styles.price}>
             {oldPrice && <div className={styles.oldPrice}></div>}
             {oldPrice && (
-              <Button noHover variant='outline'>
-                <del>$ {oldPrice}</del>
+              <Button noHover variant='noborder'>
+                <del>
+                  <Price>{oldPrice}</Price>
+                </del>
               </Button>
             )}
             <Button noHover variant='small'>
-              $ {price}
+              <Price>{price}</Price>
             </Button>
           </div>
         </div>

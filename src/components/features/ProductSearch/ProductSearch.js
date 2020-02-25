@@ -18,7 +18,7 @@ const ProductSearch = ({
   selectedCategory,
   setSearchCategory,
 }) => {
-  const handleInputChange = e => setSearchString(e.target.value);
+  const handleInputChange = ({ target }) => setSearchString(target.value);
 
   const handleCategoryChange = category => setSearchCategory(category);
 
@@ -40,32 +40,27 @@ const ProductSearch = ({
     );
   };
 
-  const selectCat = () => {
-    return !selectedCategory ? (
-      <li className={styles.categoryList}>
-        <a>Select a category</a>
-      </li>
-    ) : (
+  const selectCat = () =>
+    selectedCategory ? (
       <li className={styles.categoryList}>
         <a>{selectedCategory}</a>
       </li>
+    ) : (
+      <li className={styles.categoryList}>
+        <a>Select a category</a>
+      </li>
     );
-  };
 
-  const categoryMap = () => {
-    return (
-      categories &&
-      categories.map(category => (
-        <li
-          onClick={() => handleCategoryChange(category)}
-          key={category}
-          className={styles.subList}
-        >
-          <a>{category}</a>
-        </li>
-      ))
-    );
-  };
+  const categoryMap = () =>
+    categories.map(category => (
+      <li
+        onClick={() => handleCategoryChange(category)}
+        key={category}
+        className={styles.subList}
+      >
+        <a>{category}</a>
+      </li>
+    ));
 
   return (
     <form action='' className={styles.root}>
@@ -73,7 +68,7 @@ const ProductSearch = ({
         <FontAwesomeIcon className={styles.icon} icon={faListUl} />
         <ul className={styles.mainList}>
           {selectCat()}
-          {categoryMap()}
+          {categories && categoryMap()}
         </ul>
         <FontAwesomeIcon className={styles.icon} icon={faCaretDown} />
       </div>

@@ -111,10 +111,10 @@ class NewFurniture extends React.Component {
             <div className={styles.panelBar}>
               <div className='row no-gutters align-items-end'>
                 <div className={styles.heading}>
-                  {!searchString ? (
-                    <h3>New furniture</h3>
-                  ) : (
+                  {searchString ? (
                     <h3>Search results ({products.length})</h3>
+                  ) : (
+                    <h3>New furniture</h3>
                   )}
                 </div>
                 <div className={'col ' + styles.menu}>
@@ -181,6 +181,7 @@ NewFurniture.propTypes = {
   allComperedProducts: PropTypes.array,
   removeFromCompared: PropTypes.func,
   searchString: PropTypes.string,
+  selectedCategory: PropTypes.string,
 };
 
 NewFurniture.defaultProps = {

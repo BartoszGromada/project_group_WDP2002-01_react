@@ -50,6 +50,10 @@
           background-color: $background-main-2;
           color: $text-color-2;
         }
+
+        a:first-letter {
+          text-transform: uppercase;
+        }
       }
 
       li {

@@ -1,19 +1,15 @@
-import { combineReducers, createStore } from 'redux';
-import initialStoreData from './initialState';
+import { combineReducers, createStore, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk';
+import initialState from './initialState';
+import { composeWithDevTools } from 'redux-devtools-extension';
 
 import cartReducer from './cartRedux';
 import categoriesReducer from './categoriesRedux';
 import productsReducer from './productsRedux';
 import modeReducer from './modesRedux';
 import compareReducer from './compareRedux';
-
-// define initial state and shallow-merge initial data
-const initialState = {
-  products: initialStoreData.products,
-  tabs: initialStoreData.tabs,
-  cart: initialStoreData.cart,
-  feedback: initialStoreData.feedback,
-};
+import currencyRedux from './currencyRedux';
+import currencyRatesRedux from './currencyRatesRedux';
 
 // define reducers
 const reducers = {
@@ -22,6 +18,8 @@ const reducers = {
   products: productsReducer,
   mode: modeReducer,
   compare: compareReducer,
+  currency: currencyRedux,
+  currencyRates: currencyRatesRedux,
 };
 
 // add blank reducers for initial state properties without reducers
@@ -37,7 +35,7 @@ const combinedReducers = combineReducers(reducers);
 const store = createStore(
   combinedReducers,
   initialState,
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+  composeWithDevTools(applyMiddleware(thunk))
 );
 
 export default store;

@@ -111,6 +111,7 @@ class Brands extends React.Component {
     );
   }
 }
+
 Brands.propTypes = {
   brands: PropTypes.array,
   mode: PropTypes.string,

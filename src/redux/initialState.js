@@ -413,34 +413,76 @@ const initialStoreData = {
   },
   brands: [
     {
+      index: 1,
       id: 'brand-1',
       name: 'brand 1',
       image: 'https://www.logologo.com/logos/g-logo.jpg',
     },
     {
+      index: 2,
       id: 'brand-2',
       name: 'brand 2',
       image: 'https://www.logologo.com/logos/city-logo.jpg',
     },
     {
+      index: 3,
       id: 'brand-3',
       name: 'brand 3',
       image: 'https://www.logologo.com/logos/red-s-logo.jpg',
     },
     {
+      index: 4,
       id: 'brand-4',
       name: 'brand 4',
       image: 'https://www.logologo.com/logos/open-house-logo.jpg',
     },
     {
+      index: 5,
       id: 'brand-5',
       name: 'brand 5',
       image: 'https://www.logologo.com/logos/letter-m-roof-logo.jpg',
     },
     {
+      index: 6,
       id: 'brand-6',
       name: 'brand 6',
       image: 'https://www.logologo.com/logos/letter-a-circle-logo.jpg',
+    },
+    {
+      index: 7,
+      id: 'brand-7',
+      name: 'brand 7',
+      image: 'https://www.logologo.com/logos/color-spectrum-shield-logo.jpg',
+    },
+    {
+      index: 8,
+      id: 'brand-8',
+      name: 'brand 8',
+      image: 'https://www.logologo.com/logos/eagle-shield-logo.jpg',
+    },
+    {
+      index: 9,
+      id: 'brand-9',
+      name: 'brand 9',
+      image: 'https://www.logologo.com/logos/globe-compass-logo.jpg',
+    },
+    {
+      index: 10,
+      id: 'brand-10',
+      name: 'brand 10',
+      image: 'https://www.logologo.com/logos/lion-shield-logo.jpg',
+    },
+    {
+      index: 11,
+      id: 'brand-11',
+      name: 'brand 11',
+      image: 'https://www.logologo.com/logos/cartoon-rocket-logo.jpg',
+    },
+    {
+      index: 12,
+      id: 'brand-12',
+      name: 'brand 12',
+      image: 'https://www.logologo.com/logos/watercolor-tree-logo.jpg',
     },
   ],
   tabs: [

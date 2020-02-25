@@ -1,0 +1,43 @@
+@import "../../../styles/settings.scss";
+
+
+.tabs {
+  margin: 0px 50px 50px 100px;
+  padding: $base-padding;
+  background-color: $background-main-1;
+  border: 1px solid $background-main-11;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0;
+
+  .tab {
+    border: 1px solid $background-main-11;
+    text-transform: uppercase;
+    width: 150px;
+    font-weight: bold;
+    text-align: center;
+    padding: 5px;
+    border-top: none;
+  }
+
+  .tab_active {
+    border-top: none;
+    text-transform: uppercase;
+    width: 150px;
+    font-weight: bold;
+    text-align: center;
+    border-bottom: none;
+    padding: 5px;
+    color: $primary;
+  }
+
+  .tabcontent {
+    margin: 20px;
+    width: 100%;
+
+    .tabrating {
+      padding: 5px;
+      display: inline-flex;
+    }
+  }
+}

@@ -1,0 +1,45 @@
+@import "../../../styles/settings.scss";
+
+.actions {
+  position: absolute;
+  margin-left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+
+  .action {
+    display: flex;
+  }
+
+  .info {
+    display: none;
+  }
+
+  .icon:hover + .info {
+    height: 30px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-left: 20px;
+    background-color: $gallery-bg-3;
+    color: $gallery-text-1;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index:2;
+    position: relative;
+  }
+
+  .info::before {
+     content: "";
+     position: absolute;
+     transform: rotate(45deg);
+     bottom:8px;
+     left: -7px;
+     width: 15px;
+     height: 15px;
+     background-color: $gallery-bg-3;
+     z-index:1;
+  }
+}

@@ -1,15 +1,16 @@
 @import "../../../styles/settings.scss";
 
 .main {
-  background-color: #2a2a2a;
-  color: #ffffff;
+  background-color: $button-bg;
+  color: $button-text;
   font-size: 16px;
   line-height: 24px;
   font-weight: 600;
   padding: 10px 30px;
+  @include hover-animation;
 
   &:not(.noHover):hover {
-    color: #ffffff !important;
+    color: $button-text !important;
     background-color: $primary;
     text-decoration: none;
   }
@@ -39,14 +40,29 @@
 .outline {
   display: inline-block;
   padding: 5px 10px;
-  border: 1px solid #2a2a2a;
-  color: #2a2a2a;
+  border: 1px solid $button-bg;
+  color: $button-bg;
   font-size: 13px;
   line-height: 22px;
+  @include hover-animation;
 
   &:not(.noHover):hover {
-    background-color: #2a2a2a;
-    color: #ffffff;
+    background-color: $button-bg;
+    color: $button-text;
+  }
+}
+
+.noborder {
+  display: inline-block;
+  padding: 5px 10px;
+  color: $background-main-6;
+  font-size: 13px;
+  line-height: 22px;
+  @include hover-animation;
+
+  &:not(.noHover):hover {
+    background-color: $button-bg;
+    color: $button-text;
   }
 }
 
@@ -60,4 +76,25 @@
   border: #ffffff;
   color: $header-topbar-bg;
   text-decoration: dashed;
+.cta {
+  @extend .main;
+  background-color: $button-bg-2;
+  color: $button-bg-3;
+  border-radius: 5px;
+}
+
+.outlineColor {
+  @extend .outline;
+  margin-bottom: 10px;
+
+  &:not(.noHover):hover {
+    background-color: transparent;
+    border: 1px solid $primary;
+    color: $primary;
+  }
+}
+
+.favourite {
+  background-color: $button-bg;
+  color: $button-bg-3;
 }

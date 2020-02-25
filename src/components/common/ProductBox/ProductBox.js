@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
+import { Link } from 'react-router-dom';
 import styles from './ProductBox.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
@@ -11,6 +11,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { faHeart } from '@fortawesome/free-regular-svg-icons';
 import Button from '../Button/Button';
+import Price from '../Price/PriceContainer';
 import Stars from '../Stars/StarsContainer';
 import Popup from 'reactjs-popup';
 
@@ -45,11 +46,13 @@ const ProductBox = ({
   };
 
   return (
-    <div className={styles.wrapper}>
-      <div className={styles.root}>
+    <div className={styles.root}>
+      <div className={styles.wrapper}>
         <div className={styles.photo}>
           {promo && <div className={styles.sale}>{promo}</div>}
-          <img src={img} alt={`${name} bed`} />
+          <Link to='/shop'>
+            <img src={img} alt={`${name} bed`} />
+          </Link>
           <div className={styles.buttons}>
             <Button variant='small'>Quick View</Button>
             <Popup
@@ -93,7 +96,9 @@ const ProductBox = ({
           </div>
         </div>
         <div className={styles.content}>
-          <h5>{name}</h5>
+          <Link to='/shop'>
+            <h5>{name}</h5>
+          </Link>
           <div className={styles.stars}>
             <Stars product={id} opinion={opinion} stars={stars} />
           </div>
@@ -118,23 +123,20 @@ const ProductBox = ({
               variant='outline'
               onClick={() => handleClickToCompare({ id, name, img })}
             >
-              <FontAwesomeIcon
-                icon={faExchangeAlt}
-                className={compared ? styles.compared : ''}
-              >
-                Add to compare
-              </FontAwesomeIcon>
+              <FontAwesomeIcon icon={faExchangeAlt}>Add to compare</FontAwesomeIcon>
             </Button>
           </div>
           <div className={styles.price}>
             {oldPrice && <div className={styles.oldPrice}></div>}
             {oldPrice && (
-              <Button noHover variant='outline'>
-                <del>$ {oldPrice}</del>
+              <Button noHover variant='noborder'>
+                <del>
+                  <Price>{oldPrice}</Price>
+                </del>
               </Button>
             )}
             <Button noHover variant='small'>
-              $ {price}
+              <Price>{price}</Price>
             </Button>
           </div>
         </div>

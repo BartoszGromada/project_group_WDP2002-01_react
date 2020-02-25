@@ -1,4 +1,4 @@
-/* Colors settings - DON'T USE THIS VARIABLES! */
+/* Colors settings  */
 
 //leading
 $primary: #d58e32;
@@ -43,7 +43,6 @@ $icon-1: #ffffff;
 $icon-2: rgb(42, 42, 42);
 $icon-3: red;
 
-
 /* Colors settings - VARIABLES TO USE IN COMPONENTS */
 
 //Buttons
@@ -66,7 +65,7 @@ $product-box-photo-bg: $background-main-3;
 $product-box-border-1: $border-2;
 $product-box-border-2: $border-3;
 $product-box-border-3: $border-9;
-$product-box-text:  $text-color-2;
+$product-box-text: $text-color-2;
 $product-box-stars: $icon-2;
 $product-box-icon-1: $icon-3;
 
@@ -143,12 +142,9 @@ $feedbeck-bg-1: $background-main-1;
 $feedbeck-bg-2: $background-main-12;
 $feedbeck-text-1: $text-color;
 
-
 /* Settings */
 
-
 $base-padding: 24px;
-
 
 @mixin hover-animation($all: false, $color-time: 0.25s, $bg-color-time: 0.25s) {
   @if ($all) {

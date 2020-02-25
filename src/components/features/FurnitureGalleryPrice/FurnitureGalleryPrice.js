@@ -1,5 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+
+import Price from '../../common/Price/PriceContainer';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 import { faStar as farStar } from '@fortawesome/free-regular-svg-icons';
@@ -8,9 +10,13 @@ import styles from './FurnitureGalleryPrice.module.scss';
 const FurnitureGalleryPrice = ({ stars, name, price, promoPrice }) => (
   <div>
     <div className={styles.price}>
-      <h5 className={styles.promoPrice}>{'$' + price}</h5>
+      <h5 className={styles.promoPrice}>
+        <Price>{price}</Price>
+      </h5>
       <s>
-        <h6 className={styles.regularPrice}>{'$' + promoPrice}</h6>
+        <h6 className={styles.regularPrice}>
+          <Price>{promoPrice}</Price>
+        </h6>
       </s>
     </div>
     <div className={styles.name}>

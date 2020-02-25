@@ -68,6 +68,11 @@
 .content {
   display: flex;
 
+  img {
+    width: 260px;
+    height: 260px;
+  }
+
   .products {
     width: 75%;
     padding: 10px 20px 5px 0;
@@ -136,11 +141,6 @@
       border-bottom: 1px solid $border-2;
       padding: 20px 0;
       display: flex;
-
-      img {
-        width: 260px;
-        height: 260px;
-      }
 
       .info {
         display: flex;

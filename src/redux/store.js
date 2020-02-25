@@ -11,15 +11,6 @@ import compareReducer from './compareRedux';
 import currencyRedux from './currencyRedux';
 import currencyRatesRedux from './currencyRatesRedux';
 
-// define initial state and shallow-merge initial data
-const initialState = {
-  products: initialStoreData.products,
-  tabs: initialStoreData.tabs,
-  brands: initialStoreData.brands,
-  feedback: initialStoreData.feedback,
-};
-
-
 // define reducers
 const reducers = {
   cart: cartReducer,

@@ -20,19 +20,7 @@ class Feedback extends React.Component {
 
   render() {
     const { activePage } = this.state;
-    const {
-      // opinionText,
-      // opinionImage,
-      // opinionName,
-      // opinionTitle,
-      feedback,
-    } = this.props;
-
-    // eslint-disable-next-line no-console
-    console.log('feedback', feedback);
-
     const { feedback } = this.props;
-
 
     const pagesCount = feedback.length;
 
@@ -64,20 +52,13 @@ class Feedback extends React.Component {
               </div>
             </div>
           </div>
-          <div className={'${row} ${styles.box}'}>
+          <div className={`${styles.row} ${styles.box}`}>
             <div className='col-12'>
               <div className={styles.iconWrapper}>
                 <FontAwesomeIcon className={styles.icon} icon={faQuoteRight} />
               </div>
             </div>
-            <div className='row'>
-              <FeedbackBox
-              // opinionText={opinionText}
-              // opinionImage={opinionImage}
-              // opinionName={opinionName}
-              // opinionTitle={opinionTitle}
-              />
-            <div className={'${row} ${styles.box}'}>
+            <div className={`${styles.row} ${styles.box}`}>
               <SwipeComponent
                 rightAction={() =>
                   this.handlePageChange(activePage > 0 ? activePage - 1 : 0)
@@ -108,24 +89,7 @@ class Feedback extends React.Component {
 }
 
 Feedback.propTypes = {
-  opinionText: PropTypes.number,
-  opinionImage: PropTypes.number,
-  opinionName: PropTypes.number,
-  opinionTitle: PropTypes.number,
-  feedback: PropTypes.node,
-  // opinionText: PropTypes.node,
-  // opinionImage: PropTypes.node,
-  // opinionName: PropTypes.node,
-  // opinionTitle: PropTypes.array,
+  feedback: PropTypes.array,
 };
-
-// Feedback.defaultProps = {
-//   opinionText: initialState.feedback[0].opinion,
-//   opinionImage: initialState.feedback[0].image,
-//   opinionName: initialState.feedback[0].name,
-//   opinionTitle: initialState.feedback[0].title,
-// };
-
-
 
 export default Feedback;

@@ -6,28 +6,35 @@ import PromoProduct from './../PromoProduct/PromoProductContainer';
 import FurnitureGalleryActions from '../FurnitureGalleryActions/FurnitureGalleryActions';
 import FurnitureGalleryPrice from '../FurnitureGalleryPrice/FurnitureGalleryPrice';
 
+// import SwipeComponent from '../../common/SwipeComponent/SwipeComponent';
+
 class FurnitureGallery extends React.Component {
-  setType(width) {
+  state = {
+    activePage: 0,
+  };
+
+  handlePageChange(newPage) {
+    this.setState({ activePage: newPage });
+  }
+
+  render() {
+    const { activePage } = this.state;
+    const { products, tabs } = this.props;
+    const windowWidth = window.innerWidth;
+
+    const pagesCount = products.length;
+
     let mode;
-    if (width > 1020) {
+    if (windowWidth > 1020) {
       mode = 6;
-    } else if (width > 767) {
+    } else if (windowWidth > 767) {
       mode = 5;
     } else {
       mode = 4;
     }
-    console.log('mode', mode);
-  }
-
-  render() {
-    const { products, tabs } = this.props;
-    const windowWidth = window.innerWidth;
-
-    console.log('setType', this.setType(windowWidth));
 
     return (
       <div className={styles.root}>
-        <div onresize={this.setType(windowWidth)}></div>
         <div className='container'>
           <div className='row'>
             <div className={`col-12 col-md-12 col-lg-6 ${styles.gallery}`}>
@@ -55,13 +62,22 @@ class FurnitureGallery extends React.Component {
                 <div className={styles.arrow}>
                   <a href='#'>&#x3c;</a>
                 </div>
+                {/* <SwipeComponent
+                  rightAction={() => this.handlePageChange(activePage > 0 ? activePage - 1 : 0)}
+                  leftAction={() =>
+                    this.handlePageChange(
+                      activePage + 1 < pagesCount ? activePage + 1 : activePage
+                    )
+                  }
+                > */}
                 <div className={styles.thumbnails}>
-                  {products.slice(0, 6).map(product => (
+                  {products.slice(0, mode).map(product => (
                     <div key={product.id} className={styles.thumbnail}>
                       <img src={product.img} alt=''></img>
                     </div>
                   ))}
                 </div>
+                {/* </SwipeComponent> */}
                 <div className={styles.arrow}>
                   <a href='#'>&#x3e;</a>
                 </div>

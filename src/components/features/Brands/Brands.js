@@ -11,34 +11,57 @@ class Brands extends React.Component {
 
   state = {
     brandsPage: 0,
+    slide: 'in',
   };
 
   changeBrandsFurther(pages) {
     let newPage;
 
-    if (this.state.brandsPage === pages - 1) {
+    const isLastScreen = this.state.brandsPage === pages - 1;
+
+    if (isLastScreen) {
       newPage = 0;
     } else if (this.state.brandsPage < pages) {
       newPage = this.state.brandsPage + 1;
     }
 
     this.setState({ brandsPage: newPage });
+    this.setState({ slide: 'in' });
   }
 
   changeBrandsBack(pages) {
     let newPage;
 
-    if (this.state.brandsPage === 0) {
-      newPage = pages - 1;
+    const isFirstScreen = this.state.brandsPage === 0;
+    const lastScreen = pages - 1;
+
+    if (isFirstScreen) {
+      newPage = lastScreen;
     } else if (this.state.brandsPage < pages) {
       newPage = this.state.brandsPage - 1;
     }
     this.setState({ brandsPage: newPage });
+    this.setState({ slide: 'out' });
   }
+
+  componentClass(brandIndex, brandScreen, amount) {
+    if (
+      brandIndex >= amount * brandScreen + 1 &&
+      brandIndex <= amount + amount * brandScreen
+    ) {
+      if (this.state.slide === 'out') {
+        return `${styles.box} + ${styles.slideOut}`;
+      } else {
+        return `${styles.box} + ${styles.slideIn}`;
+      }
+    } else {
+      return styles.inactive;
+    }
+  }
+
   render() {
     const { brands, mode } = this.props;
     let amountOfBrandsToDisplay;
-    let pages = [];
 
     if (mode === 'desktop') {
       amountOfBrandsToDisplay = 6;
@@ -48,40 +71,36 @@ class Brands extends React.Component {
       amountOfBrandsToDisplay = 2;
     }
 
-    for (let page = 1; page <= brands.length / amountOfBrandsToDisplay; page++) {
-      pages.push(page);
-    }
-
     return (
       <div className={styles.root}>
         <div className='container'>
           <div className={styles.component}>
             <button
-              onClick={() => this.changeBrandsBack(pages.length)}
+              onClick={() =>
+                this.changeBrandsBack(brands.length / amountOfBrandsToDisplay)
+              }
               className={styles.arrow}
             >
               <FontAwesomeIcon icon={faChevronLeft} />
             </button>
             <div className={styles.row}>
-              {brands.map(brand => (
+              {brands.map(({ id, image, index }) => (
                 <div
-                  key={brand.id}
-                  className={
-                    brand.index >=
-                      amountOfBrandsToDisplay * this.state.brandsPage + 1 &&
-                    brand.index <=
-                      amountOfBrandsToDisplay +
-                        amountOfBrandsToDisplay * this.state.brandsPage
-                      ? styles.box
-                      : styles.inactive
-                  }
+                  key={id}
+                  className={this.componentClass(
+                    index,
+                    this.state.brandsPage,
+                    amountOfBrandsToDisplay
+                  )}
                 >
-                  <img src={brand.image} alt={brand.image} />
+                  <img src={image} alt={image} />
                 </div>
               ))}
             </div>
             <button
-              onClick={() => this.changeBrandsFurther(pages.length)}
+              onClick={() =>
+                this.changeBrandsFurther(brands.length / amountOfBrandsToDisplay)
+              }
               className={styles.arrow}
             >
               <FontAwesomeIcon icon={faChevronRight} />

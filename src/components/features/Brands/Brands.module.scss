@@ -32,6 +32,24 @@
   width: 90%
 }
 
+@keyframes slidingIn {
+  0% { transform: translateX(100px); }
+  100% { transform: translateX(0); }
+}
+
+@keyframes slidingOut {
+  0% { transform: translateX(-100px); }
+  100% { transform: translateX(0); }
+}
+
+.slideIn {
+  animation: slidingIn .8s forwards;
+}
+
+.slideOut {
+  animation: slidingOut .8s forwards;
+}
+
 .box {
   height: 80px;
   flex: 0 0 140px;

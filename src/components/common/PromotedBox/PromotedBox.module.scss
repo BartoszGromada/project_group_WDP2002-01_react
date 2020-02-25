@@ -1,0 +1,96 @@
+@import "../../../styles/settings.scss";
+
+.root {
+  background-color: #ffffff;
+  border: 1px solid #e1e1e1;
+  margin-bottom: 2rem;
+
+  .photo {
+    position: relative;
+    padding: 80% 10px 0 10px;
+    background: {
+      color: #f4f5f7;
+      size: contain;
+      position: center;
+      repeat: no-repeat;
+    }
+    overflow: hidden;
+    align-items: flex-end;
+
+    .buttons {
+      display: flex;
+      justify-content: space-between;
+      opacity: 0;
+      transition: 0.2s ease-in-out;
+      a {
+        z-index: 2;
+      }
+    }
+
+    img {
+      position: absolute;
+      top: 0;
+      left: 10px;
+      right: 10px;
+      max-width: calc(100% - 20px);
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .content {
+    text-align: center;
+    padding: 20px;
+
+    h5 {
+      color: $primary;
+      font-size: 16px;
+      line-height: 24px;
+      letter-spacing: 1px;
+    }
+
+    .stars {
+      a {
+        text-decoration: none;
+        color: rgb(42, 42, 42);
+      }
+    }
+  }
+
+  .line {
+    margin: 0 10px;
+    border-bottom: 1px solid #2a2a2a;
+    position: relative;
+
+    &::before {
+      content: "";
+      position: absolute;
+      bottom: -1px;
+      left: 50%;
+      width: 30px;
+      border-bottom: 4px solid $primary;
+      transform: translateX(-50%);
+    }
+  }
+
+  .actions {
+    padding: 15px 10px 10px 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .price {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+.wrapper {
+  &:hover .buttons {
+    opacity: 1;
+  }
+  &:hover .price * {
+    background-color: $primary;
+  }
+}

@@ -18,7 +18,7 @@ const initialState = {
       newFurniture: true,
       img:
         'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60',
-      promoted: 'true',
+      promoted: true,
     },
     {
       id: 'aenean-ru-bristique-2',
@@ -56,7 +56,6 @@ const initialState = {
       newFurniture: true,
       img:
         'https://images.unsplash.com/photo-1567016432779-094069958ea5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60',
-      promoted: true,
     },
     {
       id: 'aenean-ru-bristique-5',

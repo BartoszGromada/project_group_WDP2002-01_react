@@ -1,8 +1,5 @@
 @import "../../../styles/settings.scss";
 
-// .root {
-// }
-
 .main {
   background-color: #2a2a2a;
   color: #ffffff;
@@ -56,4 +53,11 @@
 .outlinePromoted {
   @extend .outline;
   margin-right: 4px;
+}
+
+.oldPrice {
+  @extend .outline;
+  border: #ffffff;
+  color: $header-topbar-bg;
+  text-decoration: dashed;
 }

@@ -61,12 +61,12 @@ class CompanyClaim extends React.Component {
                 {close => (
                   <div className={styles.popup}>
                     <h2 className={styles.title}>Cart</h2>
-                    {cart.map(product => (
-                      <div key={product.id} className={styles.popupContent}>
+                    {cart.map(({ id, img, name }) => (
+                      <div key={id} className={styles.popupContent}>
                         <div className={styles.image}>
-                          <img src={product.img} alt={product.id} />
+                          <img src={img} alt={id} />
                         </div>
-                        <div className={styles.description}>{product.name}</div>
+                        <div className={styles.description}>{name}</div>
                         <div className={styles.cartActions}>
                           <button>
                             <FontAwesomeIcon className={styles.icon} icon={faMinus} />

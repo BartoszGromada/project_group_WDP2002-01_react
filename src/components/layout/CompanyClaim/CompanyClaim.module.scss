@@ -77,22 +77,22 @@
   .popup {
     text-align: center;
     margin: 5px 10px;
-  }
 
-  .title {
-    color: $primary;
-    position: relative;
-    margin-bottom: 30px;
-  }
+    .title {
+      color: $primary;
+      position: relative;
+      margin-bottom: 30px;
 
-  .title::after {
-    position: absolute;
-    bottom: -10px;
-    left: 0;
-    content: ' ';
-    height: 2px;
-    width: 100%;
-    background-color: black;
+      &::after {
+        position: absolute;
+        bottom: -10px;
+        left: 0;
+        content: '';
+        height: 2px;
+        width: 100%;
+        background-color: black;
+      }
+    }
   }
 
   .popupContent {

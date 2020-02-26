@@ -87,7 +87,7 @@ class NewFurniture extends React.Component {
         <li key={i}>
           <a
             onClick={() => this.handlePageChange(i)}
-            className={i === activePage && styles.active}
+            className={i === activePage && styles.active ? 1 : 0}
           >
             page {i}
           </a>
@@ -122,8 +122,10 @@ class NewFurniture extends React.Component {
                     {this.handleCategoryFilter(products, categories).map(item => (
                       <li key={item.id}>
                         <a
-                          className={item.id === activeCategory && styles.active}
                           onClick={() => this.handleCategoryChange(item.id)}
+                          className={
+                            item.id === activeCategory && styles.active ? 1 : 0
+                          }
                         >
                           {item.name}
                         </a>

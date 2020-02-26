@@ -41,7 +41,7 @@ const FurnitureGalleryPrice = ({ stars, name, price, promoPrice }) => (
 FurnitureGalleryPrice.propTypes = {
   stars: PropTypes.number,
   name: PropTypes.string,
-  price: PropTypes.number,
+  price: PropTypes.object,
   promoPrice: PropTypes.number,
 };
 

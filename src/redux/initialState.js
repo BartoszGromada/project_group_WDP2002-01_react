@@ -11,7 +11,7 @@ const initialStoreData = {
     {
       id: 'aenean-ru-bristique-1',
       name: 'Aenean Ru Bristique 1',
-      category: 'bed',
+      category: 'sofa',
       price: 30,
       promoPrice: 20,
       oldPrice: 28,
@@ -75,7 +75,7 @@ const initialStoreData = {
     {
       id: 'aenean-ru-bristique-5',
       name: 'Aenean Ru Bristique 5',
-      category: 'bed',
+      category: 'chair',
       price: 54,
       stars: 2,
       opinion: 4,
@@ -85,7 +85,7 @@ const initialStoreData = {
       compared: false,
       favourite: false,
       img:
-        'https://images.unsplash.com/photo-1541123603104-512919d6a96c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60',
+        'https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60',
     },
     {
       id: 'aenean-ru-bristique-6',
@@ -106,7 +106,7 @@ const initialStoreData = {
     {
       id: 'aenean-ru-bristique-7',
       name: 'Aenean Ru Bristique 7',
-      category: 'bed',
+      category: 'table',
       price: 30,
       stars: 2,
       opinion: 0,
@@ -116,7 +116,7 @@ const initialStoreData = {
       compared: false,
       favourite: false,
       img:
-        'https://images.unsplash.com/photo-1523755231516-e43fd2e8dca5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60',
+        'https://images.unsplash.com/photo-1537182534312-f945134cce34?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60',
     },
     {
       id: 'aenean-ru-bristique-8',
@@ -242,7 +242,7 @@ const initialStoreData = {
     {
       id: 'aenean-ru-bristique-16',
       name: 'Aenean Ru Bristique 16',
-      category: 'bed',
+      category: 'dining',
       price: 30,
       stars: 2,
       opinion: 0,
@@ -252,7 +252,7 @@ const initialStoreData = {
       compared: false,
       favourite: false,
       img:
-        'https://images.unsplash.com/photo-1491926626787-62db157af940?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60',
+        'https://images.unsplash.com/photo-1506180879175-6a5eb3ab9b18?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60',
     },
     {
       id: 'aenean-ru-bristique-17',
@@ -530,6 +530,10 @@ const initialStoreData = {
       title: 'Futniture client',
     },
   ],
+  search: {
+    searchString: '',
+    searchCategory: '',
+  },
 };
 
 export default initialStoreData;

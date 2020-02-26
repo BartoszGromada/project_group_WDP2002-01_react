@@ -10,6 +10,7 @@ import modeReducer from './modesRedux';
 import compareReducer from './compareRedux';
 import currencyRedux from './currencyRedux';
 import currencyRatesRedux from './currencyRatesRedux';
+import searchRedux from './searchRedux';
 
 // define reducers
 const reducers = {
@@ -20,6 +21,7 @@ const reducers = {
   compare: compareReducer,
   currency: currencyRedux,
   currencyRates: currencyRatesRedux,
+  search: searchRedux,
 };
 
 // add blank reducers for initial state properties without reducers

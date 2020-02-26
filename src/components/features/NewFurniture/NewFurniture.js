@@ -38,6 +38,20 @@ class NewFurniture extends React.Component {
     );
   }
 
+  handleCategoryFilter(products, categories) {
+    let newCategories = [];
+
+    for (const category of categories) {
+      for (const product of products) {
+        if (category.id === product.category) {
+          newCategories.push(category);
+          break;
+        }
+      }
+    }
+    return newCategories;
+  }
+
   render() {
     const {
       categories,
@@ -45,6 +59,7 @@ class NewFurniture extends React.Component {
       mode,
       allComperedProducts,
       removeFromCompared,
+      searchString,
     } = this.props;
     const { activeCategory, activePage } = this.state;
 
@@ -96,11 +111,15 @@ class NewFurniture extends React.Component {
             <div className={styles.panelBar}>
               <div className='row no-gutters align-items-end'>
                 <div className={styles.heading}>
-                  <h3>New furniture</h3>
+                  {searchString ? (
+                    <h3>Search results ({products.length})</h3>
+                  ) : (
+                    <h3>New furniture</h3>
+                  )}
                 </div>
                 <div className={'col ' + styles.menu}>
                   <ul>
-                    {categories.map(item => (
+                    {this.handleCategoryFilter(products, categories).map(item => (
                       <li key={item.id}>
                         <a
                           className={item.id === activeCategory && styles.active}
@@ -161,6 +180,8 @@ NewFurniture.propTypes = {
   ),
   allComperedProducts: PropTypes.array,
   removeFromCompared: PropTypes.func,
+  searchString: PropTypes.string,
+  selectedCategory: PropTypes.string,
 };
 
 NewFurniture.defaultProps = {

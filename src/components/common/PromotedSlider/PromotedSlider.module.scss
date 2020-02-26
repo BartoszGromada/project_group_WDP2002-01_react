@@ -15,14 +15,14 @@
     transform: translateY(-50%);
     text-align: center;
     width: 100%;
-    background-color: $promotion-bg-1;
+    background-color: $promotedSlider-background;
   }
 
   .title {
     font-weight: 300;
     font-size: 36px;
     line-height: 45px;
-    color: $promotion-text-1;
+    color: $promotedSlider-text;
 
     span {
       font-weight: 700;
@@ -32,7 +32,7 @@
   .subtitle {
     font-weight: 300;
     font-size: 24px;
-    color: $promotion-text-1;
+    color: $promotedSlider-text;
   }
 
   .buttonsWrapper {

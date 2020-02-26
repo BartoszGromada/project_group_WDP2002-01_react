@@ -53,7 +53,7 @@
 .noborder {
   display: inline-block;
   padding: 5px 10px;
-  color: $background-main-6;
+  color: $button-text-2;
   font-size: 13px;
   line-height: 22px;
   @include hover-animation;
@@ -72,7 +72,7 @@
 .oldPrice {
   @extend .outline;
   border:0;
-  color: $border-9;
+  color: $button-text-2;
   text-decoration: dashed;
 }
 
@@ -117,14 +117,13 @@
   left: 50%;
   top: 120%;
   transform: translate(-50%, -120%);
-  background-color: #ffffff;
-  color: $text-color;
-  index: 999;
+  background-color: $button-bg-3;
+  color: $button-text-3;
 
   &:hover {
-    background-color: black;
-    border: 1px solid black;
-    color: #ffffff;
+    background-color: $button-bg;
+    border: 1px solid $button-border;
+    color: $button-text;
   }
 }
 

@@ -11,7 +11,7 @@
     z-index: 1;
     width: calc(100% - 30px);
     color: #e1e1e1;
-    background-color: $background-main-8;
+    background-color: $promoted-background;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -38,7 +38,7 @@
           width: 13px;
           height: 13px;
           border-radius: 6px;
-          background-color: #e1e1e1;
+          background-color: $promoted-background-2;
           font-size: 0;
           
           &.active,

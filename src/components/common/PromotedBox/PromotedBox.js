@@ -13,26 +13,7 @@ import { faStar as farStar, faHeart } from '@fortawesome/free-regular-svg-icons'
 import Button from '../Button/Button';
 import Circle from '../Circle/Circle';
 
-const ProductBox = ({
-  id,
-  name,
-  price,
-  promo,
-  stars,
-  img,
-  oldPrice,
-  addToCompare,
-  allComperedProducts,
-}) => {
-  const handleClickToCompare = product => {
-    const duplicates = allComperedProducts.filter(item => item.id === product.id)
-      .length;
-
-    if (allComperedProducts.length < 4 && !duplicates) {
-      addToCompare(product);
-    }
-  };
-
+const ProductBox = ({ id, name, price, stars, img, oldPrice }) => {
   return (
     <div className={styles.wrapper}>
       <div className={styles.photo}>
@@ -69,10 +50,7 @@ const ProductBox = ({
           <Button variant='outlinePromoted'>
             <FontAwesomeIcon icon={faHeart}>Favorite</FontAwesomeIcon>
           </Button>
-          <Button
-            variant='outlinePromoted'
-            onClick={() => handleClickToCompare({ id, name, img })}
-          >
+          <Button variant='outlinePromoted'>
             <FontAwesomeIcon icon={faExchangeAlt}>Add to compare</FontAwesomeIcon>
           </Button>
           <Button variant='outlinePromoted'>

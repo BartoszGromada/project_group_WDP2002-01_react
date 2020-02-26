@@ -1,7 +1,7 @@
 @import "../../../styles/settings.scss";
 
 .circle {
-  background-color: $button-bg;
+  background-color: $circle-background;
   border-radius: 50%;
   width: 60px;
   height: 60px;
@@ -10,7 +10,7 @@
   text-align: center;
   font-size: 14px;
   font-weight: 700;
-  color: #ffffff;
+  color: $circle-text;
   opacity: 0.8;
   padding-top: 10px
 }

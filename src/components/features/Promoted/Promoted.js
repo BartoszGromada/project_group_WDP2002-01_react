@@ -14,8 +14,6 @@ class Promoted extends React.Component {
 
     const { promoted } = this.props;
 
-    console.log(promoted);
-
     const pagesCount = promoted.length;
 
     const dots = [];

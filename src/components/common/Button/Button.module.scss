@@ -123,3 +123,22 @@
     color: #ffffff;
   }
 }
+
+.arrow {
+  background-color: $button-bg;
+  color: $button-text;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 600;
+  padding: 10px 30px;
+  display: inline-block;
+  width: 50%;
+  text-align: center;
+  @include hover-animation;
+
+  &:not(.noHover):hover {
+    color: $button-text !important;
+    background-color: $primary;
+    text-decoration: none;
+  }
+}

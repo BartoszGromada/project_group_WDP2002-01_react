@@ -3,7 +3,7 @@
 .sliderWrapper {
   background-image: url(https://images.pexels.com/photos/276534/pexels-photo-276534.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
   width: 100%;
-  height: 100%;
+  height: calc(100% - 30px);
   background-size: cover;
   text-transform: uppercase;
   position: relative;
@@ -33,5 +33,11 @@
     font-weight: 300;
     font-size: 24px;
     color: $promotion-text-1;
+  }
+
+  .buttonsWrapper {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
   }
 }

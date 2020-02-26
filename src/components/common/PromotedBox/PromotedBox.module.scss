@@ -20,8 +20,8 @@
     .buttons {
       position: absolute;
       left: 50%;
-      top: 50%;
-      transform: translate(-50%, -50%);
+      top: 40%;
+      transform: translate(-50%, -40%);
       opacity: 0;
       transition: 0.2s ease-in-out;
       a {
@@ -32,8 +32,8 @@
     .circles {
       position: absolute;
       left: 50%;
-      top: 90%;
-      transform: translate(-50%, -90%);
+      top: 80%;
+      transform: translate(-50%, -80%);
       opacity: 0;
       transition: 0.2s ease-in-out;
       text-align: center;

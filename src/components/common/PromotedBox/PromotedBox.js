@@ -86,7 +86,7 @@ const ProductBox = ({
               <del>$ {oldPrice}</del>
             </Button>
           )}
-          <Button noHover variant='small'>
+          <Button noHover variant='price'>
             $ {price}
           </Button>
         </div>

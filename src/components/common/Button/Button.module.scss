@@ -35,14 +35,6 @@
   display: inline-block;
 }
 
-.promotedOld {
-  @extend .promoted;
-  background-color: #ffffff;
-  color: #e2e2e2;
-  display: inline-block;
-  text-decoration: line-through;
-}
-
 .outline {
   display: inline-block;
   padding: 5px 10px;
@@ -79,10 +71,22 @@
 
 .oldPrice {
   @extend .outline;
-  border: #ffffff;
+  border:0;
   color: $border-9;
   text-decoration: dashed;
 }
+
+.price {
+  @extend .small;
+
+  &:hover {
+    color: $button-text !important;
+    background-color: $primary;
+    text-decoration: none;
+  }
+}
+
+
 
 .cta {
   @extend .main;
@@ -117,7 +121,7 @@
   color: $text-color;
   index: 999;
 
-  &:not(.noHover):hover {
+  &:hover {
     background-color: black;
     border: 1px solid black;
     color: #ffffff;
@@ -136,7 +140,7 @@
   text-align: center;
   @include hover-animation;
 
-  &:not(.noHover):hover {
+  &:hover {
     color: $button-text !important;
     background-color: $primary;
     text-decoration: none;

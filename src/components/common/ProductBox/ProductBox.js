@@ -1,18 +1,20 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-
+import { Link } from 'react-router-dom';
 import styles from './ProductBox.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
 import {
-  faStar,
   faExchangeAlt,
   faShoppingBasket,
   faTrashAlt,
 } from '@fortawesome/free-solid-svg-icons';
-import { faStar as farStar, faHeart } from '@fortawesome/free-regular-svg-icons';
+import { faHeart } from '@fortawesome/free-regular-svg-icons';
 import Button from '../Button/Button';
 import Popup from 'reactjs-popup';
 import Input from '../../features/Input/InputContainer';
+import Price from '../Price/PriceContainer';
+import Stars from '../Stars/StarsContainer';
 
 const ProductBox = ({
   id,
@@ -20,12 +22,17 @@ const ProductBox = ({
   price,
   promo,
   stars,
+  opinion,
   img,
   oldPrice,
   addToCompare,
   allComperedProducts,
   addToCart,
   removeFromCart,
+  markFavourite,
+  favourite,
+  favorite,
+  compared,
 }) => {
   const [productQty, setProductQty] = useState(1);
 
@@ -44,13 +51,19 @@ const ProductBox = ({
     addToCart({ id, img, price, qty });
 
   const handleClickToRemoveFromCart = id => removeFromCart(id);
+  const handleMarkFavourite = event => {
+    event.preventDefault();
+    markFavourite();
+  };
 
   return (
-    <div className={styles.wrapper}>
-      <div className={styles.root}>
+    <div className={styles.root}>
+      <div className={styles.wrapper}>
         <div className={styles.photo}>
           {promo && <div className={styles.sale}>{promo}</div>}
-          <img src={img} alt={`${name} bed`} />
+          <Link to='/shop'>
+            <img src={img} alt={`${name} bed`} />
+          </Link>
           <div className={styles.buttons}>
             <Button variant='small'>Quick View</Button>
             <Popup
@@ -96,26 +109,29 @@ const ProductBox = ({
           </div>
         </div>
         <div className={styles.content}>
-          <h5>{name}</h5>
+          <Link to='/shop'>
+            <h5>{name}</h5>
+          </Link>
           <Input changeCount={handleChangeCount} />
           <div className={styles.stars}>
-            {[1, 2, 3, 4, 5].map(i => (
-              <a key={i} href='#'>
-                {i <= stars ? (
-                  <FontAwesomeIcon icon={faStar}>{i} stars</FontAwesomeIcon>
-                ) : (
-                  <FontAwesomeIcon icon={farStar}>{i} stars</FontAwesomeIcon>
-                )}
-              </a>
-            ))}
+            <Stars product={id} opinion={opinion} stars={stars} />
           </div>
         </div>
 
         <div className={styles.line}></div>
         <div className={styles.actions}>
           <div className={styles.outlines}>
-            <Button variant='outline'>
-              <FontAwesomeIcon icon={faHeart}>Favorite</FontAwesomeIcon>
+            <Button
+              variant='outline'
+              favourite={favourite}
+              onClick={handleMarkFavourite}
+            >
+              <FontAwesomeIcon
+                icon={faHeart}
+                className={favorite ? styles.favorite : ''}
+              >
+                Favorite
+              </FontAwesomeIcon>
             </Button>
             <Button
               variant='outline'
@@ -127,12 +143,14 @@ const ProductBox = ({
           <div className={styles.price}>
             {oldPrice && <div className={styles.oldPrice}></div>}
             {oldPrice && (
-              <Button noHover variant='outline'>
-                <del>$ {oldPrice}</del>
+              <Button noHover variant='noborder'>
+                <del>
+                  <Price>{oldPrice}</Price>
+                </del>
               </Button>
             )}
             <Button noHover variant='small'>
-              $ {price}
+              <Price>{price}</Price>
             </Button>
           </div>
         </div>
@@ -149,6 +167,11 @@ ProductBox.propTypes = {
   oldPrice: PropTypes.number,
   promo: PropTypes.string,
   stars: PropTypes.number,
+  opinion: PropTypes.number,
+  favorite: PropTypes.bool,
+  compared: PropTypes.bool,
+  markFavourite: PropTypes.func,
+  favourite: PropTypes.bool,
   img: PropTypes.string,
   addToCompare: PropTypes.func,
   allComperedProducts: PropTypes.array,

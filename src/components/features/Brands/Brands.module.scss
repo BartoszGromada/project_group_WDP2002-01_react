@@ -1,0 +1,67 @@
+@import '../../../styles/settings.scss';
+
+.root {
+  padding: 5rem 0;
+}
+
+.component {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid $brands-border-1;
+  border-bottom: 1px solid $brands-border-1;
+  padding: 10px 5px;
+}
+
+.arrow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80px;
+  width: 25px;
+  background-color: $brands-bg-2;
+  color: $brands-bg-1;
+  font-size: 12px;
+  border: none;
+}
+
+.row {
+  display: flex;
+  flex-shrink: 0;
+  justify-content: space-between;
+  overflow-x: hidden;
+  width: 90%
+}
+
+@keyframes slidingIn {
+  0% { transform: translateX(100px); }
+  100% { transform: translateX(0); }
+}
+
+@keyframes slidingOut {
+  0% { transform: translateX(-100px); }
+  100% { transform: translateX(0); }
+}
+
+.slideIn {
+  animation: slidingIn .8s forwards;
+}
+
+.slideOut {
+  animation: slidingOut .8s forwards;
+}
+
+.box {
+  height: 80px;
+  flex: 0 0 140px;
+  margin: 0 5px;
+  border: 1px solid $brands-border-1;
+  white-space: nowrap;
+
+  img {
+    height: 100%;
+    width: 100%;
+  }
+}
+.inactive {
+  display: none;
+}

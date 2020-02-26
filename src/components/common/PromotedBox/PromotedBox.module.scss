@@ -1,6 +1,7 @@
 @import "../../../styles/settings.scss";
 
-.root {
+.wrapper {
+  margin-top: 45px;
   background-color: #ffffff;
   border: 1px solid #e1e1e1;
   margin-bottom: 2rem;
@@ -15,13 +16,28 @@
       repeat: no-repeat;
     }
     overflow: hidden;
-    align-items: flex-end;
-
+    
     .buttons {
-      display: flex;
-      justify-content: space-between;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
       opacity: 0;
       transition: 0.2s ease-in-out;
+      a {
+        z-index: 2;
+      }
+    }
+
+    .circles {
+      position: absolute;
+      left: 50%;
+      top: 90%;
+      transform: translate(-50%, -90%);
+      opacity: 0;
+      transition: 0.2s ease-in-out;
+      text-align: center;
+      white-space: nowrap;
       a {
         z-index: 2;
       }
@@ -47,6 +63,7 @@
       font-size: 16px;
       line-height: 24px;
       letter-spacing: 1px;
+      margin: 10px 0;
     }
 
     .stars {
@@ -58,7 +75,7 @@
   }
 
   .line {
-    margin: 0 10px;
+    margin: 10px;
     border-bottom: 1px solid #2a2a2a;
     position: relative;
 
@@ -86,11 +103,13 @@
     align-items: center;
   }
 }
+
 .wrapper {
   &:hover .buttons {
     opacity: 1;
   }
-  &:hover .price * {
-    background-color: $primary;
+
+  &:hover .circles {
+    opacity: 1;
   }
 }

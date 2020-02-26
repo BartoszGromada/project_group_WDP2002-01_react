@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import PromotedBox from '../../common/PromotedBox/PromotedBoxContainer';
+import PromotedSlider from '../../common/PromotedSlider/PromotedSlider';
 import styles from './Promoted.module.scss';
 
 class Promoted extends React.Component {
@@ -28,9 +29,9 @@ class Promoted extends React.Component {
     }
 
     return (
-      <div className={`container ${styles.wrapper}`}>
+      <div className={`container ${styles.promotedWrapper}`}>
         <div className='row'>
-          <div className={`col-4 ${styles.col_left}`}>
+          <div className={`col-4`}>
             <div className={styles.dotsWrapper}>
               <div className={styles.dotsDescription}>HOT DEALS</div>
               <ul>{dots}</ul>
@@ -41,7 +42,9 @@ class Promoted extends React.Component {
               </div>
             ))}
           </div>
-          <div className='col-auto'></div>
+          <div className='col-8'>
+            <PromotedSlider />
+          </div>
         </div>
       </div>
     );

@@ -11,6 +11,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { faStar as farStar, faHeart } from '@fortawesome/free-regular-svg-icons';
 import Button from '../Button/Button';
+import Circle from '../Circle/Circle';
 
 const ProductBox = ({
   id,
@@ -34,58 +35,60 @@ const ProductBox = ({
 
   return (
     <div className={styles.wrapper}>
-      <div className={styles.root}>
-        <div className={styles.photo}>
-          <img src={img} alt={`${name} bed`} />
-          <div className={styles.buttons}>
-            <Button variant='small'>
-              <FontAwesomeIcon icon={faShoppingBasket} />
-              ADD TO CART
-            </Button>
-          </div>
+      <div className={styles.photo}>
+        <img src={img} alt={`${name} bed`} />
+        <div className={styles.buttons}>
+          <Button variant='small'>
+            <FontAwesomeIcon icon={faShoppingBasket} /> ADD TO CART
+          </Button>
         </div>
-        <div className={styles.content}>
-          <h5>{name}</h5>
-          <div className={styles.stars}>
-            {[1, 2, 3, 4, 5].map(i => (
-              <a key={i} href='#'>
-                {i <= stars ? (
-                  <FontAwesomeIcon icon={faStar}>{i} stars</FontAwesomeIcon>
-                ) : (
-                  <FontAwesomeIcon icon={farStar}>{i} stars</FontAwesomeIcon>
-                )}
-              </a>
-            ))}
-          </div>
+        <div className={styles.circles}>
+          <Circle number='25' description='DAYS' />
+          <Circle number='10' description='HRS' />
+          <Circle number='45' description='MINS' />
+          <Circle number='30' description='SECS' />
         </div>
-
-        <div className={styles.line}></div>
-        <div className={styles.actions}>
-          <div className={styles.outlines}>
-            <Button variant='outlinePromoted'>
-              <FontAwesomeIcon icon={faHeart}>Favorite</FontAwesomeIcon>
+      </div>
+      <div className={styles.content}>
+        <h5>{name}</h5>
+        <div className={styles.stars}>
+          {[1, 2, 3, 4, 5].map(i => (
+            <a key={i} href='#'>
+              {i <= stars ? (
+                <FontAwesomeIcon icon={faStar}>{i} stars</FontAwesomeIcon>
+              ) : (
+                <FontAwesomeIcon icon={farStar}>{i} stars</FontAwesomeIcon>
+              )}
+            </a>
+          ))}
+        </div>
+      </div>
+      <div className={styles.line}></div>
+      <div className={styles.actions}>
+        <div className={styles.outlines}>
+          <Button variant='outlinePromoted'>
+            <FontAwesomeIcon icon={faHeart}>Favorite</FontAwesomeIcon>
+          </Button>
+          <Button
+            variant='outlinePromoted'
+            onClick={() => handleClickToCompare({ id, name, img })}
+          >
+            <FontAwesomeIcon icon={faExchangeAlt}>Add to compare</FontAwesomeIcon>
+          </Button>
+          <Button variant='outlinePromoted'>
+            <FontAwesomeIcon icon={faEye}>See details</FontAwesomeIcon>
+          </Button>
+        </div>
+        <div className={styles.price}>
+          {oldPrice && <div className={styles.oldPrice}></div>}
+          {oldPrice && (
+            <Button noHover variant='oldPrice'>
+              <del>$ {oldPrice}</del>
             </Button>
-            <Button
-              variant='outlinePromoted'
-              onClick={() => handleClickToCompare({ id, name, img })}
-            >
-              <FontAwesomeIcon icon={faExchangeAlt}>Add to compare</FontAwesomeIcon>
-            </Button>
-            <Button variant='outlinePromoted'>
-              <FontAwesomeIcon icon={faEye}>See details</FontAwesomeIcon>
-            </Button>
-          </div>
-          <div className={styles.price}>
-            {oldPrice && <div className={styles.oldPrice}></div>}
-            {oldPrice && (
-              <Button noHover variant='oldPrice'>
-                <del>$ {oldPrice}</del>
-              </Button>
-            )}
-            <Button noHover variant='small'>
-              $ {price}
-            </Button>
-          </div>
+          )}
+          <Button noHover variant='small'>
+            $ {price}
+          </Button>
         </div>
       </div>
     </div>

@@ -22,6 +22,12 @@
   line-height: 24px;
   padding: 5px 10px;
   font-weight: 400;
+
+  &:not(.noHover):hover {
+    color: $button-text !important;
+    background-color: $primary;
+    text-decoration: none;
+  }
 }
 
 .promoted {
@@ -74,8 +80,10 @@
 .oldPrice {
   @extend .outline;
   border: #ffffff;
-  color: $header-topbar-bg;
+  color: $border-9;
   text-decoration: dashed;
+}
+
 .cta {
   @extend .main;
   background-color: $button-bg-2;
@@ -97,4 +105,21 @@
 .favourite {
   background-color: $button-bg;
   color: $button-bg-3;
+}
+
+.slider {
+  @extend .main;
+  position: absolute;
+  left: 50%;
+  top: 120%;
+  transform: translate(-50%, -120%);
+  background-color: #ffffff;
+  color: $text-color;
+  index: 999;
+
+  &:not(.noHover):hover {
+    background-color: black;
+    border: 1px solid black;
+    color: #ffffff;
+  }
 }

@@ -7,6 +7,8 @@ import { faStar } from '@fortawesome/free-solid-svg-icons';
 import { faStar as farStar } from '@fortawesome/free-regular-svg-icons';
 import styles from './FurnitureGalleryPrice.module.scss';
 
+import { Link } from 'react-router-dom';
+
 const FurnitureGalleryPrice = ({ stars, name, price, promoPrice }) => (
   <div>
     <div className={styles.price}>
@@ -25,13 +27,13 @@ const FurnitureGalleryPrice = ({ stars, name, price, promoPrice }) => (
       <h5>{name}</h5>
       <div className={styles.stars}>
         {[1, 2, 3, 4, 5].map(i => (
-          <a key={i} href='#'>
+          <Link key={i} to='/'>
             {i <= stars ? (
               <FontAwesomeIcon icon={faStar}>{i} stars</FontAwesomeIcon>
             ) : (
               <FontAwesomeIcon icon={farStar}>{i} stars</FontAwesomeIcon>
             )}
-          </a>
+          </Link>
         ))}
       </div>
     </div>

@@ -3,36 +3,40 @@ import PropTypes from 'prop-types';
 
 import styles from './Button.module.scss';
 
-const Button = ({
-  children,
-  variant,
-  noHover,
-  className: propClassName,
-  favourite,
-  ...props
-}) => {
-  const classes = [];
+class Button extends React.Component {
+  render() {
+    const {
+      children,
+      variant,
+      noHover,
+      className: propClassName,
+      favourite,
+      ...props
+    } = this.props;
 
-  if (propClassName) classes.push(propClassName);
+    const classes = [];
 
-  if (variant) classes.push(styles[variant]);
-  else classes.push('main');
+    if (propClassName) classes.push(propClassName);
 
-  if (favourite) classes.push(styles.favourite);
+    if (variant) classes.push(styles[variant]);
+    else classes.push('main');
 
-  let Comp = 'a';
+    if (favourite) classes.push(styles.favourite);
 
-  if (noHover) {
-    classes.push(styles.noHover);
-    Comp = 'div';
+    let Comp = 'a';
+
+    if (noHover) {
+      classes.push(styles.noHover);
+      Comp = 'div';
+    }
+
+    return (
+      <Comp href='#' {...props} className={classes.join(' ')}>
+        {children}
+      </Comp>
+    );
   }
-
-  return (
-    <Comp href='#' {...props} className={classes.join(' ')}>
-      {children}
-    </Comp>
-  );
-};
+}
 
 Button.propTypes = {
   children: PropTypes.node,

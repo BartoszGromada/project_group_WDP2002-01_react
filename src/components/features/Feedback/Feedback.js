@@ -9,6 +9,8 @@ import { faQuoteRight } from '@fortawesome/free-solid-svg-icons';
 
 import SwipeComponent from '../../common/SwipeComponent/SwipeComponent';
 
+import { Link } from 'react-router-dom';
+
 class Feedback extends React.Component {
   state = {
     activePage: 0,
@@ -28,12 +30,13 @@ class Feedback extends React.Component {
     for (let i = 0; i < pagesCount; i++) {
       dots.push(
         <li key={i}>
-          <a
+          <Link
+            to='/'
             onClick={() => this.handlePageChange(i)}
             className={i === activePage && styles.active ? 1 : 0}
           >
             page {i}
-          </a>
+          </Link>
         </li>
       );
     }

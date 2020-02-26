@@ -5,6 +5,8 @@ import SwipeComponent from '../../common/SwipeComponent/SwipeComponent';
 import styles from './NewFurniture.module.scss';
 import ProductBox from '../../common/ProductBox/ProductBoxContainer';
 
+import { Link } from 'react-router-dom';
+
 class NewFurniture extends React.Component {
   state = {
     activePage: 0,
@@ -30,7 +32,7 @@ class NewFurniture extends React.Component {
             </div>
           </div>
         ))}
-        <a href='#'>Compare</a>
+        <Link to='/'>Compare</Link>
         <div className={styles.close} onClick={() => remove()}>
           x
         </div>
@@ -85,12 +87,15 @@ class NewFurniture extends React.Component {
     for (let i = 0; i < pagesCount; i++) {
       dots.push(
         <li key={i}>
-          <a
+          <Link
+            to='/'
             onClick={() => this.handlePageChange(i)}
-            className={i === activePage && styles.active ? 1 : 0}
+            className={
+              i === activePage && styles.active ? i === activePage && styles.active : 0
+            }
           >
             page {i}
-          </a>
+          </Link>
         </li>
       );
     }
@@ -121,14 +126,17 @@ class NewFurniture extends React.Component {
                   <ul>
                     {this.handleCategoryFilter(products, categories).map(item => (
                       <li key={item.id}>
-                        <a
+                        <Link
+                          to='/'
                           onClick={() => this.handleCategoryChange(item.id)}
                           className={
-                            item.id === activeCategory && styles.active ? 1 : 0
+                            item.id === activeCategory && styles.active
+                              ? item.id === activeCategory && styles.active
+                              : 0
                           }
                         >
                           {item.name}
-                        </a>
+                        </Link>
                       </li>
                     ))}
                   </ul>

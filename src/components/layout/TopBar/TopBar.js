@@ -6,6 +6,8 @@ import { faCaretDown, faUser, faLock, faBars } from '@fortawesome/free-solid-svg
 
 import styles from './TopBar.module.scss';
 
+import { Link } from 'react-router-dom';
+
 const TopBar = ({ currency, allCurrencies, changeCurrency, fetchRates, getStatus }) => {
   const [open, setOpen] = useState(false);
 
@@ -51,33 +53,33 @@ const TopBar = ({ currency, allCurrencies, changeCurrency, fetchRates, getStatus
                 )}
               </li>
               <li>
-                <a href='#'>
+                <Link to='/'>
                   English <FontAwesomeIcon className={styles.icon} icon={faCaretDown} />
-                </a>
+                </Link>
               </li>
               <li>
-                <a href='#'>
+                <Link to='/'>
                   Help <FontAwesomeIcon className={styles.icon} icon={faCaretDown} />
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
           <div className={`col text-right ${styles.topMenu}`}>
             <ul>
               <li>
-                <a href='#'>
+                <Link to='/'>
                   <FontAwesomeIcon className={styles.icon} icon={faUser} /> Login
-                </a>
+                </Link>
               </li>
               <li>
-                <a href='#'>
+                <Link to='/'>
                   <FontAwesomeIcon className={styles.icon} icon={faLock} /> Register
-                </a>
+                </Link>
               </li>
               <li>
-                <a href='#'>
+                <Link to='/'>
                   <FontAwesomeIcon className={styles.icon} icon={faBars} />
-                </a>
+                </Link>
               </li>
             </ul>
           </div>

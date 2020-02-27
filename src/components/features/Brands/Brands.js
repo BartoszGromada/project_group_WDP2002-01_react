@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 import styles from './Brands.module.scss';
-// import SwipeComponent from '../../common/SwipeComponent/SwipeComponent';
+import SwipeComponent from '../../common/SwipeComponent/SwipeComponent';
 
 class Brands extends React.Component {
   static propTypes = {
@@ -84,26 +84,29 @@ class Brands extends React.Component {
             >
               <FontAwesomeIcon icon={faChevronLeft} />
             </button>
-
-            {/* <SwipeComponent
-              rightAction={() => this.changeBrandsBack(brands.length / amountOfBrandsToDisplay)}
-              leftAction={() => this.changeBrandsFurther(brands.length / amountOfBrandsToDisplay)}
-            > */}
-            <div className={styles.row}>
-              {brands.map(({ id, image, index }) => (
-                <div
-                  key={id}
-                  className={this.componentClass(
-                    index,
-                    this.state.brandsPage,
-                    amountOfBrandsToDisplay
-                  )}
-                >
-                  <img src={image} alt={image} />
-                </div>
-              ))}
-            </div>
-            {/* </SwipeComponent> */}
+            <SwipeComponent
+              rightAction={() =>
+                this.changeBrandsBack(brands.length / amountOfBrandsToDisplay)
+              }
+              leftAction={() =>
+                this.changeBrandsFurther(brands.length / amountOfBrandsToDisplay)
+              }
+            >
+              <div className={styles.row}>
+                {brands.map(({ id, image, index }) => (
+                  <div
+                    key={id}
+                    className={this.componentClass(
+                      index,
+                      this.state.brandsPage,
+                      amountOfBrandsToDisplay
+                    )}
+                  >
+                    <img src={image} alt={image} />
+                  </div>
+                ))}
+              </div>
+            </SwipeComponent>
             <button
               onClick={() =>
                 this.changeBrandsFurther(brands.length / amountOfBrandsToDisplay)

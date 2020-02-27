@@ -24,6 +24,7 @@ const initialStoreData = {
       favourite: true,
       img:
         'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60',
+      promoted: true,
     },
     {
       id: 'aenean-ru-bristique-2',
@@ -39,6 +40,7 @@ const initialStoreData = {
       favourite: false,
       img:
         'https://images.unsplash.com/photo-1550226891-ef816aed4a98?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60',
+      promoted: true,
     },
     {
       id: 'aenean-ru-bristique-3',
@@ -55,6 +57,7 @@ const initialStoreData = {
       favourite: false,
       img:
         'https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60',
+      promoted: true,
     },
     {
       id: 'aenean-ru-bristique-4',
@@ -385,6 +388,8 @@ const initialStoreData = {
         stars: 2,
         promo: 'sale',
         newFurniture: true,
+        img:
+          'https://images.unsplash.com/photo-1512111468-477c8248162b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60',
       },
       {
         id: 'aenean-ru-bristique-1',

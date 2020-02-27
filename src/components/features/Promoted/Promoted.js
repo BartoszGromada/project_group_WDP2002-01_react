@@ -24,8 +24,16 @@ class Promoted extends React.Component {
 
     for (let i = 0; i < promoted.length; i++) {
       dots.push(
-        <li>
-          <Link className={i === activePage && styles.active}> page {i}</Link>
+        <li key={i}>
+          <Link
+            to='/'
+            className={
+              i === activePage && styles.active ? i === activePage && styles.active : 0
+            }
+          >
+            {' '}
+            page {i}
+          </Link>
         </li>
       );
     }
@@ -72,7 +80,7 @@ Promoted.propTypes = {
       newFurniture: PropTypes.bool,
     })
   ),
-  promoted: PropTypes.string,
+  promoted: PropTypes.array,
 };
 
 export default Promoted;

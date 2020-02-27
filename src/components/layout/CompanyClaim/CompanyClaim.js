@@ -48,7 +48,7 @@ class CompanyClaim extends React.Component {
             >
               <Popup
                 trigger={
-                  <a href='#' className={styles.cartBox}>
+                  <Link to='/' className={styles.cartBox}>
                     <div className={styles.cartIcon}>
                       <FontAwesomeIcon
                         className={styles.icon}
@@ -56,7 +56,7 @@ class CompanyClaim extends React.Component {
                       />
                     </div>
                     <div className={styles.cartCounter}>99999</div>
-                  </a>
+                  </Link>
                 }
                 modal
               >

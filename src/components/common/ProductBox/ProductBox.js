@@ -4,16 +4,13 @@ import { Link } from 'react-router-dom';
 import styles from './ProductBox.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import {
-  faExchangeAlt,
-  faShoppingBasket,
-  faTrashAlt,
-} from '@fortawesome/free-solid-svg-icons';
+import { faShoppingBasket, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 import { faHeart } from '@fortawesome/free-regular-svg-icons';
 import Button from '../Button/Button';
 import Price from '../Price/PriceContainer';
 import Stars from '../Stars/StarsContainer';
 import Popup from 'reactjs-popup';
+import CompareButton from '../CompareButton/CompareButtonContainer';
 
 const ProductBox = ({
   id,
@@ -24,22 +21,10 @@ const ProductBox = ({
   opinion,
   img,
   oldPrice,
-  addToCompare,
-  allComperedProducts,
   markFavourite,
   favourite,
   favorite,
-  compared,
 }) => {
-  const handleClickToCompare = product => {
-    const duplicates = allComperedProducts.filter(item => item.id === product.id)
-      .length;
-
-    if (allComperedProducts.length < 4 && !duplicates) {
-      addToCompare(product);
-    }
-  };
-
   const handleMarkFavourite = event => {
     event.preventDefault();
     markFavourite();
@@ -119,12 +104,7 @@ const ProductBox = ({
                 Favorite
               </FontAwesomeIcon>
             </Button>
-            <Button
-              variant='outline'
-              onClick={() => handleClickToCompare({ id, name, img })}
-            >
-              <FontAwesomeIcon icon={faExchangeAlt}>Add to compare</FontAwesomeIcon>
-            </Button>
+            <CompareButton id={id} name={name} img={img} />
           </div>
           <div className={styles.price}>
             {oldPrice && <div className={styles.oldPrice}></div>}
@@ -155,12 +135,9 @@ ProductBox.propTypes = {
   stars: PropTypes.number,
   opinion: PropTypes.number,
   favorite: PropTypes.bool,
-  compared: PropTypes.bool,
   markFavourite: PropTypes.func,
   favourite: PropTypes.bool,
   img: PropTypes.string,
-  addToCompare: PropTypes.func,
-  allComperedProducts: PropTypes.array,
 };
 
 export default ProductBox;

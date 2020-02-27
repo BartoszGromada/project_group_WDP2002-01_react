@@ -11,7 +11,6 @@ import Promoted from '../../features/Promoted/PromotedContainer';
 import Brands from '../../features/Brands/BrandsContainer';
 import FurnitureGallery from '../../features/FurnitureGallery/FurnitureGalleryContainer';
 import Feedback from '../../features/Feedback/FeedbackContainer';
-import ComparedProducts from '../../features/ComperedProducts/ComperedProductsContainer';
 
 const Homepage = ({ searchString }) => (
   <div className={styles.root}>
@@ -28,7 +27,6 @@ const Homepage = ({ searchString }) => (
     <FurnitureGallery />
     <Brands />
     <Feedback />
-    <ComparedProducts />
   </div>
 );
 

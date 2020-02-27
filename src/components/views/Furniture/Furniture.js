@@ -6,12 +6,13 @@ import Brands from '../../features/Brands/BrandsContainer';
 import Button from '../../common/Button/Button';
 import Stars from '../../common/Stars/StarsContainer';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import CompareButton from '../../common/CompareButton/CompareButtonContainer';
+import Price from '../../common/Price/PriceContainer';
 import {
   faChevronRight,
   faThList,
   faThLarge,
   faHeart,
-  faExchangeAlt,
   faSearch,
   faShoppingBasket,
 } from '@fortawesome/free-solid-svg-icons';
@@ -63,14 +64,16 @@ const Furniture = ({ products }) => (
           </div>
         </div>
 
-        {products.map(product => (
-          <div key={product.id} className={styles.product_row}>
-            <img src={product.img} alt={'furniture'} />
+        {products.map(({ id, img, name, price, stars }) => (
+          <div key={id} className={styles.product_row}>
+            <img src={img} alt={'furniture'} />
             <div className={styles.info}>
-              <div className={styles.name}>{product.name}</div>
-              <div className={styles.price}>${product.price}</div>
+              <div className={styles.name}>{name}</div>
+              <div className={styles.price}>
+                <Price>{price}</Price>
+              </div>
               <div className={styles.stars}>
-                <Stars product={product.id} stars={product.stars} />
+                <Stars product={id} stars={stars} />
               </div>
               <div className={styles.description}>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
@@ -80,9 +83,10 @@ const Furniture = ({ products }) => (
                 <Button variant='outline'>
                   <FontAwesomeIcon icon={faHeart} />
                 </Button>
-                <Button variant='outline'>
+                <CompareButton id={id} name={name} img={img} />
+                {/* <Button variant='outline'>
                   <FontAwesomeIcon icon={faExchangeAlt} />
-                </Button>
+                </Button> */}
                 <Button variant='outline'>
                   <FontAwesomeIcon icon={faSearch} />
                 </Button>

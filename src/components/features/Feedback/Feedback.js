@@ -33,7 +33,9 @@ class Feedback extends React.Component {
           <Link
             to='/'
             onClick={() => this.handlePageChange(i)}
-            className={i === activePage && styles.active ? 1 : 0}
+            className={
+              i === activePage && styles.active ? i === activePage && styles.active : 0
+            }
           >
             page {i}
           </Link>

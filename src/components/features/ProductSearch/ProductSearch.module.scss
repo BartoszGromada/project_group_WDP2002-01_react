@@ -48,12 +48,16 @@
 
         &:hover {
           background-color: $background-main-2;
-          color: $text-color-2;
+          // color: $text-color-2;
         }
 
-        // a {
-        //   color: $text-color-2;
-        // }
+        a {
+          color: $text-color;
+        }
+
+        a:hover {
+          color: $text-color-2;
+        }
 
         a:first-letter {
           text-transform: uppercase;

@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './Promotion.module.scss';
+import Price from '../../common/Price/PriceContainer';
 
 const Promotion = () => (
   <div className={styles.root}>
@@ -23,7 +24,9 @@ const Promotion = () => (
                     <b>Office</b> Chair
                   </h3>
                   <h2 className={styles.desc_small_1}>collection</h2>
-                  <div className={styles.price_small_1}>$200.00</div>
+                  <div className={styles.price_small_1}>
+                    <Price>200.00</Price>
+                  </div>
                 </div>
               </div>
             </div>

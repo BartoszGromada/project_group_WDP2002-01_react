@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './PromoProduct.module.scss';
 import Button from '../../common/Button/Button';
+import Price from '../../common/Price/PriceContainer';
 
 const PromoProduct = ({ products }) => (
   <div className={'col-12 col-md-6 ' + styles.promotion}>
@@ -11,7 +12,9 @@ const PromoProduct = ({ products }) => (
         <div className={styles.info}>
           <p>
             From
-            <span>{'$' + products[0].price}</span>
+            <span>
+              <Price>{products[0].price}</Price>
+            </span>
           </p>
           <h2>{products[0].category}</h2>
           <Button variant='cta'>Shop now</Button>
@@ -22,7 +25,7 @@ const PromoProduct = ({ products }) => (
 );
 
 PromoProduct.propTypes = {
-  products: PropTypes.node,
+  products: PropTypes.array,
 };
 
 export default PromoProduct;

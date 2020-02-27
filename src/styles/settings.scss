@@ -1,4 +1,4 @@
-/* Colors settings - DON'T USE THIS VARIABLES! */
+/* Colors settings  */
 
 //leading
 $primary: #d58e32;
@@ -43,14 +43,16 @@ $icon-1: #ffffff;
 $icon-2: rgb(42, 42, 42);
 $icon-3: red;
 
-
 /* Colors settings - VARIABLES TO USE IN COMPONENTS */
 
 //Buttons
 $button-text: $text-color-2;
+$button-text-2: $text-color-5;
+$button-text-3: $text-color;
 $button-bg: $background-main-2;
 $button-bg-2: $background-main-7;
 $button-bg-3: $background-main-1;
+$button-border: $border-3;
 
 //FeatureBox
 $icon-active: $icon-1;
@@ -66,7 +68,7 @@ $product-box-photo-bg: $background-main-3;
 $product-box-border-1: $border-2;
 $product-box-border-2: $border-3;
 $product-box-border-3: $border-9;
-$product-box-text:  $text-color-2;
+$product-box-text: $text-color-2;
 $product-box-stars: $icon-2;
 $product-box-icon-1: $icon-3;
 
@@ -137,12 +139,34 @@ $brands-border-1: $border-1;
 //Stars
 $stars-icone-1: $icon-2;
 
+//Feedbeck
+$feedbeck-border-1: $border-4;
+$feedbeck-bg-1: $background-main-1;
+$feedbeck-bg-2: $background-main-12;
+$feedbeck-text-1: $text-color;
+
+//Promoted
+$promoted-background: $background-main-8;
+$promoted-background-2: $background-main-1;
+
+//PromotedBox
+$promotedBox-background: $background-main-1;
+$promotedBox-background-2: $background-main-3;
+$promotedBox-border: $border-2;
+$promotedBox-border-2: $border-3;
+$promotedBox-text: $text-color;
+
+// PromotedSlider
+$promotedSlider-background: $background-main-11;
+$promotedSlider-text: $text-color-2;
+
+//Circle
+$circle-background: $background-main-2;
+$circle-text: $text-color-2;
 
 /* Settings */
 
-
 $base-padding: 24px;
-
 
 @mixin hover-animation($all: false, $color-time: 0.25s, $bg-color-time: 0.25s) {
   @if ($all) {

@@ -11,7 +11,7 @@ const initialStoreData = {
     {
       id: 'aenean-ru-bristique-1',
       name: 'Aenean Ru Bristique 1',
-      category: 'bed',
+      category: 'sofa',
       price: 30,
       promoPrice: 20,
       oldPrice: 28,
@@ -24,12 +24,13 @@ const initialStoreData = {
       favourite: true,
       img:
         'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60',
+      promoted: true,
     },
     {
       id: 'aenean-ru-bristique-2',
       name: 'Aenean Ru Bristique 2',
       category: 'bed',
-      price: 30,
+      price: 28,
       stars: 2,
       opinion: 0,
       promo: 'sale',
@@ -39,12 +40,13 @@ const initialStoreData = {
       favourite: false,
       img:
         'https://images.unsplash.com/photo-1550226891-ef816aed4a98?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60',
+      promoted: true,
     },
     {
       id: 'aenean-ru-bristique-3',
       name: 'Aenean Ru Bristique 3',
       category: 'bed',
-      price: 30,
+      price: 33,
       oldPrice: 22,
       stars: 2,
       opinion: 0,
@@ -55,12 +57,13 @@ const initialStoreData = {
       favourite: false,
       img:
         'https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60',
+      promoted: true,
     },
     {
       id: 'aenean-ru-bristique-4',
       name: 'Aenean Ru Bristique 4',
       category: 'bed',
-      price: 30,
+      price: 40,
       oldPrice: 26,
       stars: 2,
       opinion: 0,
@@ -75,8 +78,8 @@ const initialStoreData = {
     {
       id: 'aenean-ru-bristique-5',
       name: 'Aenean Ru Bristique 5',
-      category: 'bed',
-      price: 30,
+      category: 'chair',
+      price: 54,
       stars: 2,
       opinion: 4,
       promo: 'sale',
@@ -85,7 +88,7 @@ const initialStoreData = {
       compared: false,
       favourite: false,
       img:
-        'https://images.unsplash.com/photo-1541123603104-512919d6a96c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60',
+        'https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60',
     },
     {
       id: 'aenean-ru-bristique-6',
@@ -106,7 +109,7 @@ const initialStoreData = {
     {
       id: 'aenean-ru-bristique-7',
       name: 'Aenean Ru Bristique 7',
-      category: 'bed',
+      category: 'table',
       price: 30,
       stars: 2,
       opinion: 0,
@@ -116,7 +119,7 @@ const initialStoreData = {
       compared: false,
       favourite: false,
       img:
-        'https://images.unsplash.com/photo-1523755231516-e43fd2e8dca5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60',
+        'https://images.unsplash.com/photo-1537182534312-f945134cce34?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60',
     },
     {
       id: 'aenean-ru-bristique-8',
@@ -242,7 +245,7 @@ const initialStoreData = {
     {
       id: 'aenean-ru-bristique-16',
       name: 'Aenean Ru Bristique 16',
-      category: 'bed',
+      category: 'dining',
       price: 30,
       stars: 2,
       opinion: 0,
@@ -252,7 +255,7 @@ const initialStoreData = {
       compared: false,
       favourite: false,
       img:
-        'https://images.unsplash.com/photo-1491926626787-62db157af940?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60',
+        'https://images.unsplash.com/photo-1506180879175-6a5eb3ab9b18?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60',
     },
     {
       id: 'aenean-ru-bristique-17',
@@ -385,6 +388,8 @@ const initialStoreData = {
         stars: 2,
         promo: 'sale',
         newFurniture: true,
+        img:
+          'https://images.unsplash.com/photo-1512111468-477c8248162b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60',
       },
       {
         id: 'aenean-ru-bristique-1',
@@ -413,44 +418,76 @@ const initialStoreData = {
   },
   brands: [
     {
+      index: 1,
       id: 'brand-1',
       name: 'brand 1',
       image: 'https://www.logologo.com/logos/g-logo.jpg',
     },
     {
+      index: 2,
       id: 'brand-2',
       name: 'brand 2',
       image: 'https://www.logologo.com/logos/city-logo.jpg',
     },
     {
+      index: 3,
       id: 'brand-3',
       name: 'brand 3',
       image: 'https://www.logologo.com/logos/red-s-logo.jpg',
     },
     {
+      index: 4,
       id: 'brand-4',
       name: 'brand 4',
       image: 'https://www.logologo.com/logos/open-house-logo.jpg',
     },
     {
+      index: 5,
       id: 'brand-5',
       name: 'brand 5',
       image: 'https://www.logologo.com/logos/letter-m-roof-logo.jpg',
     },
     {
+      index: 6,
       id: 'brand-6',
       name: 'brand 6',
       image: 'https://www.logologo.com/logos/letter-a-circle-logo.jpg',
     },
     {
+      index: 7,
       id: 'brand-7',
       name: 'brand 7',
-      image: 'https://www.logologo.com/logos/city-logo.jpg',
+      image: 'https://www.logologo.com/logos/color-spectrum-shield-logo.jpg',
     },
     {
+      index: 8,
       id: 'brand-8',
       name: 'brand 8',
-      image: 'https://www.logologo.com/logos/open-house-logo.jpg',
+      image: 'https://www.logologo.com/logos/eagle-shield-logo.jpg',
+    },
+    {
+      index: 9,
+      id: 'brand-9',
+      name: 'brand 9',
+      image: 'https://www.logologo.com/logos/globe-compass-logo.jpg',
+    },
+    {
+      index: 10,
+      id: 'brand-10',
+      name: 'brand 10',
+      image: 'https://www.logologo.com/logos/lion-shield-logo.jpg',
+    },
+    {
+      index: 11,
+      id: 'brand-11',
+      name: 'brand 11',
+      image: 'https://www.logologo.com/logos/cartoon-rocket-logo.jpg',
+    },
+    {
+      index: 12,
+      id: 'brand-12',
+      name: 'brand 12',
+      image: 'https://www.logologo.com/logos/watercolor-tree-logo.jpg',
     },
   ],
   tabs: [
@@ -460,6 +497,48 @@ const initialStoreData = {
     { id: 'toprated', name: 'Top rated' },
   ],
   compare: [],
+  currency: 'USD',
+  avaibleCurrencies: ['USD', 'EUR', 'PLN'],
+  currencyRates: {
+    loading: {
+      active: false,
+      error: false,
+      done: false,
+    },
+  },
+  feedback: [
+    {
+      id: 1,
+      opinion:
+        'Very large selection of products and very helpful staff. Sufficient parking. Transportation can be ordered quickly and gentlemen did not even have a problem with twisting a few screws of the seat when bringing.',
+      image:
+        'https://gravatar.com/avatar/b71a53a1edd84a3efaec8e28150adc51?s=400&d=mp&r=x',
+      name: 'John Smith',
+      title: 'Futniture client',
+    },
+    {
+      id: 2,
+      opinion:
+        'Everything your home soul desires! On customer service what some could work there!',
+      image:
+        'https://gravatar.com/avatar/b71a53a1edd84a3efaec8e28150adc51?s=400&d=mp&r=x',
+      name: 'Marry Jane',
+      title: 'Futniture client',
+    },
+    {
+      id: 3,
+      opinion:
+        'Big nice store. You can decorate the house from furniture to all bathroom, kitchen and accessories. Miles for sale, worse when it comes to complaints, this is space.',
+      image:
+        'https://gravatar.com/avatar/b71a53a1edd84a3efaec8e28150adc51?s=400&d=mp&r=x',
+      name: 'Peter Johnson',
+      title: 'Futniture client',
+    },
+  ],
+  search: {
+    searchString: '',
+    searchCategory: '',
+  },
 };
 
 export default initialStoreData;

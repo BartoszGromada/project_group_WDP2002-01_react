@@ -22,6 +22,17 @@
   line-height: 24px;
   padding: 5px 10px;
   font-weight: 400;
+
+  &:not(.noHover):hover {
+    color: $button-text !important;
+    background-color: $primary;
+    text-decoration: none;
+  }
+}
+
+.promoted {
+  @extend .small;
+  display: inline-block;
 }
 
 .outline {
@@ -38,6 +49,44 @@
     color: $button-text;
   }
 }
+
+.noborder {
+  display: inline-block;
+  padding: 5px 10px;
+  color: $button-text-2;
+  font-size: 13px;
+  line-height: 22px;
+  @include hover-animation;
+
+  &:not(.noHover):hover {
+    background-color: $button-bg;
+    color: $button-text;
+  }
+}
+
+.outlinePromoted {
+  @extend .outline;
+  margin-right: 4px;
+}
+
+.oldPrice {
+  @extend .outline;
+  border:0;
+  color: $button-text-2;
+  text-decoration: dashed;
+}
+
+.price {
+  @extend .small;
+
+  &:hover {
+    color: $button-text !important;
+    background-color: $primary;
+    text-decoration: none;
+  }
+}
+
+
 
 .cta {
   @extend .main;
@@ -60,4 +109,57 @@
 .favourite {
   background-color: $button-bg;
   color: $button-bg-3;
+}
+
+.slider {
+  @extend .main;
+  position: absolute;
+  left: 50%;
+  top: 120%;
+  transform: translate(-50%, -120%);
+  background-color: $button-bg-3;
+  color: $button-text-3;
+
+  &:hover {
+    background-color: $button-bg;
+    border: 1px solid $button-border;
+    color: $button-text;
+  }
+}
+
+.arrow {
+  background-color: $button-bg;
+  color: $button-text;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 600;
+  padding: 10px 30px;
+  display: inline-block;
+  width: 50%;
+  text-align: center;
+  @include hover-animation;
+
+  &:hover {
+    color: $button-text !important;
+    background-color: $primary;
+    text-decoration: none;
+  }
+}
+.cart {
+  @extend .outline;
+  color: $text-color-2;
+  background-color: $button-bg;
+  font-weight: 700;
+  text-align: justify;
+  font-size: 12px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 140px;
+
+  &:not(.noHover):hover {
+    background-color: $text-color-7;
+    border-color: $text-color-7;
+    text-decoration: none;
+  }
 }

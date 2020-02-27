@@ -22,20 +22,19 @@
     width: 75%;
     height: 200px;
     top: 60px;
-    left:70px;
+    left: 70px;
 
     p {
       color: $promo-text-1;
-      text-transform: uppercase;
       font-size: 18px;
-      margin:0;
+      margin: 0;
     }
 
     span {
       color: $promo-text-2;
       font-size: 40px;
       font-weight: 700;
-      margin:0;
+      margin: 0;
     }
 
     h2 {
@@ -45,5 +44,14 @@
       margin-top: 5px;
       margin-bottom: 40px;
     }
+  }
+}
+
+
+
+@media (max-width: 991px)  {
+
+  .promotion {
+    display: none;
   }
 }

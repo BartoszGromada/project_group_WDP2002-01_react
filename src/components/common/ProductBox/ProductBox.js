@@ -47,8 +47,8 @@ const ProductBox = ({
 
   const handleChangeCount = qty => setProductQty(qty);
 
-  const handleClickToAddToCart = (id, img, price, qty) =>
-    addToCart({ id, img, price, qty });
+  const handleClickToAddToCart = (id, img, price, qty, name) =>
+    addToCart({ id, img, price, qty, name });
 
   const handleClickToRemoveFromCart = id => removeFromCart(id);
   const handleMarkFavourite = event => {
@@ -67,7 +67,7 @@ const ProductBox = ({
           <div className={styles.buttons}>
             <Button variant='small'>Quick View</Button>
             <Popup
-              onOpen={() => handleClickToAddToCart(id, img, price, productQty)}
+              onOpen={() => handleClickToAddToCart(id, img, price, productQty, name)}
               trigger={
                 <Button variant='small'>
                   <FontAwesomeIcon icon={faShoppingBasket} />
@@ -88,8 +88,10 @@ const ProductBox = ({
                       src={img}
                       alt={`${name} bed`}
                     />
-                    <p className={styles.product_text_modal}>{id}</p>
-                    <p className={styles.product_text_modal}>${productQty * price}</p>
+                    <p className={styles.product_text_modal}>{name}</p>
+                    <p className={styles.product_text_modal}>
+                      <Price>{productQty * price}</Price>
+                    </p>
                     <Button
                       onClick={() => {
                         handleClickToRemoveFromCart(id);

@@ -125,16 +125,9 @@
       width: 100%;
       padding: 10px 5px;
       text-align: center;
-
-      .product_img_modal {
-        top: 39px;
-        left: 10px;
-        right: 10px;
-        height: 65%;
-      }
+      display: flex;
 
       .product_text_modal {
-        text-align: right;
         font-weight: bold;
       }
     }

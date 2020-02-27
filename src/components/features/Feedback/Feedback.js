@@ -52,13 +52,13 @@ class Feedback extends React.Component {
               </div>
             </div>
           </div>
-          <div className={'${row} ${styles.box}'}>
+          <div className={`${styles.row} ${styles.box}`}>
             <div className='col-12'>
               <div className={styles.iconWrapper}>
                 <FontAwesomeIcon className={styles.icon} icon={faQuoteRight} />
               </div>
             </div>
-            <div className={'${row} ${styles.box}'}>
+            <div className={`${styles.row} ${styles.box}`}>
               <SwipeComponent
                 rightAction={() =>
                   this.handlePageChange(activePage > 0 ? activePage - 1 : 0)

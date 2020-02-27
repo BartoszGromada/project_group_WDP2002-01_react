@@ -2,8 +2,27 @@
 export const getAll = ({ products }) => products;
 export const getCount = ({ products }) => products.length;
 
-export const getNew = ({ products }) =>
-  products.filter(item => item.newFurniture === true);
+export const getNew = ({ products, search }) => {
+  const { searchString, searchCategory } = search;
+
+  if (!searchString) {
+    return products.filter(item => item.newFurniture === true);
+  }
+
+  let filteredProducts = products;
+
+  filteredProducts = filteredProducts.filter(item => item.newFurniture === true);
+
+  searchCategory &&
+    (filteredProducts = filteredProducts.filter(
+      item => item.category === searchCategory
+    ));
+
+  const pattern = new RegExp(searchString, 'i');
+  filteredProducts = filteredProducts.filter(item => pattern.test(item.name));
+
+  return filteredProducts;
+};
 
 export const getPromoted = ({ products }) =>
   products.filter(item => item.promoted === true);

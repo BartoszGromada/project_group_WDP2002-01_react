@@ -1,5 +1,6 @@
 import React from 'react';
-import ProductSearch from '../../features/ProductSearch/ProductSearch';
+
+import ProductSearch from '../../features/ProductSearch/ProductSearchContainer';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 
@@ -44,7 +45,7 @@ class MenuBar extends React.Component {
                   </a>
                 </li>
                 <li>
-                  <a href='#'>Furniture</a>
+                  <a href='/products'>Furniture</a>
                 </li>
                 <li>
                   <a href='#'>Chair</a>

@@ -84,9 +84,6 @@ const Furniture = ({ products }) => (
                   <FontAwesomeIcon icon={faHeart} />
                 </Button>
                 <CompareButton id={id} name={name} img={img} />
-                {/* <Button variant='outline'>
-                  <FontAwesomeIcon icon={faExchangeAlt} />
-                </Button> */}
                 <Button variant='outline'>
                   <FontAwesomeIcon icon={faSearch} />
                 </Button>

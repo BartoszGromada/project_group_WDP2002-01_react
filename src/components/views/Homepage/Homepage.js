@@ -6,12 +6,17 @@ import styles from './Homepage.module.scss';
 
 import FeatureBoxes from '../../features/FeatureBoxes/FeatureBoxes';
 import NewFurniture from '../../features/NewFurniture/NewFurnitureContainer';
+import Promoted from '../../features/Promoted/PromotedContainer';
+// import Brands from '../../features/Brands/BrandsContainer';
 import Brands from '../../features/Brands/BrandsContainer';
 import FurnitureGallery from '../../features/FurnitureGallery/FurnitureGalleryContainer';
 import Feedback from '../../features/Feedback/FeedbackContainer';
 
 const Homepage = ({ searchString }) => (
   <div className={styles.root}>
+    <Promoted />
+    <FeatureBoxes />
+    <Promotion />
     {!searchString && (
       <>
         <FeatureBoxes />

@@ -24,6 +24,8 @@ export const getNew = ({ products, search }) => {
   return filteredProducts;
 };
 
+export const getPromoted = ({ products }) =>
+  products.filter(item => item.promoted === true);
 /* action name creator */
 const reducerName = 'products';
 

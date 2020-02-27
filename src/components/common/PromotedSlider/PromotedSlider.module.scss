@@ -1,0 +1,43 @@
+@import "../../../styles/settings.scss";
+
+.sliderWrapper {
+  background-image: url(https://images.pexels.com/photos/276534/pexels-photo-276534.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
+  width: 100%;
+  height: calc(100% - 30px);
+  background-size: cover;
+  text-transform: uppercase;
+  position: relative;
+
+  .content {
+    position: absolute;
+    padding: 30px;
+    top: 50%;
+    transform: translateY(-50%);
+    text-align: center;
+    width: 100%;
+    background-color: $promotedSlider-background;
+  }
+
+  .title {
+    font-weight: 300;
+    font-size: 36px;
+    line-height: 45px;
+    color: $promotedSlider-text;
+
+    span {
+      font-weight: 700;
+    }
+  }
+  
+  .subtitle {
+    font-weight: 300;
+    font-size: 24px;
+    color: $promotedSlider-text;
+  }
+
+  .buttonsWrapper {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+  }
+}

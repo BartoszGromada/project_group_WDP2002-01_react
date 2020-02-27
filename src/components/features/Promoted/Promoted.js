@@ -9,16 +9,20 @@ class Promoted extends React.Component {
     activePage: 0,
   };
 
+  handlyChangePage = () => {
+    console.log('test');
+  };
+
+  AutomaticChangePage = () => {};
+
   render() {
     const { activePage } = this.state;
 
     const { promoted } = this.props;
 
-    const pagesCount = promoted.length;
-
     const dots = [];
 
-    for (let i = 0; i < pagesCount; i++) {
+    for (let i = 0; i < promoted.length; i++) {
       dots.push(
         <li>
           <a className={i === activePage && styles.active}> page {i}</a>

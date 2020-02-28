@@ -10,20 +10,17 @@ class NewFurniture extends React.Component {
   state = {
     activePage: 0,
     activeCategory: 'bed',
-    fadeTransition: false,
   };
 
   handlePageChange(newPage) {
     this.setState({
       activePage: newPage,
-      fadeTransition: !this.state.fadeTransition,
     });
   }
 
   handleCategoryChange(newCategory) {
     this.setState({
       activeCategory: newCategory,
-      fadeTransition: !this.state.fadeTransition,
     });
   }
 
@@ -156,7 +153,7 @@ class NewFurniture extends React.Component {
                 .map(item => (
                   <CSSTransition
                     key={item.id}
-                    timeout={300}
+                    timeout={500}
                     appear={true}
                     classNames={{
                       appear: styles.fadeAppear,

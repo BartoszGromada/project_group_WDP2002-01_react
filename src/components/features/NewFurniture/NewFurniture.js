@@ -150,28 +150,28 @@ class NewFurniture extends React.Component {
                 </div>
               </div>
             </div>
-            <TransitionGroup>
-              <CSSTransition
-                key={this.state.fadeTransition}
-                timeout={300}
-                classNames={{
-                  enter: styles.fadeEnter,
-                  enterActive: styles.fadeEnterActive,
-                }}
-              >
-                <div className='row'>
-                  {categoryProducts
-                    .slice(
-                      activePage * productsPerPage,
-                      (activePage + 1) * productsPerPage
-                    )
-                    .map(item => (
-                      <div key={item.id} className='col-lg-3 col-md-6 col-sm-12'>
-                        <ProductBox {...item} />
-                      </div>
-                    ))}
-                </div>
-              </CSSTransition>
+            <TransitionGroup component='div' className='row'>
+              {categoryProducts
+                .slice(activePage * productsPerPage, (activePage + 1) * productsPerPage)
+                .map(item => (
+                  <CSSTransition
+                    key={item.id}
+                    timeout={300}
+                    appear={true}
+                    classNames={{
+                      appear: styles.fadeAppear,
+                      appearActive: styles.fadeAppearActive,
+                      enter: styles.fadeEnter,
+                      enterActive: styles.fadeEnterActive,
+                      exit: styles.fadeExit,
+                      exitActive: styles.fadeExitActive,
+                    }}
+                  >
+                    <div key={item.id} className='col-lg-3 col-md-6 col-sm-12'>
+                      <ProductBox {...item} />
+                    </div>
+                  </CSSTransition>
+                ))}
             </TransitionGroup>
           </div>
         </div>

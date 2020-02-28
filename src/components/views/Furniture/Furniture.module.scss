@@ -1,4 +1,4 @@
-@import '../../../styles//bootstrap.scss';
+@import "../../../styles//bootstrap.scss";
 
 .header {
   height: 200px;
@@ -33,13 +33,11 @@
     letter-spacing: 11px;
     margin-left: 12px;
 
-
     span {
       font-weight: 400;
       color: $text-color-7;
     }
   }
-
 }
 
 .nav_bar {
@@ -97,19 +95,6 @@
         border: 1px solid $border-2;
         color: $text-color-5;
         padding: 5px;
-      }
-
-      .sort {
-        select {
-          width: 200px;
-        }
-      }
-
-      .show {
-
-        select {
-          width: 70px;
-        }
       }
 
       .view {
@@ -172,7 +157,6 @@
           justify-content: space-between;
           padding-top: 15px;
         }
-
       }
     }
   }
@@ -180,5 +164,13 @@
   .filters {
     flex-grow: 1;
   }
+}
 
+.paginatecontainer {
+  padding-top: 30px;
+  display: flex;
+  justify-content: center;
+  nav {
+    display: inline-block;
+  }
 }

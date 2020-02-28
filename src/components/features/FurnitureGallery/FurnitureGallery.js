@@ -32,10 +32,6 @@ class FurnitureGallery extends React.Component {
     window.addEventListener('resize', this.updateDimensions.bind(this));
   }
 
-  componentWillUnmount() {
-    window.removeEventListener('resize');
-  }
-
   handlePageChange(newPage) {
     this.setState({ activePage: newPage });
   }

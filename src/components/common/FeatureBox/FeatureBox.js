@@ -4,16 +4,17 @@ import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import styles from './FeatureBox.module.scss';
+import { Link } from 'react-router-dom';
 
 const FeatureBox = ({ active, icon, children }) => (
-  <a className={styles.root + (active ? ' ' + styles.active : '')}>
+  <Link to='/' className={styles.root + (active ? ' ' + styles.active : '')}>
     {icon && (
       <div className={styles.iconWrapper}>
         <FontAwesomeIcon className={styles.icon} icon={icon} />
       </div>
     )}
     <div className={styles.content}>{children}</div>
-  </a>
+  </Link>
 );
 
 FeatureBox.propTypes = {

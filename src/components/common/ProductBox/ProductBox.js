@@ -78,10 +78,22 @@ const ProductBox = ({
             >
               {close => (
                 <div className={styles.cart_modal}>
-                  <a className={styles.close_modal} onClick={close}>
+                  <Link to='/' className={styles.close_modal} onClick={close}>
                     &times;
-                  </a>
-                  <h1 className={styles.header_modal}>Added to cart</h1>
+                    <h1 className={styles.header_modal}>Added to cart</h1>
+                  </Link>
+                  <h1 className={styles.header_modal}>
+                    Added to cart
+                    <FontAwesomeIcon
+                      className={styles.trashIcon_modal}
+                      icon={faTrashAlt}
+                      onClick={() =>
+                        window.confirm(
+                          'Are you sure You want to delete this item from cart ?'
+                        )
+                      }
+                    />
+                  </h1>
                   <div className={styles.content_modal}>
                     <img
                       className={styles.product_img_modal}

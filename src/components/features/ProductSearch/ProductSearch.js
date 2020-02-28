@@ -10,6 +10,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 
 import styles from './ProductSearch.module.scss';
+import { Link } from 'react-router-dom';
 
 const ProductSearch = ({
   searchString,
@@ -43,11 +44,11 @@ const ProductSearch = ({
   const selectCat = () =>
     selectedCategory ? (
       <li className={styles.categoryList}>
-        <a>{selectedCategory}</a>
+        <Link to='/'>{selectedCategory}</Link>
       </li>
     ) : (
       <li className={styles.categoryList}>
-        <a>Select a category</a>
+        <Link to='/'>Select a category</Link>
       </li>
     );
 
@@ -58,7 +59,7 @@ const ProductSearch = ({
         key={category}
         className={styles.subList}
       >
-        <a>{category}</a>
+        <Link to='/'>{category}</Link>
       </li>
     ));
 

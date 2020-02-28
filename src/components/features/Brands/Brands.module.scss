@@ -29,7 +29,7 @@
   flex-shrink: 0;
   justify-content: space-between;
   overflow-x: hidden;
-  width: 90%
+  width: 100%
 }
 
 @keyframes slidingIn {
@@ -64,4 +64,11 @@
 }
 .inactive {
   display: none;
+}
+
+
+@media (max-width: 767px) {
+  .arrow {
+    display: none;
+  }
 }

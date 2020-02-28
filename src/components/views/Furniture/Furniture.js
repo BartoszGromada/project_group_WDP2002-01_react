@@ -33,11 +33,15 @@ const Furniture = ({ products }) => {
 
   const totalPages = Math.ceil(products.length / show);
 
-  const onSortChange = ({ target }) =>
+  const onSortChange = ({ target }) => {
     setOptions({ ...sortOptions, sortBy: target.value });
+    setactivePage(0);
+  };
 
-  const onShowChange = ({ target }) =>
+  const onShowChange = ({ target }) => {
     setOptions({ ...sortOptions, show: target.value });
+    setactivePage(0);
+  };
 
   const onDirectionChange = ({ target }) =>
     setOptions({ ...sortOptions, direction: target.value });

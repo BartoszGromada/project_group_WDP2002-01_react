@@ -18,6 +18,7 @@ import {
   faSearch,
   faShoppingBasket,
 } from '@fortawesome/free-solid-svg-icons';
+import { Link } from 'react-router-dom';
 
 const Furniture = ({ products }) => {
   const [sortOptions, setOptions] = useState({
@@ -59,9 +60,9 @@ const Furniture = ({ products }) => {
         <span>
           <FontAwesomeIcon icon={faChevronRight} />
         </span>
-        <a href='#' className={styles.active}>
+        <Link to='/' className={styles.active}>
           Furniture
-        </a>
+        </Link>
       </nav>
 
       <div className={styles.content}>

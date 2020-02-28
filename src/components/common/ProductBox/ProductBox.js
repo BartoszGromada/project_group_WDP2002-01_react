@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import styles from './ProductBox.module.scss';
@@ -7,9 +7,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingBasket, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 import { faHeart } from '@fortawesome/free-regular-svg-icons';
 import Button from '../Button/Button';
+import Popup from 'reactjs-popup';
+import Input from '../../features/Input/InputContainer';
 import Price from '../Price/PriceContainer';
 import Stars from '../Stars/StarsContainer';
-import Popup from 'reactjs-popup';
 import CompareButton from '../CompareButton/CompareButtonContainer';
 
 const ProductBox = ({
@@ -21,10 +22,20 @@ const ProductBox = ({
   opinion,
   img,
   oldPrice,
+  addToCart,
+  removeFromCart,
   markFavourite,
   favourite,
   favorite,
 }) => {
+  const [productQty, setProductQty] = useState(1);
+
+  const handleChangeCount = qty => setProductQty(qty);
+
+  const handleClickToAddToCart = (id, img, price, qty, name) =>
+    addToCart({ id, img, price, qty, name });
+
+  const handleClickToRemoveFromCart = id => removeFromCart(id);
   const handleMarkFavourite = event => {
     event.preventDefault();
     markFavourite();
@@ -41,6 +52,7 @@ const ProductBox = ({
           <div className={styles.buttons}>
             <Button variant='small'>Quick View</Button>
             <Popup
+              onOpen={() => handleClickToAddToCart(id, img, price, productQty, name)}
               trigger={
                 <Button variant='small'>
                   <FontAwesomeIcon icon={faShoppingBasket} />
@@ -51,9 +63,10 @@ const ProductBox = ({
             >
               {close => (
                 <div className={styles.cart_modal}>
-                  <a className={styles.close_modal} onClick={close}>
+                  <Link to='/' className={styles.close_modal} onClick={close}>
                     &times;
-                  </a>
+                    <h1 className={styles.header_modal}>Added to cart</h1>
+                  </Link>
                   <h1 className={styles.header_modal}>
                     Added to cart
                     <FontAwesomeIcon
@@ -73,7 +86,21 @@ const ProductBox = ({
                       alt={`${name} bed`}
                     />
                     <p className={styles.product_text_modal}>{name}</p>
-                    <p className={styles.product_text_modal}>Total ${price}</p>
+                    <p className={styles.product_text_modal}>
+                      <Price>{productQty * price}</Price>
+                    </p>
+                    <Button
+                      onClick={() => {
+                        handleClickToRemoveFromCart(id);
+                      }}
+                      variant='small'
+                    >
+                      Remove from cart
+                      <FontAwesomeIcon
+                        className={styles.trashIcon_modal}
+                        icon={faTrashAlt}
+                      />
+                    </Button>
                   </div>
                 </div>
               )}
@@ -84,6 +111,7 @@ const ProductBox = ({
           <Link to='/shop'>
             <h5>{name}</h5>
           </Link>
+          <Input changeCount={handleChangeCount} />
           <div className={styles.stars}>
             <Stars product={id} opinion={opinion} stars={stars} />
           </div>
@@ -138,6 +166,11 @@ ProductBox.propTypes = {
   markFavourite: PropTypes.func,
   favourite: PropTypes.bool,
   img: PropTypes.string,
+  addToCompare: PropTypes.func,
+  allComperedProducts: PropTypes.array,
+  addToCart: PropTypes.func,
+  removeFromCart: PropTypes.func,
+  value: PropTypes.node,
 };
 
 export default ProductBox;

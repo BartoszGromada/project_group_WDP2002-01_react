@@ -28,7 +28,7 @@ class MainLayout extends React.Component {
     const windowWidth = window.outerWidth;
 
     return (
-      <div onresize={this.setType(windowWidth)}>
+      <div resize={this.setType(windowWidth)}>
         <Header />
         {children}
         <Footer />

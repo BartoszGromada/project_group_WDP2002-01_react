@@ -19,7 +19,7 @@ export default function reducer(statePart = [], action = {}) {
       return [...statePart, action.payload];
     case REMOVE_PRODUCT:
       if (action.payload) {
-        return statePart.filter(product => product.id !== action.payload);
+        return statePart.filter(products => products.id !== action.payload);
       } else {
         return [];
       }

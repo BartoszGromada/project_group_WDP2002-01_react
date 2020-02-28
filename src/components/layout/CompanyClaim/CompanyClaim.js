@@ -18,10 +18,11 @@ import { Link } from 'react-router-dom';
 class CompanyClaim extends React.Component {
   static propTypes = {
     cart: PropTypes.array,
+    cartValue: PropTypes.number,
   };
 
   render() {
-    const { cart } = this.props;
+    const { cart, cartValue } = this.props;
     return (
       <div className={styles.root}>
         <div className='container'>
@@ -55,7 +56,7 @@ class CompanyClaim extends React.Component {
                         icon={faShoppingBasket}
                       />
                     </div>
-                    <div className={styles.cartCounter}>99999</div>
+                    <div className={styles.cartCounter}>{cartValue}</div>
                   </Link>
                 }
                 modal

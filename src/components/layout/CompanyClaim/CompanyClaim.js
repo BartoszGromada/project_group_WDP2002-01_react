@@ -13,13 +13,16 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import Popup from 'reactjs-popup';
 
+import { Link } from 'react-router-dom';
+
 class CompanyClaim extends React.Component {
   static propTypes = {
     cart: PropTypes.array,
+    cartValue: PropTypes.number,
   };
 
   render() {
-    const { cart } = this.props;
+    const { cart, cartValue } = this.props;
     return (
       <div className={styles.root}>
         <div className='container'>
@@ -37,24 +40,24 @@ class CompanyClaim extends React.Component {
             <div
               className={`col-md-4 col-6 order-md-2 order-1 text-center ${styles.logo}`}
             >
-              <a href='#'>
+              <Link to='/'>
                 <img src='/images/logo.png' alt='Bazar' />
-              </a>
+              </Link>
             </div>
             <div
               className={`col-md-4 col-6 order-md-3 order-2 text-center ${styles.cart}`}
             >
               <Popup
                 trigger={
-                  <a href='#' className={styles.cartBox}>
+                  <Link to='/' className={styles.cartBox}>
                     <div className={styles.cartIcon}>
                       <FontAwesomeIcon
                         className={styles.icon}
                         icon={faShoppingBasket}
                       />
                     </div>
-                    <div className={styles.cartCounter}>99999</div>
-                  </a>
+                    <div className={styles.cartCounter}>{cartValue}</div>
+                  </Link>
                 }
                 modal
               >

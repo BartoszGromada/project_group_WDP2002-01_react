@@ -6,6 +6,8 @@ import { faBars } from '@fortawesome/free-solid-svg-icons';
 
 import styles from './MenuBar.module.scss';
 
+import { Link } from 'react-router-dom';
+
 class MenuBar extends React.Component {
   constructor(props) {
     super(props);
@@ -40,27 +42,27 @@ class MenuBar extends React.Component {
             <div className={'col-auto ' + styles.menu + ' ' + this.toggledMenu()}>
               <ul>
                 <li>
-                  <a href='#' className={styles.active}>
+                  <Link to='/' className={styles.active}>
                     Home
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href='/products'>Furniture</a>
+                  <Link to='/products'>Furniture</Link>
                 </li>
                 <li>
-                  <a href='#'>Chair</a>
+                  <Link to='/'>Chair</Link>
                 </li>
                 <li>
-                  <a href='#'>Table</a>
+                  <Link to='/'>Table</Link>
                 </li>
                 <li>
-                  <a href='#'>Sofa</a>
+                  <Link to='/'>Sofa</Link>
                 </li>
                 <li>
-                  <a href='#'>Bedroom</a>
+                  <Link to='/'>Bedroom</Link>
                 </li>
                 <li>
-                  <a href='#'>Blog</a>
+                  <Link to='/'>Blog</Link>
                 </li>
               </ul>
             </div>

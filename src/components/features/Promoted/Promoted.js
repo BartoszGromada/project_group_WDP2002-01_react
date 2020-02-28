@@ -4,14 +4,14 @@ import PromotedBox from '../../common/PromotedBox/PromotedBoxContainer';
 import PromotedSlider from '../../common/PromotedSlider/PromotedSlider';
 import styles from './Promoted.module.scss';
 
+import { Link } from 'react-router-dom';
+
 class Promoted extends React.Component {
   state = {
     activePage: 0,
   };
 
-  handlyChangePage = () => {
-    console.log('test');
-  };
+  handlyChangePage = () => {};
 
   AutomaticChangePage = () => {};
 
@@ -24,8 +24,16 @@ class Promoted extends React.Component {
 
     for (let i = 0; i < promoted.length; i++) {
       dots.push(
-        <li>
-          <a className={i === activePage && styles.active}> page {i}</a>
+        <li key={i}>
+          <Link
+            to='/'
+            className={
+              i === activePage && styles.active ? i === activePage && styles.active : 0
+            }
+          >
+            {' '}
+            page {i}
+          </Link>
         </li>
       );
     }
@@ -72,7 +80,7 @@ Promoted.propTypes = {
       newFurniture: PropTypes.bool,
     })
   ),
-  promoted: PropTypes.string,
+  promoted: PropTypes.array,
 };
 
 export default Promoted;

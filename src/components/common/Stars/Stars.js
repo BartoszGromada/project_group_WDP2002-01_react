@@ -6,6 +6,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 import { faStar as farStar } from '@fortawesome/free-regular-svg-icons';
 
+import { Link } from 'react-router-dom';
+
 class Stars extends React.Component {
   static propTypes = {
     product: PropTypes.string,
@@ -72,7 +74,7 @@ class Stars extends React.Component {
     return (
       <div className={styles.stars} onMouseOut={() => this.outOfStar()}>
         {this.state.starsConfig.map(i => (
-          <a key={i.id} href='#' onClick={e => this.giveOpinion(e, i.id)}>
+          <Link to='/' key={i.id} onClick={e => this.giveOpinion(e, i.id)}>
             <FontAwesomeIcon
               onMouseOver={() => this.opinionStars(i.id)}
               icon={
@@ -91,7 +93,7 @@ class Stars extends React.Component {
                   : ''
               }
             />
-          </a>
+          </Link>
         ))}
       </div>
     );

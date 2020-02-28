@@ -66,9 +66,9 @@ const ProductBox = ({
             >
               {close => (
                 <div className={styles.cart_modal}>
-                  <a className={styles.close_modal} onClick={close}>
+                  <Link to='/' className={styles.close_modal} onClick={close}>
                     &times;
-                  </a>
+                  </Link>
                   <h1 className={styles.header_modal}>
                     Added to cart
                     <FontAwesomeIcon

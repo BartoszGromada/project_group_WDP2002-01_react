@@ -7,6 +7,7 @@ import FurnitureGalleryActions from '../FurnitureGalleryActions/FurnitureGallery
 import FurnitureGalleryPrice from '../FurnitureGalleryPrice/FurnitureGalleryPrice';
 
 import SwipeComponent from '../../common/SwipeComponent/SwipeComponent';
+import { Link } from 'react-router-dom';
 
 import Price from '../../common/Price/Price';
 
@@ -55,7 +56,7 @@ class FurnitureGallery extends React.Component {
                 <ul>
                   {tabs.map(tab => (
                     <li key={tab.id}>
-                      <a href='#'>{tab.name}</a>
+                      <Link to='/'>{tab.name}</Link>
                     </li>
                   ))}
                 </ul>
@@ -82,7 +83,7 @@ class FurnitureGallery extends React.Component {
               >
                 <div className={styles.slider}>
                   <div className={styles.arrow}>
-                    <a href='#'>&#x3c;</a>
+                    <Link to='/'>&#x3c;</Link>
                   </div>
                   <div className={styles.thumbnails}>
                     {products.slice(0, mode).map(product => (
@@ -92,7 +93,7 @@ class FurnitureGallery extends React.Component {
                     ))}
                   </div>
                   <div className={styles.arrow}>
-                    <a href='#'>&#x3e;</a>
+                    <Link to='/'>&#x3e;</Link>
                   </div>
                 </div>
               </SwipeComponent>

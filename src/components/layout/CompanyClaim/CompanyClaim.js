@@ -8,11 +8,15 @@ import {
   faPlus,
   faMinus,
   faMobileAlt,
-  faTrash,
+  // faTrash,
+  faTrashAlt,
   faShoppingBasket,
 } from '@fortawesome/free-solid-svg-icons';
 import Popup from 'reactjs-popup';
 import Price from '../../common/Price/PriceContainer';
+import Button from '../../common/Button/Button';
+import Input from '../../features/Input/InputContainer';
+
 import { Link } from 'react-router-dom';
 
 class CompanyClaim extends React.Component {
@@ -23,6 +27,7 @@ class CompanyClaim extends React.Component {
 
   render() {
     const { cart, cartValue } = this.props;
+
     return (
       <div className={styles.root}>
         <div className='container'>
@@ -77,21 +82,45 @@ class CompanyClaim extends React.Component {
                           <Price>{price}</Price>
                         </div>
                         <div className={styles.cartActions}>
-                          <button>
+                          <Button
+                            onClick={() =>
+                              window.confirm(
+                                'Are you sure You want to add this to cart ?'
+                              )
+                            }
+                            variant='small'
+                          >
                             <FontAwesomeIcon className={styles.icon} icon={faMinus} />
-                          </button>
+                          </Button>
                           <input
                             className={styles.productAmount}
                             type='text'
                             name='amount'
                             value={'1'}
                           />
-                          <button>
+                          <Button
+                            onClick={() =>
+                              window.confirm(
+                                'Are you sure You want to delete this to cart ?'
+                              )
+                            }
+                            variant='small'
+                          >
                             <FontAwesomeIcon className={styles.icon} icon={faPlus} />
-                          </button>
-                          <div className={styles.cartIcon}>
-                            <FontAwesomeIcon className={styles.icon} icon={faTrash} />
-                          </div>
+                          </Button>
+                          <Button
+                            onClick={() =>
+                              window.confirm(
+                                'Are you sure You want to delete this item from cart ?'
+                              )
+                            }
+                            variant='trash'
+                          >
+                            <FontAwesomeIcon
+                              className={styles.trashIcon_modal}
+                              icon={faTrashAlt}
+                            />
+                          </Button>
                         </div>
                       </div>
                     ))}

@@ -12,7 +12,7 @@ import {
   faShoppingBasket,
 } from '@fortawesome/free-solid-svg-icons';
 import Popup from 'reactjs-popup';
-
+import Price from '../../common/Price/PriceContainer';
 import { Link } from 'react-router-dom';
 
 class CompanyClaim extends React.Component {
@@ -63,13 +63,19 @@ class CompanyClaim extends React.Component {
               >
                 {close => (
                   <div className={styles.popup}>
+                    <Link to='/' className={styles.close_popup} onClick={close}>
+                      &times;
+                    </Link>
                     <h2 className={styles.title}>Cart</h2>
-                    {cart.map(({ id, img, name }) => (
+                    {cart.map(({ id, img, name, price }) => (
                       <div key={id} className={styles.popupContent}>
                         <div className={styles.image}>
                           <img src={img} alt={id} />
                         </div>
                         <div className={styles.description}>{name}</div>
+                        <div className={styles.price}>
+                          <Price>{price}</Price>
+                        </div>
                         <div className={styles.cartActions}>
                           <button>
                             <FontAwesomeIcon className={styles.icon} icon={faMinus} />
@@ -89,6 +95,9 @@ class CompanyClaim extends React.Component {
                         </div>
                       </div>
                     ))}
+                    <div className={styles.summary}>
+                      <p>Sum:</p>
+                    </div>
                     <div className={styles.buttons}>
                       <div className={styles.button} onClick={close}>
                         Cancel

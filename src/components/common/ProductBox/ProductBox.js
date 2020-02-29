@@ -80,7 +80,6 @@ const ProductBox = ({
                 <div className={styles.cart_modal}>
                   <Link to='/' className={styles.close_modal} onClick={close}>
                     &times;
-                    <h1 className={styles.header_modal}>Added to cart</h1>
                   </Link>
                   <h1 className={styles.header_modal}>
                     Added to cart
@@ -101,8 +100,8 @@ const ProductBox = ({
                       alt={`${name} bed`}
                     />
                     <p className={styles.product_text_modal}>{name}</p>
-                    <p className={styles.product_text_modal}>
-                      <Price>{productQty * price}</Price>
+                    <p className={styles.product_price_modal}>
+                      {productQty} x {price} $ = <Price>{productQty * price}</Price>
                     </p>
                     <Button
                       onClick={() => {

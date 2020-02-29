@@ -15,7 +15,6 @@ import {
 import Popup from 'reactjs-popup';
 import Price from '../../common/Price/PriceContainer';
 import Button from '../../common/Button/Button';
-import Input from '../../features/Input/InputContainer';
 
 import { Link } from 'react-router-dom';
 
@@ -85,7 +84,7 @@ class CompanyClaim extends React.Component {
                           <Button
                             onClick={() =>
                               window.confirm(
-                                'Are you sure You want to add this to cart ?'
+                                'Are you sure You want to delete this item from the cart ?'
                               )
                             }
                             variant='small'
@@ -101,7 +100,7 @@ class CompanyClaim extends React.Component {
                           <Button
                             onClick={() =>
                               window.confirm(
-                                'Are you sure You want to delete this to cart ?'
+                                'Are you sure You want to add this item to the cart ?'
                               )
                             }
                             variant='small'
@@ -111,7 +110,7 @@ class CompanyClaim extends React.Component {
                           <Button
                             onClick={() =>
                               window.confirm(
-                                'Are you sure You want to delete this item from cart ?'
+                                'Are you sure You want to delete this item from the cart ?'
                               )
                             }
                             variant='trash'

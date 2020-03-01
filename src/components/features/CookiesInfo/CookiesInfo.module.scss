@@ -1,0 +1,27 @@
+.root {
+  padding: 10px;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  background: rgba(68, 68, 68, 0.9);
+
+  p {
+    color: white;
+    margin: 0;
+
+    a {
+      text-decoration: underline;
+      color: #f1d700;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+    margin-right: 10px;
+  }
+}

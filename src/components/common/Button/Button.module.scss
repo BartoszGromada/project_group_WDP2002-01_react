@@ -71,7 +71,7 @@
 
 .oldPrice {
   @extend .outline;
-  border:0;
+  border: 0;
   color: $button-text-2;
   text-decoration: dashed;
 }
@@ -85,8 +85,6 @@
     text-decoration: none;
   }
 }
-
-
 
 .cta {
   @extend .main;
@@ -160,6 +158,23 @@
   &:not(.noHover):hover {
     background-color: $text-color-7;
     border-color: $text-color-7;
+    text-decoration: none;
+  }
+}
+
+.cookie {
+  background-color: #f1d700;
+  border-radius: 5px;
+  color: black;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 600;
+  padding: 5px 20px;
+  @include hover-animation;
+
+  &:not(.noHover):hover {
+    background-color: #dac402;
+    color: black;
     text-decoration: none;
   }
 }

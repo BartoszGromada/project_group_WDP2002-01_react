@@ -8,12 +8,11 @@ import FurnitureGalleryPrice from '../FurnitureGalleryPrice/FurnitureGalleryPric
 
 import SwipeComponent from '../../common/SwipeComponent/SwipeComponent';
 
-import Price from '../../common/Price/Price';
-
 class FurnitureGallery extends React.Component {
   state = {
     activePage: 0,
     mode: 4,
+    activeProduct: 0,
   };
 
   updateDimensions({ target }) {
@@ -39,11 +38,17 @@ class FurnitureGallery extends React.Component {
     this.setState({ activePage: newPage });
   }
 
+  handleProductChange(newProduct) {
+    this.setState({ activeProduct: newProduct });
+  }
+
   render() {
     const { products, tabs } = this.props;
-    const { mode, activePage } = this.state;
+    const { mode, activePage, activeProduct } = this.state;
 
     const pagesCount = products.length;
+
+    // console.log(tabs);
 
     return (
       <div className={styles.root}>
@@ -61,14 +66,18 @@ class FurnitureGallery extends React.Component {
                 </ul>
               </div>
               <div className={styles.product}>
-                <img src={products[0].img} alt='' />
-                <FurnitureGalleryActions />
-                <FurnitureGalleryPrice
-                  name={products[0].name}
-                  price={<Price>{products[0].price}</Price>}
-                  promoPrice={products[0].promoPrice}
-                  stars={products[0].stars}
-                />
+                {products.slice(activeProduct).map(item => (
+                  <div key={item.id}>
+                    <img src={item.img} alt='' />
+                    <FurnitureGalleryActions />
+                    <FurnitureGalleryPrice
+                      name={item.name}
+                      price={item.price}
+                      promoPrice={item.promoPrice}
+                      stars={item.stars}
+                    />
+                  </div>
+                ))}
               </div>
               <SwipeComponent
                 rightAction={() =>
@@ -87,7 +96,13 @@ class FurnitureGallery extends React.Component {
                   <div className={styles.thumbnails}>
                     {products.slice(0, mode).map(product => (
                       <div key={product.id} className={styles.thumbnail}>
-                        <img src={product.img} alt=''></img>
+                        <img
+                          src={product.img}
+                          alt=''
+                          onClick={() =>
+                            this.handleProductChange(products.indexOf(product))
+                          }
+                        ></img>
                       </div>
                     ))}
                   </div>

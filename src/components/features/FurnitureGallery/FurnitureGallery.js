@@ -13,6 +13,7 @@ class FurnitureGallery extends React.Component {
     activePage: 0,
     mode: 4,
     activeProduct: 0,
+    activeCategory: 'featured',
   };
 
   updateDimensions({ target }) {
@@ -34,21 +35,34 @@ class FurnitureGallery extends React.Component {
     window.removeEventListener('resize', this.updateDimensions.bind(this));
   }
 
-  handlePageChange(newPage) {
-    this.setState({ activePage: newPage });
-  }
-
   handleProductChange(newProduct) {
     this.setState({ activeProduct: newProduct });
   }
 
+  hendelGalleryFurther(newPage) {
+    this.setState({ activePage: newPage });
+    console.log('click');
+  }
+
+  hendelGalleryBack(newPage) {
+    this.setState({ activePage: newPage });
+    console.log('click');
+  }
+
+  handleCategoryChange(newCategory) {
+    this.setState({ activeCategory: newCategory });
+  }
+
   render() {
     const { products, tabs } = this.props;
-    const { mode, activePage, activeProduct } = this.state;
+    const { mode, activePage, activeProduct, activeCategory } = this.state;
 
     const pagesCount = products.length;
 
-    // console.log(tabs);
+    const categoryProducts = products.filter(item => item.tabs === activeCategory);
+
+    console.log(tabs);
+    console.log(categoryProducts);
 
     return (
       <div className={styles.root}>
@@ -60,20 +74,22 @@ class FurnitureGallery extends React.Component {
                 <ul>
                   {tabs.map(tab => (
                     <li key={tab.id}>
-                      <a href='#'>{tab.name}</a>
+                      <a href='#' onClick={() => this.handleCategoryChange(tab.id)}>
+                        {tab.name}
+                      </a>
                     </li>
                   ))}
                 </ul>
               </div>
               <div className={styles.product}>
                 {products.slice(activeProduct).map(item => (
-                  <div key={item.id}>
+                  <div key={item.id} className={styles.product}>
                     <img src={item.img} alt='' />
                     <FurnitureGalleryActions />
                     <FurnitureGalleryPrice
                       name={item.name}
                       price={item.price}
-                      promoPrice={item.promoPrice}
+                      oldPrice={item.oldPrice}
                       stars={item.stars}
                     />
                   </div>
@@ -94,7 +110,7 @@ class FurnitureGallery extends React.Component {
                     <a href='#'>&#x3c;</a>
                   </div>
                   <div className={styles.thumbnails}>
-                    {products.slice(0, mode).map(product => (
+                    {categoryProducts.slice(0, mode).map(product => (
                       <div key={product.id} className={styles.thumbnail}>
                         <img
                           src={product.img}
@@ -107,7 +123,9 @@ class FurnitureGallery extends React.Component {
                     ))}
                   </div>
                   <div className={styles.arrow}>
-                    <a href='#'>&#x3e;</a>
+                    <a href='#' onClick={() => this.hendelGalleryBack()}>
+                      &#x3e;
+                    </a>
                   </div>
                 </div>
               </SwipeComponent>
@@ -131,7 +149,7 @@ FurnitureGallery.propTypes = {
       promo: PropTypes.string,
       newFurniture: PropTypes.bool,
       img: PropTypes.string,
-      promoPrice: PropTypes.number,
+      oldPrice: PropTypes.number,
     })
   ),
   tabs: PropTypes.array,

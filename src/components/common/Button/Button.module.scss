@@ -58,10 +58,6 @@
   line-height: 22px;
   @include hover-animation;
 
-  &:not(.noHover):hover {
-    background-color: $button-bg;
-    color: $button-text;
-  }
 }
 
 .outlinePromoted {

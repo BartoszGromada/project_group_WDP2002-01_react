@@ -102,9 +102,6 @@
   &:hover .buttons {
     opacity: 1;
   }
-  &:hover .price * {
-    background-color: $primary;
-  }
 }
 .cart_modal {
   font-size: 16px;
@@ -133,8 +130,6 @@
     .product_text_modal {
       font-weight: bold;
       width: 100%;
-<<<<<<< HEAD
-=======
       padding: 10px 5px;
       text-align: center;
       display: flex;
@@ -155,7 +150,6 @@
       position: absolute;
       border-radius: 18px;
       border: 1px solid $product-box-bg-1;
->>>>>>> master
     }
   }
   .close_modal {

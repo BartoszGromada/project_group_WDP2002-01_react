@@ -63,19 +63,20 @@
       font-size: 16px;
       line-height: 24px;
       letter-spacing: 1px;
-      margin: 10px 0;
+      margin: 15px 0;
     }
 
     .stars {
       a {
         text-decoration: none;
         color: $promotedBox-text;
+        margin: 15px 0;
       }
     }
   }
 
   .line {
-    margin: 10px;
+    margin: 14px;
     border-bottom: 1px solid $promotedBox-border-2;
     position: relative;
 

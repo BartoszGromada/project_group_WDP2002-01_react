@@ -54,14 +54,18 @@ class Promoted extends React.Component {
           <a
             onClick={() => {
               this.handlePageChange(i);
+              clearInterval(this.interval);
               setTimeout(
-                () =>
-                  this.handlePageChange(
-                    this.state.activePage === this.props.promoted.length - 1
-                      ? 0
-                      : this.state.activePage + 1
-                  ),
-                3000
+                (this.interval = setInterval(
+                  () =>
+                    this.handlePageChange(
+                      this.state.activePage === this.props.promoted.length - 1
+                        ? 0
+                        : this.state.activePage + 1
+                    ),
+                  3000
+                )),
+                7000
               );
             }}
             className={i === activePage && styles.active}

@@ -106,6 +106,7 @@
     background-color: $primary;
   }
 }
+
 .cart_modal {
   font-size: 16px;
 
@@ -131,15 +132,24 @@
       position: relative;
       margin: 0;
       padding: 0;
-      left: - 10px;
+      left: -5px;
+      border: 2px solid $primary;
     }
 
     .product_text_modal {
       font-weight: bold;
+      font-size: 18px;
+      margin-top:5px;
     }
 
     .product_price_modal {
       font-size: 22px;
+    }
+
+    .product_actions {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
     }
   }
   .close_modal {

@@ -8,6 +8,7 @@ import {
   faExchangeAlt,
   faShoppingBasket,
   faTrashAlt,
+  faCheck,
 } from '@fortawesome/free-solid-svg-icons';
 import { faHeart } from '@fortawesome/free-regular-svg-icons';
 import Button from '../Button/Button';
@@ -74,6 +75,7 @@ const ProductBox = ({
                   ADD TO CART
                 </Button>
               }
+              lockScroll
               modal
             >
               {close => (
@@ -82,16 +84,7 @@ const ProductBox = ({
                     &times;
                   </Link>
                   <h1 className={styles.header_modal}>
-                    Added to cart
-                    <FontAwesomeIcon
-                      className={styles.trashIcon_modal}
-                      icon={faTrashAlt}
-                      onClick={() =>
-                        window.confirm(
-                          'Are you sure You want to delete this item from cart ?'
-                        )
-                      }
-                    />
+                    You added this product to cart
                   </h1>
                   <div className={styles.content_modal}>
                     <img
@@ -101,20 +94,31 @@ const ProductBox = ({
                     />
                     <p className={styles.product_text_modal}>{name}</p>
                     <p className={styles.product_price_modal}>
-                      {productQty} x {price} $ = <Price>{productQty * price}</Price>
+                      {productQty} x <Price>{price}</Price> ={' '}
+                      <Price>{productQty * price}</Price>
                     </p>
-                    <Button
-                      onClick={() => {
-                        handleClickToRemoveFromCart(id);
-                      }}
-                      variant='small'
-                    >
-                      Remove from cart
-                      <FontAwesomeIcon
-                        className={styles.trashIcon_modal}
-                        icon={faTrashAlt}
-                      />
-                    </Button>
+                    <div className={styles.product_action}>
+                      <Button onClick={close} variant='confirm'>
+                        Confirm
+                        <FontAwesomeIcon
+                          className={styles.trashIcon_modal}
+                          icon={faCheck}
+                        />
+                      </Button>
+
+                      <Button
+                        onClick={() => {
+                          handleClickToRemoveFromCart(id);
+                        }}
+                        variant='trash'
+                      >
+                        Remove from cart
+                        <FontAwesomeIcon
+                          className={styles.trashIcon_modal}
+                          icon={faTrashAlt}
+                        />
+                      </Button>
+                    </div>
                   </div>
                 </div>
               )}

@@ -8,7 +8,6 @@ import {
   faPlus,
   faMinus,
   faMobileAlt,
-  // faTrash,
   faTrashAlt,
   faShoppingBasket,
 } from '@fortawesome/free-solid-svg-icons';
@@ -63,6 +62,7 @@ class CompanyClaim extends React.Component {
                     <div className={styles.cartCounter}>{cartValue}</div>
                   </Link>
                 }
+                lockScroll
                 modal
               >
                 {close => (

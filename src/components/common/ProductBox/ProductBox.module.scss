@@ -1,15 +1,15 @@
 @import "../../../styles/settings.scss";
 
 .root {
-  background-color: $product-box-bg-1;
-  border: 1px solid $product-box-border-1;
+  background-color: #ffffff;
+  border: 1px solid #e1e1e1;
   margin-bottom: 2rem;
 
   .photo {
     position: relative;
     padding: 80% 10px 0 10px;
     background: {
-      color: $product-box-photo-bg;
+      color: #f4f5f7;
       size: contain;
       position: center;
       repeat: no-repeat;
@@ -22,9 +22,9 @@
       top: -30px;
       left: 50%;
       transform: translateX(-50%);
-      background-color: $product-box-bg-2;
+      background-color: #292929;
       border-radius: 50%;
-      color: $product-box-text;
+      color: #ffffff;
       padding: 30px 15px 5px 15px;
       z-index: 2;
     }
@@ -45,7 +45,6 @@
       left: 10px;
       right: 10px;
       max-width: calc(100% - 20px);
-      width: 100%;
       height: 100%;
       object-fit: cover;
     }
@@ -61,11 +60,18 @@
       line-height: 24px;
       letter-spacing: 1px;
     }
+
+    .stars {
+      a {
+        text-decoration: none;
+        color: rgb(42, 42, 42);
+      }
+    }
   }
 
   .line {
     margin: 0 10px;
-    border-bottom: 1px solid $product-box-border-2;
+    border-bottom: 1px solid #2a2a2a;
     position: relative;
 
     &::before {
@@ -84,10 +90,6 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-
-    .favorite {
-      color: $primary;
-    }
   }
 
   .price {
@@ -95,57 +97,16 @@
     justify-content: center;
     align-items: center;
   }
-
-  .wrapper {
-    &:hover .buttons {
-      opacity: 1;
-    }
-
-    &:hover .price div {
-      color: $primary;
-    }
+}
+.wrapper {
+  &:hover .buttons {
+    opacity: 1;
   }
-
-  .cart_modal {
-    font-size: 16px;
-
-    .header_modal {
-      border-bottom: 1px solid $product-box-border-3;
-      font-size: 18px;
-      text-align: center;
-      padding: 5px;
-      width: 100%;
-
-      .trashIcon_modal {
-        cursor: pointer;
-      }
-    }
-
-    .content_modal {
-      width: 100%;
-      padding: 10px 5px;
-      text-align: center;
-      display: flex;
-
-      .product_text_modal {
-        font-weight: bold;
-      }
-    }
-
-    .close_modal {
-      cursor: pointer;
-      display: block;
-      padding: 2px 5px;
-      line-height: 20px;
-      top: -10px;
-      font-size: 24px;
-      background: #ffffff;
-      position: absolute;
-      border-radius: 18px;
-      border: 1px solid $product-box-bg-1;
-    }
+  &:hover .price * {
+    background-color: $primary;
   }
 }
+
 .cart_modal {
   font-size: 16px;
 
@@ -161,19 +122,34 @@
     }
   }
   .content_modal {
-    width: 100%;
-    padding: 10px 5px;
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
 
     .product_img_modal {
-      height: 100px;
-      width: 180px;
+      width: 50%;
       position: relative;
+      margin: 0;
+      padding: 0;
+      left: -5px;
+      border: 2px solid $primary;
     }
+
     .product_text_modal {
       font-weight: bold;
-      width: 100%;
+      font-size: 18px;
+      margin-top:5px;
+    }
 
+    .product_price_modal {
+      font-size: 22px;
+    }
+
+    .product_actions {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
     }
   }
   .close_modal {
@@ -186,13 +162,10 @@
     background: #ffffff;
     position: absolute;
     border-radius: 18px;
-    border: 1px solid white;
+    border: 1px solid $product-box-bg-1;
   }
   .trashIcon_modal {
     cursor: pointer;
-    right: 20%;
-
+    margin-left: 10px;
   }
 }
-
-

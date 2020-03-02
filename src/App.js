@@ -7,7 +7,7 @@ import './styles/bootstrap.scss';
 import './styles/global.scss';
 
 import MainLayout from './components/layout/MainLayout/MainLayoutContainer';
-import Homepage from './components/views/Homepage/Homepage';
+import Homepage from './components/views/Homepage/HomepageContainer';
 import Shop from './components/views/Shop/Shop';
 import ProductList from './components/views/ProductList/ProductList';
 import ProductPage from './components/views/ProductPage/ProductPage';

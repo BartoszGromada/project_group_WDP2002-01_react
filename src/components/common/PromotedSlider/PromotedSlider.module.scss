@@ -1,0 +1,47 @@
+@import "../../../styles/settings.scss";
+
+.sliderWrapper {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  text-transform: uppercase;
+  position: relative;
+
+  img {
+    width: 100%;
+    height: 100%;
+  }
+
+  .content {
+    position: absolute;
+    padding: 30px;
+    top: 50%;
+    transform: translateY(-50%);
+    text-align: center;
+    width: 100%;
+    background-color: $promotedSlider-background;
+  }
+
+  .title {
+    font-weight: 300;
+    font-size: 36px;
+    line-height: 45px;
+    color: $promotedSlider-text;
+
+    span {
+      font-weight: 700;
+    }
+  }
+  
+  .subtitle {
+    font-weight: 300;
+    font-size: 24px;
+    color: $promotedSlider-text;
+  }
+
+  .buttonsWrapper {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+  }
+}

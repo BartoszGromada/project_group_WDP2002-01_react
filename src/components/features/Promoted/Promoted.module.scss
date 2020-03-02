@@ -1,0 +1,62 @@
+@import "../../../styles/settings.scss";
+
+.promotedWrapper {
+  margin-top: 20px;
+
+  .dotsWrapper {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    transform: translateX(-50%);
+    z-index: 1;
+    width: calc(100% - 30px);
+    color: #e1e1e1;
+    background-color: $promoted-background;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1rem;
+  
+    .dotsDescription {
+      display: inline-block;
+      white-space: nowrap;
+    }
+  
+    ul {
+      padding: 1rem;
+      list-style: none;
+      display: flex;
+      align-items: center;
+      margin: 0;
+  
+      li {
+        display: inline-block;
+        margin-left: 0.5rem;
+  
+        a {
+          display: block;
+          width: 13px;
+          height: 13px;
+          border-radius: 6px;
+          background-color: $promoted-background-2;
+          font-size: 0;
+          
+          &.active,
+          &:hover {
+            background-color: $primary;
+          }
+        }
+      }
+    }
+  }
+}
+
+.fadeIn {
+  animation: fadeIn 1s;
+  opacity: 1;
+}
+
+.fadeOut{
+  animation: fadeOut 1s;
+  opacity: 0;
+}

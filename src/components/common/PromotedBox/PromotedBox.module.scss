@@ -1,0 +1,116 @@
+@import "../../../styles/settings.scss";
+
+.wrapper {
+  margin-top: 45px;
+  background-color: $promotedBox-background;
+  border: 1px solid $promotedBox-border;
+  margin-bottom: 2rem;
+
+  .photo {
+    position: relative;
+    padding: 80% 10px 0 10px;
+    background: {
+      color: $promotedBox-background-2;
+      size: contain;
+      position: center;
+      repeat: no-repeat;
+    }
+    overflow: hidden;
+    
+    .buttons {
+      position: absolute;
+      left: 50%;
+      top: 40%;
+      transform: translate(-50%, -40%);
+      opacity: 0;
+      transition: 0.2s ease-in-out;
+      a {
+        z-index: 2;
+      }
+    }
+
+    .circles {
+      position: absolute;
+      left: 50%;
+      top: 80%;
+      transform: translate(-50%, -80%);
+      opacity: 0;
+      transition: 0.2s ease-in-out;
+      text-align: center;
+      white-space: nowrap;
+      a {
+        z-index: 2;
+      }
+    }
+
+    img {
+      position: absolute;
+      top: 0;
+      left: 10px;
+      right: 10px;
+      max-width: calc(100% - 20px);
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .content {
+    text-align: center;
+    padding: 20px;
+
+    h5 {
+      color: $primary;
+      font-size: 16px;
+      line-height: 24px;
+      letter-spacing: 1px;
+      margin: 10px 0;
+    }
+
+    .stars {
+      a {
+        text-decoration: none;
+        color: $promotedBox-text;
+      }
+    }
+  }
+
+  .line {
+    margin: 10px;
+    border-bottom: 1px solid $promotedBox-border-2;
+    position: relative;
+
+    &::before {
+      content: "";
+      position: absolute;
+      bottom: -1px;
+      left: 50%;
+      width: 30px;
+      border-bottom: 4px solid $primary;
+      transform: translateX(-50%);
+    }
+  }
+
+  .actions {
+    padding: 15px 10px 10px 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px 0;
+  }
+
+  .price {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.wrapper {
+  &:hover .buttons {
+    opacity: 1;
+  }
+
+  &:hover .circles {
+    opacity: 1;
+  }
+}

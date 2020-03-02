@@ -1,33 +1,38 @@
 @import "../../../styles/settings.scss";
 
 .root {
-  border: 1px solid  $search-border;
+  border: 1px solid $search-border;
   display: inline-flex;
   height: 45px;
   color: $search-text;
 
   .category {
-    border-right: 1px solid  $search-border;
+    border-right: 1px solid $search-border;
     display: flex;
     align-items: center;
     position: relative;
     padding: 0;
+    min-width: 200px;
+
+    &:first-letter {
+      text-transform: uppercase;
+    }
 
     .mainList {
       margin: 0;
       padding: 0;
       position: relative;
-      z-index: 1;
+      z-index: 2;
       height: 100%;
       list-style-type: none;
       width: 100%;
       color: $text-color;
 
       &:hover .subList {
-          display: flex;
-          align-items: center;
-          width: 100%;
-          padding-left: 20px;
+        display: flex;
+        align-items: center;
+        width: 100%;
+        padding-left: 20px;
       }
 
       .icon {
@@ -43,86 +48,61 @@
 
         &:hover {
           background-color: $background-main-2;
+          // color: $text-color-2;
+        }
+
+        a {
+          color: $text-color;
+        }
+
+        a:hover {
           color: $text-color-2;
+        }
+
+        a:first-letter {
+          text-transform: uppercase;
         }
       }
 
       li {
-        display:none;
+        display: none;
         width: 100%;
         height: 100%;
-        border:  1px solid $search-border;
+        border: 1px solid $search-border;
         background-color: $search-bg-1;
 
         &:hover {
           background-color: $background-main-2;
           color: $text-color-2;
+          cursor: pointer;
         }
       }
     }
+  }
+}
 
-    // .mainList
+.searchField {
+  display: flex;
+  align-items: center;
+  position: relative;
 
-    //   .icon:first-child {
-    //     color: $search-text;
-    // }
+  input {
+    border: 0;
+    padding-left: 10px;
+    font-size: 14px;
+    outline: none;
 
-    // .icon:first-child {
-    //   color: $primary;
-    //   position: absolute;
-    //   left: 10px;
-    //   z-index: 0;
-    // }
-
-    // .icon:last-child {
-    //   position: absolute;
-    //   right: 10px;
-    //   z-index: 0;
-    // }
-
-    // select {
-    //   -webkit-appearance: none;
-    //   border: 0;
-    //   background-color: transparent;
-    //   padding: 5px 30px 5px 35px;
-    //   position: relative;
-    //   z-index: 1;
-    //   font-size: 14px;
-
-    //   &:focus {
-    //     outline: 0;
-
-    //     option {
-    //       background-color: $search-bg-1;
-    //       color: $search-text;
-    //     }
-    //   }
+    &::placeholder {
+      color: $search-text;
     }
   }
 
-  .searchField {
-    display: flex;
-    align-items: center;
-    position: relative;
-
-    input {
-      border: 0;
-      padding-left: 10px;
-      font-size: 14px;
-      outline: none;
-
-      &::placeholder {
-        color: $search-text;
-      }
-    }
-
-    button {
-      border: 0;
-      background-color: transparent;
-      outline: none;
-    }
+  button {
+    border: 0;
+    background-color: transparent;
+    outline: none;
   }
-
+}
 
 @media (max-width: 767px) {
   .root {

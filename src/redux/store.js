@@ -8,8 +8,10 @@ import categoriesReducer from './categoriesRedux';
 import productsReducer from './productsRedux';
 import modeReducer from './modesRedux';
 import compareReducer from './compareRedux';
+import inputReducer from './inputRedux';
 import currencyRedux from './currencyRedux';
 import currencyRatesRedux from './currencyRatesRedux';
+import searchRedux from './searchRedux';
 
 // define reducers
 const reducers = {
@@ -18,8 +20,10 @@ const reducers = {
   products: productsReducer,
   mode: modeReducer,
   compare: compareReducer,
+  input: inputReducer,
   currency: currencyRedux,
   currencyRates: currencyRatesRedux,
+  search: searchRedux,
 };
 
 // add blank reducers for initial state properties without reducers

@@ -7,6 +7,7 @@ import FurnitureGalleryActions from '../FurnitureGalleryActions/FurnitureGallery
 import FurnitureGalleryPrice from '../FurnitureGalleryPrice/FurnitureGalleryPrice';
 
 import SwipeComponent from '../../common/SwipeComponent/SwipeComponent';
+import { Link } from 'react-router-dom';
 
 class FurnitureGallery extends React.Component {
   state = {
@@ -86,12 +87,12 @@ class FurnitureGallery extends React.Component {
                 <ul>
                   {tabs.map(tab => (
                     <li key={tab.id}>
-                      <a
-                        href='#'
+                      <Link
+                        to='/'
                         onClick={event => this.handleCategoryChange(event, tab.id)}
                       >
                         {tab.name}
-                      </a>
+                      </Link>
                     </li>
                   ))}
                 </ul>
@@ -118,14 +119,15 @@ class FurnitureGallery extends React.Component {
               >
                 <div className={styles.slider}>
                   <div className={styles.arrow}>
-                    <a
+                    <Link
+                      to='/'
                       href='#'
                       onClick={event =>
                         this.handelGalleryFurther(event, categoryProducts)
                       }
                     >
                       &#x3c;
-                    </a>
+                    </Link>
                   </div>
                   <div className={styles.thumbnails}>
                     {categoryProducts.slice(firstPage, lastPage).map(product => (
@@ -141,12 +143,12 @@ class FurnitureGallery extends React.Component {
                     ))}
                   </div>
                   <div className={styles.arrow}>
-                    <a
-                      href='#'
+                    <Link
+                      to='/'
                       onClick={event => this.handelGalleryBack(event, categoryProducts)}
                     >
                       &#x3e;
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </SwipeComponent>

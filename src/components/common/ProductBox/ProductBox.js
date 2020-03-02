@@ -5,9 +5,9 @@ import styles from './ProductBox.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import {
-  faExchangeAlt,
   faShoppingBasket,
   faTrashAlt,
+  faCheck,
 } from '@fortawesome/free-solid-svg-icons';
 import { faHeart } from '@fortawesome/free-regular-svg-icons';
 import Button from '../Button/Button';
@@ -15,6 +15,7 @@ import Popup from 'reactjs-popup';
 import Input from '../../features/Input/InputContainer';
 import Price from '../Price/PriceContainer';
 import Stars from '../Stars/StarsContainer';
+import CompareButton from '../CompareButton/CompareButtonContainer';
 
 const ProductBox = ({
   id,
@@ -25,25 +26,13 @@ const ProductBox = ({
   opinion,
   img,
   oldPrice,
-  addToCompare,
-  allComperedProducts,
   addToCart,
   removeFromCart,
   markFavourite,
   favourite,
   favorite,
-  compared,
 }) => {
   const [productQty, setProductQty] = useState(1);
-
-  const handleClickToCompare = product => {
-    const duplicates = allComperedProducts.filter(item => item.id === product.id)
-      .length;
-
-    if (allComperedProducts.length < 4 && !duplicates) {
-      addToCompare(product);
-    }
-  };
 
   const handleChangeCount = qty => setProductQty(qty);
 
@@ -74,25 +63,16 @@ const ProductBox = ({
                   ADD TO CART
                 </Button>
               }
+              lockScroll
               modal
             >
               {close => (
                 <div className={styles.cart_modal}>
                   <Link to='/' className={styles.close_modal} onClick={close}>
                     &times;
-                    <h1 className={styles.header_modal}>Added to cart</h1>
                   </Link>
                   <h1 className={styles.header_modal}>
-                    Added to cart
-                    <FontAwesomeIcon
-                      className={styles.trashIcon_modal}
-                      icon={faTrashAlt}
-                      onClick={() =>
-                        window.confirm(
-                          'Are you sure You want to delete this item from cart ?'
-                        )
-                      }
-                    />
+                    You added this product to cart
                   </h1>
                   <div className={styles.content_modal}>
                     <img
@@ -101,21 +81,32 @@ const ProductBox = ({
                       alt={`${name} bed`}
                     />
                     <p className={styles.product_text_modal}>{name}</p>
-                    <p className={styles.product_text_modal}>
+                    <p className={styles.product_price_modal}>
+                      {productQty} x <Price>{price}</Price> ={' '}
                       <Price>{productQty * price}</Price>
                     </p>
-                    <Button
-                      onClick={() => {
-                        handleClickToRemoveFromCart(id);
-                      }}
-                      variant='small'
-                    >
-                      Remove from cart
-                      <FontAwesomeIcon
-                        className={styles.trashIcon_modal}
-                        icon={faTrashAlt}
-                      />
-                    </Button>
+                    <div className={styles.product_action}>
+                      <Button onClick={close} variant='confirm'>
+                        Confirm
+                        <FontAwesomeIcon
+                          className={styles.trashIcon_modal}
+                          icon={faCheck}
+                        />
+                      </Button>
+
+                      <Button
+                        onClick={() => {
+                          handleClickToRemoveFromCart(id);
+                        }}
+                        variant='trash'
+                      >
+                        Remove from cart
+                        <FontAwesomeIcon
+                          className={styles.trashIcon_modal}
+                          icon={faTrashAlt}
+                        />
+                      </Button>
+                    </div>
                   </div>
                 </div>
               )}
@@ -147,12 +138,7 @@ const ProductBox = ({
                 Favorite
               </FontAwesomeIcon>
             </Button>
-            <Button
-              variant='outline'
-              onClick={() => handleClickToCompare({ id, name, img })}
-            >
-              <FontAwesomeIcon icon={faExchangeAlt}>Add to compare</FontAwesomeIcon>
-            </Button>
+            <CompareButton id={id} name={name} img={img} />
           </div>
           <div className={styles.price}>
             {oldPrice && <div className={styles.oldPrice}></div>}
@@ -183,7 +169,6 @@ ProductBox.propTypes = {
   stars: PropTypes.number,
   opinion: PropTypes.number,
   favorite: PropTypes.bool,
-  compared: PropTypes.bool,
   markFavourite: PropTypes.func,
   favourite: PropTypes.bool,
   img: PropTypes.string,

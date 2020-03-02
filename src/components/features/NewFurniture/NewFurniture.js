@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { CSSTransition, TransitionGroup } from 'react-transition-group';
 
 import SwipeComponent from '../../common/SwipeComponent/SwipeComponent';
 import styles from './NewFurniture.module.scss';
@@ -14,30 +15,15 @@ class NewFurniture extends React.Component {
   };
 
   handlePageChange(newPage) {
-    this.setState({ activePage: newPage });
+    this.setState({
+      activePage: newPage,
+    });
   }
 
   handleCategoryChange(newCategory) {
-    this.setState({ activeCategory: newCategory });
-  }
-
-  comparedProducts(products, remove) {
-    return (
-      <div className={styles.comperedContainer}>
-        {products.map(({ img, id, name }) => (
-          <div key={id} className={styles.productImage}>
-            <img src={img} alt={`${name}`} />
-            <div className={styles.close} onClick={() => remove(id)}>
-              x
-            </div>
-          </div>
-        ))}
-        <Link to='/'>Compare</Link>
-        <div className={styles.close} onClick={() => remove()}>
-          x
-        </div>
-      </div>
-    );
+    this.setState({
+      activeCategory: newCategory,
+    });
   }
 
   handleCategoryFilter(products, categories) {
@@ -55,14 +41,7 @@ class NewFurniture extends React.Component {
   }
 
   render() {
-    const {
-      categories,
-      products,
-      mode,
-      allComperedProducts,
-      removeFromCompared,
-      searchString,
-    } = this.props;
+    const { categories, products, mode, searchString } = this.props;
 
     const { activeCategory, activePage } = this.state;
 
@@ -112,11 +91,10 @@ class NewFurniture extends React.Component {
       >
         <div className={styles.root}>
           <div className='container'>
-            {this.comparedProducts(allComperedProducts, removeFromCompared)}
             <div className={styles.panelBar}>
               <div className='row no-gutters align-items-end'>
                 <div className={styles.heading}>
-                  {searchString != '' ? (
+                  {searchString !== '' ? (
                     <h3>Search results ({products.length})</h3>
                   ) : (
                     <h3>New furniture</h3>
@@ -152,15 +130,29 @@ class NewFurniture extends React.Component {
                 </div>
               </div>
             </div>
-            <div className='row'>
+            <TransitionGroup component='div' className='row'>
               {categoryProducts
                 .slice(activePage * productsPerPage, (activePage + 1) * productsPerPage)
                 .map(item => (
-                  <div key={item.id} className='col-lg-3 col-md-6 col-sm-12'>
-                    <ProductBox {...item} />
-                  </div>
+                  <CSSTransition
+                    key={item.id}
+                    timeout={500}
+                    appear={true}
+                    classNames={{
+                      appear: styles.fadeAppear,
+                      appearActive: styles.fadeAppearActive,
+                      enter: styles.fadeEnter,
+                      enterActive: styles.fadeEnterActive,
+                      exit: styles.fadeExit,
+                      exitActive: styles.fadeExitActive,
+                    }}
+                  >
+                    <div key={item.id} className='col-lg-3 col-md-6 col-sm-12'>
+                      <ProductBox {...item} />
+                    </div>
+                  </CSSTransition>
                 ))}
-            </div>
+            </TransitionGroup>
           </div>
         </div>
       </SwipeComponent>
@@ -188,7 +180,6 @@ NewFurniture.propTypes = {
       newFurniture: PropTypes.bool,
     })
   ),
-  allComperedProducts: PropTypes.array,
   removeFromCompared: PropTypes.func,
   searchString: PropTypes.string,
   selectedCategory: PropTypes.string,
@@ -197,7 +188,6 @@ NewFurniture.propTypes = {
 NewFurniture.defaultProps = {
   categories: [],
   products: [],
-  allComperedProducts: [],
 };
 
 export default NewFurniture;

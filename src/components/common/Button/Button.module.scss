@@ -127,7 +127,7 @@
   font-size: 16px;
   line-height: 24px;
   font-weight: 600;
-  padding: 10px 30px;
+  padding: 6px 30px;
   display: inline-block;
   width: 50%;
   text-align: center;
@@ -171,6 +171,28 @@
   &:not(.noHover):hover {
     background-color: #dac402;
     color: black;
+    text-decoration: none;
+  }
+}
+
+.trash {
+  @extend .outline;
+  margin-left: 15px;
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.confirm {
+  @extend .outline;
+  margin-right: 15px;
+  background-color: $primary;
+  border:none;
+  color: $button-text;
+  text-decoration: none;
+
+  &:hover {
     text-decoration: none;
   }
 }

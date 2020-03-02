@@ -4,12 +4,11 @@ import PropTypes from 'prop-types';
 import styles from './PromotedBox.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
-  faStar,
   faExchangeAlt,
   faShoppingBasket,
   faEye,
 } from '@fortawesome/free-solid-svg-icons';
-import { faStar as farStar, faHeart } from '@fortawesome/free-regular-svg-icons';
+import { faStar as faHeart } from '@fortawesome/free-regular-svg-icons';
 import Button from '../Button/Button';
 import Circle from '../Circle/Circle';
 import Stars from '../Stars/Stars';
@@ -68,7 +67,6 @@ const ProductBox = ({ id, name, price, stars, img, oldPrice, opinion }) => {
 
 ProductBox.propTypes = {
   id: PropTypes.string,
-  children: PropTypes.node,
   name: PropTypes.string,
   price: PropTypes.number,
   oldPrice: PropTypes.number,
@@ -76,8 +74,6 @@ ProductBox.propTypes = {
   promo: PropTypes.string,
   stars: PropTypes.number,
   img: PropTypes.string,
-  addToCompare: PropTypes.func,
-  allComperedProducts: PropTypes.array,
 };
 
 export default ProductBox;

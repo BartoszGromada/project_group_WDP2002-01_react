@@ -1,6 +1,5 @@
 import { connect } from 'react-redux';
-import ProductBox from './ProductBox';
-import { markFavourite } from '../../../redux/productsRedux';
+import ShopBox from './ShopBox';
 import { getAllToCompare } from '../../../redux/compareRedux';
 import { getAll, addProduct, removeProduct } from '../../../redux/cartRedux';
 import { getInputValue } from '../../../redux/inputRedux';
@@ -17,14 +16,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = (dispatch, props) => ({
-  markFavourite: () =>
-    dispatch(
-      markFavourite({
-        id: props.id,
-      })
-    ),
   addToCart: payload => dispatch(addProduct(payload)),
   removeFromCart: id => dispatch(removeProduct(id)),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(ProductBox);
+export default connect(mapStateToProps, mapDispatchToProps)(ShopBox);

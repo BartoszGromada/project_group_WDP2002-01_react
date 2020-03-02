@@ -8,10 +8,12 @@ import {
   faPlus,
   faMinus,
   faMobileAlt,
-  faTrash,
+  faTrashAlt,
   faShoppingBasket,
 } from '@fortawesome/free-solid-svg-icons';
 import Popup from 'reactjs-popup';
+import Price from '../../common/Price/PriceContainer';
+import Button from '../../common/Button/Button';
 
 import { Link } from 'react-router-dom';
 
@@ -23,6 +25,7 @@ class CompanyClaim extends React.Component {
 
   render() {
     const { cart, cartValue } = this.props;
+
     return (
       <div className={styles.root}>
         <div className='container'>
@@ -59,36 +62,70 @@ class CompanyClaim extends React.Component {
                     <div className={styles.cartCounter}>{cartValue}</div>
                   </Link>
                 }
+                lockScroll
                 modal
               >
                 {close => (
                   <div className={styles.popup}>
+                    <Link to='/' className={styles.close_popup} onClick={close}>
+                      &times;
+                    </Link>
                     <h2 className={styles.title}>Cart</h2>
-                    {cart.map(({ id, img, name }) => (
+                    {cart.map(({ id, img, name, price }) => (
                       <div key={id} className={styles.popupContent}>
                         <div className={styles.image}>
                           <img src={img} alt={id} />
                         </div>
                         <div className={styles.description}>{name}</div>
+                        <div className={styles.price}>
+                          <Price>{price}</Price>
+                        </div>
                         <div className={styles.cartActions}>
-                          <button>
+                          <Button
+                            onClick={() =>
+                              window.confirm(
+                                'Are you sure You want to delete this item from the cart ?'
+                              )
+                            }
+                            variant='small'
+                          >
                             <FontAwesomeIcon className={styles.icon} icon={faMinus} />
-                          </button>
+                          </Button>
                           <input
                             className={styles.productAmount}
                             type='text'
                             name='amount'
                             value={'1'}
                           />
-                          <button>
+                          <Button
+                            onClick={() =>
+                              window.confirm(
+                                'Are you sure You want to add this item to the cart ?'
+                              )
+                            }
+                            variant='small'
+                          >
                             <FontAwesomeIcon className={styles.icon} icon={faPlus} />
-                          </button>
-                          <div className={styles.cartIcon}>
-                            <FontAwesomeIcon className={styles.icon} icon={faTrash} />
-                          </div>
+                          </Button>
+                          <Button
+                            onClick={() =>
+                              window.confirm(
+                                'Are you sure You want to delete this item from the cart ?'
+                              )
+                            }
+                            variant='trash'
+                          >
+                            <FontAwesomeIcon
+                              className={styles.trashIcon_modal}
+                              icon={faTrashAlt}
+                            />
+                          </Button>
                         </div>
                       </div>
                     ))}
+                    <div className={styles.summary}>
+                      <p>Sum:</p>
+                    </div>
                     <div className={styles.buttons}>
                       <div className={styles.button} onClick={close}>
                         Cancel

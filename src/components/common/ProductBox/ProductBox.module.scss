@@ -138,6 +138,27 @@
 
     .product_text_modal {
       font-weight: bold;
+      width: 100%;
+      padding: 10px 5px;
+      text-align: center;
+      display: flex;
+
+      .product_text_modal {
+        font-weight: bold;
+      }
+    }
+
+    .close_modal {
+      cursor: pointer;
+      display: block;
+      padding: 2px 5px;
+      line-height: 20px;
+      top: -10px;
+      font-size: 24px;
+      background: #ffffff;
+      position: absolute;
+      border-radius: 18px;
+      border: 1px solid $product-box-bg-1;
       font-size: 18px;
       margin-top:5px;
     }

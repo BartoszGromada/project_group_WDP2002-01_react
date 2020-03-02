@@ -1,13 +1,12 @@
 import React from 'react';
-
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faChevronRight, faChevronLeft } from '@fortawesome/free-solid-svg-icons';
+import PropTypes from 'prop-types';
 
 import Button from '../Button/Button';
 import styles from './PromotedSlider.module.scss';
 
-const PromotedSlider = () => (
+const PromotedSlider = ({ img, name }) => (
   <div className={styles.sliderWrapper}>
+    <img src={img} alt={name} />
     <div className={styles.content}>
       <h2 className={styles.title}>
         INDOOR <span>FURNITURE</span>
@@ -17,15 +16,12 @@ const PromotedSlider = () => (
         SHOP NOW
       </Button>
     </div>
-    <div className={styles.buttonsWrapper}>
-      <Button noHover variant='arrow'>
-        <FontAwesomeIcon icon={faChevronLeft} />
-      </Button>
-      <Button noHover variant='arrow'>
-        <FontAwesomeIcon icon={faChevronRight} />
-      </Button>
-    </div>
   </div>
 );
+
+PromotedSlider.propTypes = {
+  name: PropTypes.string,
+  img: PropTypes.string,
+};
 
 export default PromotedSlider;

@@ -15,7 +15,7 @@ import Circle from '../Circle/Circle';
 
 import { Link } from 'react-router-dom';
 
-const ProductBox = ({ id, name, price, stars, img, oldPrice }) => {
+const ProductBox = ({ name, price, stars, img, oldPrice }) => {
   return (
     <div className={styles.wrapper}>
       <div className={styles.photo}>
@@ -76,16 +76,11 @@ const ProductBox = ({ id, name, price, stars, img, oldPrice }) => {
 };
 
 ProductBox.propTypes = {
-  id: PropTypes.string,
-  children: PropTypes.node,
   name: PropTypes.string,
   price: PropTypes.number,
   oldPrice: PropTypes.number,
-  promo: PropTypes.string,
   stars: PropTypes.number,
   img: PropTypes.string,
-  addToCompare: PropTypes.func,
-  allComperedProducts: PropTypes.array,
 };
 
 export default ProductBox;

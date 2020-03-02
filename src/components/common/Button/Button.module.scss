@@ -178,3 +178,25 @@
     text-decoration: none;
   }
 }
+
+.trash {
+  @extend .outline;
+  margin-left: 15px;
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.confirm {
+  @extend .outline;
+  margin-right: 15px;
+  background-color: $primary;
+  border:none;
+  color: $button-text;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: none;
+  }
+}

@@ -11,7 +11,7 @@ import SwipeComponent from '../../common/SwipeComponent/SwipeComponent';
 class FurnitureGallery extends React.Component {
   state = {
     activePage: 0,
-    mode: 4,
+    mode: 6,
     activeProduct: 0,
     activeCategory: 'featured',
   };
@@ -39,30 +39,42 @@ class FurnitureGallery extends React.Component {
     this.setState({ activeProduct: newProduct });
   }
 
-  hendelGalleryFurther(newPage) {
-    this.setState({ activePage: newPage });
-    console.log('click');
+  handelGalleryFurther(event) {
+    const newFurther = this.state.activePage < 0 ? 0 : this.state.activePage - 1;
+    this.setState({ activePage: newFurther });
+    event && event.preventDefault();
+    // console.log('clic2k', newFurther);
   }
 
-  hendelGalleryBack(newPage) {
-    this.setState({ activePage: newPage });
-    console.log('click');
+  handelGalleryBack(event, categoryProducts) {
+    const newBack =
+      this.state.activePage >= categoryProducts.length
+        ? categoryProducts.length
+        : this.state.activePage + 1;
+    this.setState({ activePage: newBack });
+    event && event.preventDefault();
+    // console.log('click', newBack);
   }
 
-  handleCategoryChange(newCategory) {
+  handleCategoryChange(event, newCategory) {
     this.setState({ activeCategory: newCategory });
+    event.preventDefault();
   }
 
   render() {
     const { products, tabs } = this.props;
     const { mode, activePage, activeProduct, activeCategory } = this.state;
 
-    const pagesCount = products.length;
-
     const categoryProducts = products.filter(item => item.tabs === activeCategory);
 
-    console.log(tabs);
-    console.log(categoryProducts);
+    const newactivePage =
+      activePage < 0 ? this.setState({ activePage: 0 }) : activePage;
+
+    const firstPage =
+      newactivePage + mode >= categoryProducts.length
+        ? categoryProducts.length - mode
+        : newactivePage;
+    const lastPage = firstPage + mode;
 
     return (
       <div className={styles.root}>
@@ -74,7 +86,10 @@ class FurnitureGallery extends React.Component {
                 <ul>
                   {tabs.map(tab => (
                     <li key={tab.id}>
-                      <a href='#' onClick={() => this.handleCategoryChange(tab.id)}>
+                      <a
+                        href='#'
+                        onClick={event => this.handleCategoryChange(event, tab.id)}
+                      >
                         {tab.name}
                       </a>
                     </li>
@@ -96,21 +111,24 @@ class FurnitureGallery extends React.Component {
                 ))}
               </div>
               <SwipeComponent
-                rightAction={() =>
-                  this.handlePageChange(activePage > 0 ? activePage - 1 : 0)
+                rightAction={event =>
+                  this.handelGalleryFurther(event, categoryProducts)
                 }
-                leftAction={() =>
-                  this.handlePageChange(
-                    activePage + 1 < pagesCount ? activePage + 1 : activePage
-                  )
-                }
+                leftAction={event => this.handelGalleryBack(event, categoryProducts)}
               >
                 <div className={styles.slider}>
                   <div className={styles.arrow}>
-                    <a href='#'>&#x3c;</a>
+                    <a
+                      href='#'
+                      onClick={event =>
+                        this.handelGalleryFurther(event, categoryProducts)
+                      }
+                    >
+                      &#x3c;
+                    </a>
                   </div>
                   <div className={styles.thumbnails}>
-                    {categoryProducts.slice(0, mode).map(product => (
+                    {categoryProducts.slice(firstPage, lastPage).map(product => (
                       <div key={product.id} className={styles.thumbnail}>
                         <img
                           src={product.img}
@@ -123,7 +141,10 @@ class FurnitureGallery extends React.Component {
                     ))}
                   </div>
                   <div className={styles.arrow}>
-                    <a href='#' onClick={() => this.hendelGalleryBack()}>
+                    <a
+                      href='#'
+                      onClick={event => this.handelGalleryBack(event, categoryProducts)}
+                    >
                       &#x3e;
                     </a>
                   </div>
@@ -153,6 +174,7 @@ FurnitureGallery.propTypes = {
     })
   ),
   tabs: PropTypes.array,
+  mode: PropTypes.string,
 };
 
 export default FurnitureGallery;

@@ -5,7 +5,6 @@ import styles from './ProductBox.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import {
-  faExchangeAlt,
   faShoppingBasket,
   faTrashAlt,
   faCheck,
@@ -16,6 +15,7 @@ import Popup from 'reactjs-popup';
 import Input from '../../features/Input/InputContainer';
 import Price from '../Price/PriceContainer';
 import Stars from '../Stars/StarsContainer';
+import CompareButton from '../CompareButton/CompareButtonContainer';
 
 const ProductBox = ({
   id,
@@ -26,25 +26,13 @@ const ProductBox = ({
   opinion,
   img,
   oldPrice,
-  addToCompare,
-  allComperedProducts,
   addToCart,
   removeFromCart,
   markFavourite,
   favourite,
   favorite,
-  compared,
 }) => {
   const [productQty, setProductQty] = useState(1);
-
-  const handleClickToCompare = product => {
-    const duplicates = allComperedProducts.filter(item => item.id === product.id)
-      .length;
-
-    if (allComperedProducts.length < 4 && !duplicates) {
-      addToCompare(product);
-    }
-  };
 
   const handleChangeCount = qty => setProductQty(qty);
 
@@ -150,12 +138,7 @@ const ProductBox = ({
                 Favorite
               </FontAwesomeIcon>
             </Button>
-            <Button
-              variant='outline'
-              onClick={() => handleClickToCompare({ id, name, img })}
-            >
-              <FontAwesomeIcon icon={faExchangeAlt}>Add to compare</FontAwesomeIcon>
-            </Button>
+            <CompareButton id={id} name={name} img={img} />
           </div>
           <div className={styles.price}>
             {oldPrice && <div className={styles.oldPrice}></div>}
@@ -186,7 +169,6 @@ ProductBox.propTypes = {
   stars: PropTypes.number,
   opinion: PropTypes.number,
   favorite: PropTypes.bool,
-  compared: PropTypes.bool,
   markFavourite: PropTypes.func,
   favourite: PropTypes.bool,
   img: PropTypes.string,

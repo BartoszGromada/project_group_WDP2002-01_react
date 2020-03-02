@@ -21,25 +21,6 @@ class NewFurniture extends React.Component {
     this.setState({ activeCategory: newCategory });
   }
 
-  comparedProducts(products, remove) {
-    return (
-      <div className={styles.comperedContainer}>
-        {products.map(({ img, id, name }) => (
-          <div key={id} className={styles.productImage}>
-            <img src={img} alt={`${name}`} />
-            <div className={styles.close} onClick={() => remove(id)}>
-              x
-            </div>
-          </div>
-        ))}
-        <Link to='/'>Compare</Link>
-        <div className={styles.close} onClick={() => remove()}>
-          x
-        </div>
-      </div>
-    );
-  }
-
   handleCategoryFilter(products, categories) {
     let newCategories = [];
 
@@ -55,14 +36,7 @@ class NewFurniture extends React.Component {
   }
 
   render() {
-    const {
-      categories,
-      products,
-      mode,
-      allComperedProducts,
-      removeFromCompared,
-      searchString,
-    } = this.props;
+    const { categories, products, mode, searchString } = this.props;
     const { activeCategory, activePage } = this.state;
 
     const categoryProducts = products.filter(item => item.category === activeCategory);
@@ -111,8 +85,6 @@ class NewFurniture extends React.Component {
       >
         <div className={styles.root}>
           <div className='container'>
-            {allComperedProducts.length &&
-              this.comparedProducts(allComperedProducts, removeFromCompared)}
             <div className={styles.panelBar}>
               <div className='row no-gutters align-items-end'>
                 <div className={styles.heading}>
@@ -188,7 +160,6 @@ NewFurniture.propTypes = {
       newFurniture: PropTypes.bool,
     })
   ),
-  allComperedProducts: PropTypes.array,
   removeFromCompared: PropTypes.func,
   searchString: PropTypes.string,
   selectedCategory: PropTypes.string,
@@ -197,7 +168,6 @@ NewFurniture.propTypes = {
 NewFurniture.defaultProps = {
   categories: [],
   products: [],
-  allComperedProducts: [],
 };
 
 export default NewFurniture;

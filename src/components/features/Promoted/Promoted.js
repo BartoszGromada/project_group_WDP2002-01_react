@@ -15,21 +15,7 @@ class Promoted extends React.Component {
     activePageSlider: 0,
   };
 
-  handlePageChange(newPage) {
-    this.setState({ activePage: newPage });
-  }
-
-  handlePageChangeSlider(newPage) {
-    if (newPage < 0) {
-      this.setState({ activePageSlider: 2 });
-    } else if (newPage > 2) {
-      this.setState({ activePageSlider: 0 });
-    } else {
-      this.setState({ activePageSlider: newPage });
-    }
-  }
-
-  automaticPageChange() {
+  componentDidMount() {
     this.interval = setInterval(
       () =>
         this.handlePageChange(
@@ -39,6 +25,24 @@ class Promoted extends React.Component {
         ),
       3000
     );
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.interval);
+  }
+
+  handlePageChange = newPage => {
+    setTimeout(() => this.setState({ activePage: newPage }), 1000);
+  };
+
+  handlePageChangeSlider(newPage) {
+    if (newPage < 0) {
+      this.setState({ activePageSlider: 2 });
+    } else if (newPage > 2) {
+      this.setState({ activePageSlider: 0 });
+    } else {
+      this.setState({ activePageSlider: newPage });
+    }
   }
 
   render() {
@@ -56,17 +60,14 @@ class Promoted extends React.Component {
             onClick={() => {
               this.handlePageChange(i);
               clearInterval(this.interval);
-              setTimeout(
-                (this.interval = setInterval(
-                  () =>
-                    this.handlePageChange(
-                      this.state.activePage === this.props.promoted.length - 1
-                        ? 0
-                        : this.state.activePage + 1
-                    ),
-                  3000
-                )),
-                7000
+              this.interval = setInterval(
+                () =>
+                  this.handlePageChange(
+                    this.state.activePage === this.props.promoted.length - 1
+                      ? 0
+                      : this.state.activePage + 1
+                  ),
+                3000
               );
             }}
             className={i === activePage && styles.active}

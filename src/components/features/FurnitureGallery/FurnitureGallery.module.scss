@@ -58,6 +58,7 @@
           border-right: 1px solid $gallery-border-2;
         }
 
+        &.active,
         &:hover {
           background-color: $gallery-bg-3;
           border-bottom: none;

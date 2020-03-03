@@ -9,12 +9,12 @@ import FurnitureGalleryPrice from '../FurnitureGalleryPrice/FurnitureGalleryPric
 import SwipeComponent from '../../common/SwipeComponent/SwipeComponent';
 import { Link } from 'react-router-dom';
 
-import Price from '../../common/Price/Price';
-
 class FurnitureGallery extends React.Component {
   state = {
     activePage: 0,
-    mode: 4,
+    mode: 6,
+    activeProduct: 0,
+    activeCategory: 'featured',
   };
 
   updateDimensions({ target }) {
@@ -32,15 +32,50 @@ class FurnitureGallery extends React.Component {
     window.addEventListener('resize', this.updateDimensions.bind(this));
   }
 
-  handlePageChange(newPage) {
-    this.setState({ activePage: newPage });
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.updateDimensions.bind(this));
+  }
+
+  handleProductChange(newProduct) {
+    this.setState({ activeProduct: newProduct });
+  }
+
+  handelGalleryFurther(event) {
+    const newFurther = this.state.activePage < 0 ? 0 : this.state.activePage - 1;
+    this.setState({ activePage: newFurther });
+    event && event.preventDefault();
+    // console.log('clic2k', newFurther);
+  }
+
+  handelGalleryBack(event, categoryProducts) {
+    const newBack =
+      this.state.activePage >= categoryProducts.length
+        ? categoryProducts.length
+        : this.state.activePage + 1;
+    this.setState({ activePage: newBack });
+    event && event.preventDefault();
+    // console.log('click', newBack);
+  }
+
+  handleCategoryChange(event, newCategory) {
+    this.setState({ activeCategory: newCategory });
+    event.preventDefault();
   }
 
   render() {
     const { products, tabs } = this.props;
-    const { mode, activePage } = this.state;
+    const { mode, activePage, activeProduct, activeCategory } = this.state;
 
-    const pagesCount = products.length;
+    const categoryProducts = products.filter(item => item.tabs === activeCategory);
+
+    const newactivePage =
+      activePage < 0 ? this.setState({ activePage: 0 }) : activePage;
+
+    const firstPage =
+      newactivePage + mode >= categoryProducts.length
+        ? categoryProducts.length - mode
+        : newactivePage;
+    const lastPage = firstPage + mode;
 
     return (
       <div className={styles.root}>
@@ -52,44 +87,68 @@ class FurnitureGallery extends React.Component {
                 <ul>
                   {tabs.map(tab => (
                     <li key={tab.id}>
-                      <Link to='/'>{tab.name}</Link>
+                      <Link
+                        to='/'
+                        onClick={event => this.handleCategoryChange(event, tab.id)}
+                      >
+                        {tab.name}
+                      </Link>
                     </li>
                   ))}
                 </ul>
               </div>
               <div className={styles.product}>
-                <img src={products[0].img} alt='' />
-                <FurnitureGalleryActions />
-                <FurnitureGalleryPrice
-                  name={products[0].name}
-                  price={<Price>{products[0].price}</Price>}
-                  promoPrice={products[0].promoPrice}
-                  stars={products[0].stars}
-                />
+                {products.slice(activeProduct).map(item => (
+                  <div key={item.id} className={styles.product}>
+                    <img src={item.img} alt='' />
+                    <FurnitureGalleryActions />
+                    <FurnitureGalleryPrice
+                      name={item.name}
+                      price={item.price}
+                      oldPrice={item.oldPrice}
+                      stars={item.stars}
+                    />
+                  </div>
+                ))}
               </div>
               <SwipeComponent
-                rightAction={() =>
-                  this.handlePageChange(activePage > 0 ? activePage - 1 : 0)
+                rightAction={event =>
+                  this.handelGalleryFurther(event, categoryProducts)
                 }
-                leftAction={() =>
-                  this.handlePageChange(
-                    activePage + 1 < pagesCount ? activePage + 1 : activePage
-                  )
-                }
+                leftAction={event => this.handelGalleryBack(event, categoryProducts)}
               >
                 <div className={styles.slider}>
                   <div className={styles.arrow}>
-                    <Link to='/'>&#x3c;</Link>
+                    <Link
+                      to='/'
+                      href='#'
+                      onClick={event =>
+                        this.handelGalleryFurther(event, categoryProducts)
+                      }
+                    >
+                      &#x3c;
+                    </Link>
                   </div>
                   <div className={styles.thumbnails}>
-                    {products.slice(0, mode).map(product => (
+                    {categoryProducts.slice(firstPage, lastPage).map(product => (
                       <div key={product.id} className={styles.thumbnail}>
-                        <img src={product.img} alt=''></img>
+                        <img
+                          src={product.img}
+                          alt=''
+                          onClick={() =>
+                            this.handleProductChange(products.indexOf(product))
+                          }
+                        ></img>
                       </div>
                     ))}
                   </div>
                   <div className={styles.arrow}>
-                    <Link to='/'>&#x3e;</Link>
+                    <Link
+                      to='/'
+                      onClick={event => this.handelGalleryBack(event, categoryProducts)}
+                    >
+                      &#x3e;
+                    </Link>
                   </div>
                 </div>
               </SwipeComponent>
@@ -113,10 +172,11 @@ FurnitureGallery.propTypes = {
       promo: PropTypes.string,
       newFurniture: PropTypes.bool,
       img: PropTypes.string,
-      promoPrice: PropTypes.number,
+      oldPrice: PropTypes.number,
     })
   ),
   tabs: PropTypes.array,
+  mode: PropTypes.string,
 };
 
 export default FurnitureGallery;

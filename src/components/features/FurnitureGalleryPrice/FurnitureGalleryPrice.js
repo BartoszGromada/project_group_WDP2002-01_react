@@ -6,10 +6,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 import { faStar as farStar } from '@fortawesome/free-regular-svg-icons';
 import styles from './FurnitureGalleryPrice.module.scss';
-
 import { Link } from 'react-router-dom';
 
-const FurnitureGalleryPrice = ({ stars, name, price, promoPrice }) => (
+const FurnitureGalleryPrice = ({ stars, name, price, oldPrice }) => (
   <div>
     <div className={styles.price}>
       <h5 className={styles.promoPrice}>
@@ -17,7 +16,7 @@ const FurnitureGalleryPrice = ({ stars, name, price, promoPrice }) => (
       </h5>
       <s>
         <h6 className={styles.regularPrice}>
-          <Price>{promoPrice}</Price>
+          <Price>{oldPrice}</Price>
         </h6>
       </s>
     </div>
@@ -43,8 +42,8 @@ const FurnitureGalleryPrice = ({ stars, name, price, promoPrice }) => (
 FurnitureGalleryPrice.propTypes = {
   stars: PropTypes.number,
   name: PropTypes.string,
-  price: PropTypes.object,
-  promoPrice: PropTypes.number,
+  price: PropTypes.number,
+  oldPrice: PropTypes.number,
 };
 
 export default FurnitureGalleryPrice;

@@ -7,7 +7,6 @@ import styles from './Promoted.module.scss';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronRight, faChevronLeft } from '@fortawesome/free-solid-svg-icons';
-//import { Link } from 'react-router-dom';
 
 class Promoted extends React.Component {
   state = {

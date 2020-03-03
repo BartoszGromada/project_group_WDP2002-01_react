@@ -42,6 +42,7 @@ class NewFurniture extends React.Component {
 
   render() {
     const { categories, products, mode, searchString } = this.props;
+
     const { activeCategory, activePage } = this.state;
 
     const categoryProducts = products.filter(item => item.category === activeCategory);
@@ -93,7 +94,7 @@ class NewFurniture extends React.Component {
             <div className={styles.panelBar}>
               <div className='row no-gutters align-items-end'>
                 <div className={styles.heading}>
-                  {searchString ? (
+                  {searchString !== '' ? (
                     <h3>Search results ({products.length})</h3>
                   ) : (
                     <h3>New furniture</h3>
